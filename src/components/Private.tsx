@@ -6,7 +6,7 @@ import { userState } from "../context";
 function Private({ children }: { children: JSX.Element }) {
   const user = useRecoilValue(userState);
   if (!user.isLoggedIn) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   } else {
     return children;
   }
