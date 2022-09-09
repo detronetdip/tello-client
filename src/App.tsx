@@ -8,6 +8,7 @@ import AuthPage from "./views/AuthPage";
 import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
 import ProfilePage from "./views/ProfilePage";
+import Refresh from "./views/Refresh";
 
 function App() {
   const setStore = useSetRecoilState(userState);
@@ -24,7 +25,16 @@ function App() {
               isLoggedIn: false,
             };
           });
+          console.log("access token not found");
           navigate("/");
+        }else{
+          setStore((old) => {
+            return {
+              ...old,
+              isLoggedIn: true,
+            };
+          });
+          navigate("/profile");
         }
       })
       .catch((er) => {
@@ -43,7 +53,7 @@ function App() {
             </Private>
           }
         />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/refresh" element={<Refresh />} />
       </Routes>
     </div>
   );
