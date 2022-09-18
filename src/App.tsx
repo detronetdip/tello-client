@@ -26,7 +26,7 @@ function App() {
             };
           });
           console.log("access token not found");
-          navigate("/");
+          navigate("/auth");
         }else{
           setStore((old) => {
             return {
@@ -39,12 +39,13 @@ function App() {
       })
       .catch((er) => {
         console.log(er);
+        
       });
   }, []);
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<AuthPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/profile"
           element={
@@ -53,7 +54,7 @@ function App() {
             </Private>
           }
         />
-        <Route path="/refresh" element={<Refresh />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </div>
   );

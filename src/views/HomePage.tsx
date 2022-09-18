@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <div>
       <h1 className="df">Welcome to XYZ</h1>
-      <Button onclick={() => navigate("/Login")} content="Login" />
+      <Button onclick={() => navigate("/auth")} content="Login" />
       <Button onclick={() => navigate("/Profile")} content="My Profile" />
     </div>
   );

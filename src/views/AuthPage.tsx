@@ -8,17 +8,26 @@ const AuthPage = () => {
   const [view, setView] = useState(true);
   const password = useRef() as React.MutableRefObject<HTMLInputElement>;
   const email = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const fn = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const ln = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const un = useRef() as React.MutableRefObject<HTMLInputElement>;
   const setStore = useSetRecoilState(userState);
   const navigate = useNavigate();
   const register = () => {
     const userEmail = email.current.value;
     const userPassword = password.current.value;
+    const userFn = fn.current.value;
+    const userLn = ln.current.value;
+    const userUn = un.current.value;
     axios
       .post(
         "http://localhost:3000/api/v1/registration",
         {
           email: userEmail,
           password: userPassword,
+          username: userUn,
+          firstName: userFn,
+          lastName: userLn,
         },
         {
           withCredentials: true,
@@ -60,7 +69,6 @@ const AuthPage = () => {
           }
         }
         console.log(res);
-        
       })
       .catch((err) => console.log(err));
   };
@@ -85,6 +93,9 @@ const AuthPage = () => {
             <i className="fa fa-user"></i>
             <input type="password" placeholder="Password" ref={password} />
             <i className="fa fa-key"></i>
+            <input type="text" placeholder="First Name" ref={fn} />
+            <input type="text" placeholder="Last Name" ref={ln} />
+            <input type="text" placeholder="User Name" ref={un} />
             <button onClick={register}>
               <span className="state">Register</span>
             </button>
