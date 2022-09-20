@@ -34,6 +34,7 @@ const AuthPage = () => {
         }
       )
       .then((res) => {
+        alert("registered successfully")
         console.log(res);
       })
       .catch((err) => console.log(err));
