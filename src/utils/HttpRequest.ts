@@ -1,6 +1,16 @@
 import axios from "axios";
 import { SERVER_ADDRESS } from "./globalEnv";
-export default axios.create({
+const axiosInstance = axios.create({
   baseURL: SERVER_ADDRESS,
   withCredentials: true,
 });
+axiosInstance.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    console.log(error, "http error");
+    return Promise.reject(error);
+  }
+);
+export default axiosInstance;

@@ -1,1 +1,1 @@
-export const SERVER_ADDRESS=""
+export const SERVER_ADDRESS="http://localhost:3000"
