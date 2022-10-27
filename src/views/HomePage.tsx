@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "../components/atoms/Button";
 
 function HomePage() {
   console.log("home");
@@ -9,8 +9,7 @@ function HomePage() {
   return (
     <div>
       <h1 className="df">Welcome to XYZ</h1>
-      <Button onclick={() => navigate("/auth")} content="Login" />
-      <Button onclick={() => navigate("/Profile")} content="My Profile" />
+      <Button content="Login" ripple={true} styles={{backgroundColor:'#6200ee'}} />
     </div>
   );
 }

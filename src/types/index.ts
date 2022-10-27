@@ -1,12 +1,10 @@
-import { MouseEventHandler } from "react";
+import React from "react";
 
 export interface ButtonProps {
   Class?: string;
-  color?: string;
-  background?: string;
+  styles?: object;
   content: string;
-  height?: string;
-  width?: string;
   isDisable?: boolean;
-  onclick: MouseEventHandler<HTMLButtonElement>;
+  onclick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  ripple?: boolean;
 }

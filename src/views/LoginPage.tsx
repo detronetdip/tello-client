@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../context";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "../components/atoms/Button";
 
 function LoginPage() {
   console.log("login");
