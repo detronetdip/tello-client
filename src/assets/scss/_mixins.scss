@@ -1,0 +1,9 @@
+@mixin centerByFlex($jc) {
+    display: flex;
+    align-items: center;
+    justify-content: $jc;
+}
+@mixin centerByGrid {
+    display: grid;
+    place-items: center;
+}

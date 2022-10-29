@@ -1,12 +1,33 @@
-import { MouseEventHandler } from "react";
+import React from "react";
 
-export interface ButtonProps {
+interface ClassAndStyles {
   Class?: string;
-  color?: string;
-  background?: string;
+  styles?: object;
+}
+export interface ButtonProps extends ClassAndStyles {
   content: string;
-  height?: string;
-  width?: string;
   isDisable?: boolean;
-  onclick: MouseEventHandler<HTMLButtonElement>;
+  onclick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  ripple?: boolean;
+}
+
+export interface InputProps extends ClassAndStyles {
+  placeholder: string;
+  type: string;
+  view?: "INPUT" | "TEXTAREA";
+  value?: string | number;
+  onBlur?: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onFocus?: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+}
+
+export interface TooltipProps extends ClassAndStyles {
+  info: string;
+  position: "LEFT" | "RIGHT" | "TOP" | "BOTTOM";
 }
