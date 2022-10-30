@@ -1,7 +1,7 @@
-@mixin centerByFlex($jc) {
+@mixin centerByFlex {
     display: flex;
     align-items: center;
-    justify-content: $jc;
+    justify-content: center;
 }
 @mixin centerByGrid {
     display: grid;
