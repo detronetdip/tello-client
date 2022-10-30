@@ -11,20 +11,28 @@ const Input: FunctionComponent<InputProps> = ({
   value,
   styles,
   view = "INPUT",
+  id,
+  name,
+  error,
 }: InputProps) => {
   return (
     <>
       {view === "INPUT" ? (
-        <input
-          className={Class}
-          style={styles}
-          type={type}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
-        />
+        <>
+          <input
+            className={Class}
+            style={styles}
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            id={id}
+            name={name}
+          />
+          <div className="errorboundary">{error ? error : null}</div>
+        </>
       ) : (
         <textarea
           placeholder={placeholder}
@@ -33,6 +41,8 @@ const Input: FunctionComponent<InputProps> = ({
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
+          id={id}
+          name={name}
         >
           {value}
         </textarea>
