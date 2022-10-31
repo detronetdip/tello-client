@@ -31,7 +31,7 @@ const Input: FunctionComponent<InputProps> = ({
             id={id}
             name={name}
           />
-          <div className="errorboundary">{error ? error : null}</div>
+          {error ? <div className="errorboundary">{error}</div> : null}
         </>
       ) : (
         <textarea

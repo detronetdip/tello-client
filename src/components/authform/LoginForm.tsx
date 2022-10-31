@@ -8,11 +8,17 @@ const LoginForm = ({ changeForm }: any) => {
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address.")
-      .required("Email is required"),
-    password: Yup.string().required(),
+      .required("Email is required."),
+    password: Yup.string().required("Password is required."),
   });
-  const handelSubmit = (values: { email: string; password: string }) => {
-    console.log(values);
+  const handelSubmit = ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => {
+    console.log(email, password);
   };
   const formik = useFormik({
     initialValues: {
@@ -22,7 +28,7 @@ const LoginForm = ({ changeForm }: any) => {
     validationSchema,
     onSubmit: handelSubmit,
   });
-  console.log(formik.touched);
+
   return (
     <>
       <form className="loginForm">
@@ -33,8 +39,7 @@ const LoginForm = ({ changeForm }: any) => {
           onChange={formik.handleChange}
           value={formik.values.email}
           name="email"
-          id="email"
-          error={formik.errors.email}
+          error={formik.touched.email && formik.errors.email}
         />
         <Input
           type="password"
@@ -43,7 +48,7 @@ const LoginForm = ({ changeForm }: any) => {
           onChange={formik.handleChange}
           value={formik.values.password}
           name="password"
-          error={formik.errors.password}
+          error={formik.touched.password && formik.errors.password}
         />
         <div className="btnrow">
           <Button
