@@ -54,6 +54,7 @@ const LoginForm = ({ changeForm }: any) => {
           <Button
             content="Login"
             Class="btn mt-3"
+            ripple={true}
             onclick={() => formik.handleSubmit()}
           />
         </div>
