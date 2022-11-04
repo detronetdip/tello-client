@@ -98,7 +98,7 @@ function HomePage() {
 
           <div className="mypost"></div>
         </div>
-
+ 
         <div className="right1">
           <div className="news">
             <p>News and Interests</p>
