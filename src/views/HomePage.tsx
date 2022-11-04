@@ -100,7 +100,10 @@ function HomePage() {
         </div>
 
         <div className="right1">
-          <div className="news"></div>
+          <div className="news">
+            <p>News and Interests</p>
+            <hr className="ll" />
+          </div>
         </div>
       </div>
     </>
