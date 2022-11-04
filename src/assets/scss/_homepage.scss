@@ -1,0 +1,49 @@
+.mainframe {
+    display: flex;
+    height: 90vh;
+    background-color: $bg-light;
+    .left1 {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0 2rem 0;
+
+
+        .option,.modechange{
+            background-color: $white;
+            border: 1px solid $border-light;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            width: 75%;
+
+        }
+        .modechange {
+            .option2 {
+                display: flex;
+            }
+
+            .mode {
+                display: flex;
+            }
+        }
+        .option {
+            
+            .option1 {
+                display: flex;
+            }
+
+        }
+    }
+ 
+    .post {
+        flex: 5;
+        border: 1px solid;
+    }
+
+    .right1 {
+        flex: 2;
+        border: 1px solid;
+    }
+}
