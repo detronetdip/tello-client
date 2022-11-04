@@ -10,13 +10,14 @@
         align-items: center;
         padding: 2rem 0 2rem 0;
 
-        .option,
-        .modechange {
+
+        .option,.modechange{
             background-color: $white;
             border: 1px solid $border-light;
             border-radius: 1.5rem;
             padding: 2rem;
             width: 75%;
+
         }
         .modechange {
             .option2 {
@@ -28,26 +29,11 @@
             }
         }
         .option {
+            
             .option1 {
-                color: $font-light;
                 display: flex;
-                padding: 0.8rem;
-                border-radius: 1rem;
-                font-size: 1.8rem;
-                align-items: center;
-                &:hover {
-                    background-color: rgba($color: $hover-light, $alpha: 0.1);
-                }
-                cursor: pointer;
-                .icon {
-                    font-size: 3rem;
-                    @include centerByFlex;
-                    margin-right: 0.5rem;
-                }
-
-                .name {
-                }
             }
+
         }
     }
  
@@ -59,27 +45,5 @@
     .right1 {
         flex: 2;
         border: 1px solid;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-
-        .news {
-            color: $font-light;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1.6rem;
-            background-color: $white;
-            border: 1px solid $border-light;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            width: 80%;
-            height: 40rem;
-            .ll {
-                width: 15rem;
-                margin-top: 0.2rem;
-            }
-        }
     }
 }
