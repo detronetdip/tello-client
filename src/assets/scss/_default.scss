@@ -35,7 +35,12 @@
     background-color: #eceaea;
     margin: 0.8rem;
   }
+  img{
+    height: 100%;
+    width: 100%;
+  }
   .errorboundary{
     margin-top: 1rem;
     color: red;
+    font-size: 1.3rem;
   }
