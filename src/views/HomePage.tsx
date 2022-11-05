@@ -84,7 +84,7 @@ function HomePage() {
                 <BsSunFill />
               </div>
               <div className="toggle">
-                <Togglebutton />
+                <Togglebutton label="theme" />
               </div>
               <div className="icon">
                 <BsFillMoonFill />
