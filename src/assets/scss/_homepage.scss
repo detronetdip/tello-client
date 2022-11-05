@@ -43,7 +43,7 @@
                 justify-content: space-between;
                 align-items: center;
                 .icon {
-                  font-size: 3rem;
+                  font-size: 2.6rem;
                   @include centerByFlex;
                   color: $font-light;
                 }
@@ -130,9 +130,6 @@
                     font-size: 3rem;
                     @include centerByFlex;
                     margin-right: 0.5rem;
-                }
-
-                .name {
                 }
             }
         }
@@ -303,8 +300,7 @@
                   margin-right: 0.5rem;
               }
 
-              .name {
-              }
+           
           }
       }
   }
