@@ -2,11 +2,13 @@ import React from "react";
 import Input from "../atoms/Input";
 import { RiSearch2Fill } from "react-icons/ri";
 import { HiUserCircle } from "react-icons/hi";
+import { useTheme } from "../../hooks/useTheme";
 
 const Navbar = () => {
+  const {theme} =useTheme();
   return (
     <>
-      <div className="nav_rapper">
+      <div className={`${theme}-nav_rapper`}>
         <div className="left">
           <div className="logo">
             <img src="/assets/icons/logo.png" alt="" />

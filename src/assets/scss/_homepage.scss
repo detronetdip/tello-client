@@ -1,6 +1,6 @@
-.mainframe {
+.LIGHT-mainframe {
     display: flex;
-    height: 90vh;
+    height: 92vh;
     background-color: $bg-light;
     .left1 {
         flex: 2;
@@ -49,7 +49,7 @@
                 }
                 .toggle-switch {
                   position: relative;
-                  width: 75px;
+                  width: 65px;
                   display: inline-block;
                   text-align: left;
                 }
@@ -95,7 +95,7 @@
                 }
                 .switch {
                   display: block;
-                  width: 24px;
+                  width: 15px;
                   margin: 5px;
                   background: #fff;
                   position: absolute;
@@ -145,7 +145,6 @@
 
     .right1 {
         flex: 2;
-        border: 1px solid;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -169,4 +168,175 @@
             }
         }
     }
+}
+.DARK-mainframe {
+  display: flex;
+  height: 92vh;
+  background-color: $bg-dark;
+  .left1 {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0 2rem 0;
+
+      .option,
+      .modechange {
+          background-color: $primaryDark;
+          border: 1px solid $border-dark;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          width: 75%;
+      }
+      .modechange {
+          .option2 {
+              display: flex;
+              padding: 1rem;
+              border-radius: 0.8rem;
+              font-size: 1.8rem;
+              align-items: center;
+              cursor: pointer;
+              color: $font-dark;
+              &:hover {
+                background-color: rgba($color: $hover-dark, $alpha: 0.1);
+              }
+              .icon {
+                @include centerByFlex();
+                font-size: 3rem;
+                margin-right: 0.8rem;
+              }
+            }
+
+            .mode {
+              display: flex;
+              padding: 1rem;
+              justify-content: space-between;
+              align-items: center;
+              .icon {
+                font-size: 3rem;
+                @include centerByFlex;
+                color: $font-dark;
+              }
+              .toggle-switch {
+                position: relative;
+                width: 65px;
+                display: inline-block;
+                text-align: left;
+              }
+              .checkbox {
+                display: none;
+              }
+              .label {
+                display: block;
+                overflow: hidden;
+                cursor: pointer;
+                border: 0 solid #bbb;
+                border-radius: 20px;
+              }
+              .inner {
+                display: block;
+                width: 200%;
+                margin-left: -100%;
+                transition: margin 0.3s ease-in 0s;
+              }
+              .inner:before,
+              .inner:after {
+                float: left;
+                width: 50%;
+                height: 2.5rem;
+                padding: 0;
+                line-height: 2.5rem;
+                color: #fff;
+                font-weight: bold;
+                box-sizing: border-box;
+              }
+              .inner:before {
+                content: " ";
+                padding-left: 10px;
+                background-color: #060;
+                color: #fff;
+              }
+              .inner:after {
+                content: " ";
+                padding-right: 10px;
+                background-color: #bbb;
+                color: #fff;
+                text-align: right;
+              }
+              .switch {
+                display: block;
+                width: 15px;
+                margin: 5px;
+                background: #fff;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 40px;
+                border: 0 solid #bbb;
+                border-radius: 20px;
+                transition: all 0.3s ease-in 0s;
+              }
+              .checkbox:checked + .label .inner {
+                margin-left: 0;
+              }
+              .checkbox:checked + .label .switch {
+                right: 0px;
+              }
+            }
+      }
+      .option {
+          .option1 {
+              color: $font-dark;
+              display: flex;
+              padding: 0.8rem;
+              border-radius: 1rem;
+              font-size: 1.8rem;
+              align-items: center;
+              &:hover {
+                  background-color: rgba($color: $hover-dark, $alpha: 0.1);
+              }
+              cursor: pointer;
+              .icon {
+                  font-size: 3rem;
+                  @include centerByFlex;
+                  margin-right: 0.5rem;
+              }
+
+              .name {
+              }
+          }
+      }
+  }
+
+  .post {
+      flex: 5;
+      border: 1px solid;
+  }
+
+  .right1 {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+
+      .news {
+          color: $font-dark;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 1.6rem;
+          background-color: $primaryDark;
+          border: 1px solid $border-dark;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          width: 80%;
+          height: 40rem;
+          .ll {
+              width: 15rem;
+              margin-top: 0.2rem;
+          }
+      }
+  }
 }

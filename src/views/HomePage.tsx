@@ -12,15 +12,15 @@ import { FaPowerOff } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
 import { BsFillMoonFill } from "react-icons/bs";
 import Togglebutton from "../components/atoms/Togglebutton";
+import { useTheme } from "../hooks/useTheme";
 
 function HomePage() {
-  console.log("home");
-
+  const {theme} =useTheme();
   const navigate = useNavigate();
   return (
     <>
       <Navbar />
-      <div className="mainframe">
+      <div className={`${theme}-mainframe`}>
         <div className="left1">
           <div className="option">
             <ul>
