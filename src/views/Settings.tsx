@@ -1,17 +1,17 @@
 import React from "react";
 import { useTheme } from "../hooks/useTheme";
 
-function ProfilePage() {
-  const { theme } = useTheme();
+const Settings = () => {
+    const { theme } = useTheme();
   return (
     <>
-       <div className={`${theme}-profileFrame`}>
+       <div className={`${theme}-settingsframe`}>
         <div className="notificationWrapper">
-           <h1>Profile</h1>
+          <h1>Settings</h1>
         </div>
       </div>
     </>
   );
-}
+};
 
-export default ProfilePage;
+export default Settings;

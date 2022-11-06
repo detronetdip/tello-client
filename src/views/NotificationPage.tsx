@@ -57,7 +57,7 @@ const NotificationPage = () => {
               <p className="outer">
                 <h3>{e.notification}</h3>
                 <br />
-                <p className="time">{moment().format("y/m/d hh:mm:ss")}</p>
+                <p className="time">{moment().format("y/m/D hh:mm:ss")}</p>
               </p>
             </div>
           ))}
