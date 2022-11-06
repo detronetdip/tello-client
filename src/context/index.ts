@@ -6,4 +6,12 @@ const userState = atom({
     userName: "",
   },
 });
-export { userState };
+const currentTheme = atom({
+  key: "theme",
+  default: {
+    theme: localStorage.getItem("THEME")
+      ? localStorage.getItem("THEME")
+      : "LIGHT",
+  },
+});
+export { userState, currentTheme };

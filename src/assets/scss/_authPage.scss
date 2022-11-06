@@ -1,0 +1,113 @@
+.wrapper-g {
+  height: 100vh;
+  padding: 2rem;
+  background-color: $bg-light;
+  .row {
+    min-height: 100%;
+    @include centerByFlex;
+    justify-content: space-between;
+    .left,
+    .right {
+      @include centerByFlex;
+      flex: 1;
+    }
+    .left {
+      .logobox {
+        height: 15rem;
+        width: 30rem;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    .right {
+      .formbox .allform {
+        background-color: $white;
+        width: 40rem;
+        border: 1px solid $border-light;
+        border-radius: 28px;
+        padding: 2rem;
+        .input {
+          width: 100%;
+          margin: 0;
+          border: 0;
+          outline: 0;
+          padding: 1.5rem;
+          background-color: $innerInput-light;
+          border: 1px solid $border-light;
+        }
+        .mt-2 {
+          margin-top: 2rem;
+        }
+        .mt-3 {
+          margin-top: 3rem;
+        }
+        .btnrow {
+          @include centerByFlex;
+          .btn {
+            box-shadow: none;
+            width: 50%;
+            padding: 1.5rem;
+            background-color: $button-bg;
+            &:hover {
+              background-color: $button-bg-hover;
+            }
+          }
+          .cg {
+            background-color: $hover-light;
+          }
+        }
+        .fgtp {
+          @include centerByFlex;
+          margin-top: 1rem;
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: $button-bg;
+          cursor: pointer;
+        }
+        .line {
+          margin-top: 1.6rem;
+          border-top: 1px solid $border-light;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 878px){
+    .wrapper-g{
+        .row{
+            flex-direction: column;
+        }
+    }   
+}
+@media only screen and (max-width: 569px){
+    .wrapper-g{
+        .row{
+            .left {
+                .logobox {
+                  height: 10rem;
+                  width: 25rem;
+                }
+              }
+        }
+    }   
+}
+@media only screen and (max-width: 452px){
+    .wrapper-g{
+        .row{
+            .left {
+                .logobox {
+                  height: 9rem;
+                  width: 24rem;
+                }
+              }
+              .right {
+                .formbox .allform {
+                  height: 40rem;
+                  width: 35rem;
+                }
+              }
+        }
+    }   
+}

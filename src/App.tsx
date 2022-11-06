@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./utils/HttpRequest";
 import React, { useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
@@ -9,53 +9,34 @@ import HomePage from "./views/HomePage";
 import LoginPage from "./views/LoginPage";
 import ProfilePage from "./views/ProfilePage";
 import Refresh from "./views/Refresh";
+import { useHttpRequest } from "./hooks/useHttpRequest";
+import Authentication from "./components/Auth/Authentication";
+import AllPages from "./AllPages";
+import Feed from "./components/feed/Feed";
+import NotificationPage from "./views/NotificationPage";
+import Settings from "./views/Settings";
 
 function App() {
   const setStore = useSetRecoilState(userState);
   const navigate = useNavigate();
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/v1/validate", { withCredentials: true })
-      .then((res) => {
-        let data = res.data;
-        if (res.data.isLogin === false) {
-          setStore((old) => {
-            return {
-              ...old,
-              isLoggedIn: false,
-            };
-          });
-          console.log("access token not found");
-          navigate("/auth");
-        }else{
-          setStore((old) => {
-            return {
-              ...old,
-              isLoggedIn: true,
-            };
-          });
-          navigate("/profile");
-        }
-      })
-      .catch((er) => {
-        console.log(er);
-        
-      });
-  }, []);
+  const { data, isLoding } = useHttpRequest("/api/v1/validate", "GET");
+  if (isLoding) console.log(isLoding);
+  else console.log(data);
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/profile"
-          element={
-            <Private>
-              <ProfilePage />
-            </Private>
-          }
-        />
-        <Route path="/auth" element={<AuthPage />} />
-      </Routes>
+      <Authentication>
+        <Routes>
+          <Route path="/" element={<AllPages />}>
+            <Route path="/" element={<HomePage />}>
+              <Route index element={<Feed />} />
+              <Route path="notification" element={<NotificationPage />} />
+              <Route path="myprofile" element={<ProfilePage />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
+          </Route>
+          <Route path="/auth" element={<AuthPage />} />
+        </Routes>
+      </Authentication>
     </div>
   );
 }

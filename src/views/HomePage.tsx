@@ -1,17 +1,26 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Navbar from "../components/navbar/Navbar";
+import { useTheme } from "../hooks/useTheme";
+import NavMenu from "../components/NavMenu";
+import { Outlet } from "react-router-dom";
 
 function HomePage() {
-  console.log("home");
-
-  const navigate = useNavigate();
+  const { theme } = useTheme();
   return (
-    <div>
-      <h1 className="df">Welcome to XYZ</h1>
-      <Button onclick={() => navigate("/auth")} content="Login" />
-      <Button onclick={() => navigate("/Profile")} content="My Profile" />
-    </div>
+    <>
+      <div className={`${theme}-mainframe`}>
+        <NavMenu />
+
+        <Outlet />
+
+        <div className="right1">
+          <div className="news">
+            <p>News and Interests</p>
+            <hr className="ll" />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
