@@ -28,7 +28,7 @@ const NavMenu = () => {
 
         <div className="modechange">
           <ul>
-            <li className="option2">
+            <li className="option2" onClick={()=>location('/auth')}>
               <div className="icon">
                 <BiLogOut/>
               </div>
