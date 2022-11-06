@@ -1,338 +1,453 @@
 .LIGHT-mainframe {
+  display: flex;
+  height: 92vh;
+  background-color: $bg-light;
+  .left1 {
+    flex: 2;
     display: flex;
-    height: 92vh;
-    background-color: $bg-light;
-    .left1 {
-        flex: 2;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 2rem 0;
+
+    .option,
+    .modechange {
+      background-color: $white;
+      border: 1px solid $border-light;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 75%;
+    }
+    .modechange {
+      .option2 {
         display: flex;
-        flex-direction: column;
+        padding: 1rem;
+        border-radius: 0.8rem;
+        font-size: 1.8rem;
+        align-items: center;
+        cursor: pointer;
+        color: $font-light;
+        &:hover {
+          background-color: rgba($color: $hover-light, $alpha: 0.1);
+        }
+        .icon {
+          color: $icon-light;
+          @include centerByFlex();
+          font-size: 3rem;
+          margin-right: 0.8rem;
+        }
+      }
+
+      .mode {
+        display: flex;
+        padding: 1rem;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 0 2rem 0;
-
-        .option,
-        .modechange {
-            background-color: $white;
-            border: 1px solid $border-light;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            width: 75%;
+        .icon {
+          font-size: 3rem;
+          @include centerByFlex;
+          color: $icon-light;
         }
-        .modechange {
-            .option2 {
-                display: flex;
-                padding: 1rem;
-                border-radius: 0.8rem;
-                font-size: 1.8rem;
-                align-items: center;
-                cursor: pointer;
-                color: $font-light;
-                &:hover {
-                  background-color: rgba($color: $hover-light, $alpha: 0.1);
-                }
-                .icon {
-                  @include centerByFlex();
-                  font-size: 3rem;
-                  margin-right: 0.8rem;
-                }
-              }
-
-              .mode {
-                display: flex;
-                padding: 1rem;
-                justify-content: space-between;
-                align-items: center;
-                .icon {
-                  font-size: 2.6rem;
-                  @include centerByFlex;
-                  color: $font-light;
-                }
-                .toggle-switch {
-                  position: relative;
-                  width: 65px;
-                  display: inline-block;
-                  text-align: left;
-                }
-                .checkbox {
-                  display: none;
-                }
-                .label {
-                  display: block;
-                  overflow: hidden;
-                  cursor: pointer;
-                  border: 0 solid #bbb;
-                  border-radius: 20px;
-                }
-                .inner {
-                  display: block;
-                  width: 200%;
-                  margin-left: -100%;
-                  transition: margin 0.3s ease-in 0s;
-                }
-                .inner:before,
-                .inner:after {
-                  float: left;
-                  width: 50%;
-                  height: 2.5rem;
-                  padding: 0;
-                  line-height: 2.5rem;
-                  color: #fff;
-                  font-weight: bold;
-                  box-sizing: border-box;
-                }
-                .inner:before {
-                  content: " ";
-                  padding-left: 10px;
-                  background-color: #060;
-                  color: #fff;
-                }
-                .inner:after {
-                  content: " ";
-                  padding-right: 10px;
-                  background-color: #bbb;
-                  color: #fff;
-                  text-align: right;
-                }
-                .switch {
-                  display: block;
-                  width: 15px;
-                  margin: 5px;
-                  background: #fff;
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  right: 40px;
-                  border: 0 solid #bbb;
-                  border-radius: 20px;
-                  transition: all 0.3s ease-in 0s;
-                }
-                .checkbox:checked + .label .inner {
-                  margin-left: 0;
-                }
-                .checkbox:checked + .label .switch {
-                  right: 0px;
-                }
-              }
+        .toggle-switch {
+          position: relative;
+          width: 65px;
+          display: inline-block;
+          text-align: left;
         }
-        .option {
-            .option1 {
-                color: $font-light;
-                display: flex;
-                padding: 0.8rem;
-                border-radius: 1rem;
-                font-size: 1.8rem;
-                align-items: center;
-                &:hover {
-                    background-color: rgba($color: $hover-light, $alpha: 0.1);
-                }
-                cursor: pointer;
-                .icon {
-                    font-size: 3rem;
-                    @include centerByFlex;
-                    margin-right: 0.5rem;
-                }
-            }
+        .checkbox {
+          display: none;
         }
+        .label {
+          display: block;
+          overflow: hidden;
+          cursor: pointer;
+          border: 0 solid #bbb;
+          border-radius: 20px;
+        }
+        .inner {
+          display: block;
+          width: 200%;
+          margin-left: -100%;
+          transition: margin 0.3s ease-in 0s;
+        }
+        .inner:before,
+        .inner:after {
+          float: left;
+          width: 50%;
+          height: 2.5rem;
+          padding: 0;
+          line-height: 2.5rem;
+          color: #fff;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+        .inner:before {
+          content: " ";
+          padding-left: 10px;
+          background-color: #746CFE;
+          color: #fff;
+        }
+        .inner:after {
+          content: " ";
+          padding-right: 10px;
+          background-color: #bbb;
+          color: #fff;
+          text-align: right;
+        }
+        .switch {
+          display: block;
+          width: 15px;
+          margin: 5px;
+          background: #fff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 40px;
+          border: 0 solid #bbb;
+          border-radius: 20px;
+          transition: all 0.3s ease-in 0s;
+        }
+        .checkbox:checked + .label .inner {
+          margin-left: 0;
+        }
+        .checkbox:checked + .label .switch {
+          right: 0px;
+        }
+      }
     }
-
-    .post {
-        flex: 5;
-        border: 1px solid;
-    }
-
-    .right1 {
-        flex: 2;
+    .option {
+      .option1 {
+        color: $font-light;
         display: flex;
-        flex-direction: column;
+        padding: 0.8rem;
+        border-radius: 1rem;
+        font-size: 1.8rem;
         align-items: center;
-        padding: 2rem;
-
-        .news {
-            color: $font-light;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1.6rem;
-            background-color: $white;
-            border: 1px solid $border-light;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            width: 80%;
-            height: 40rem;
-            .ll {
-                width: 15rem;
-                margin-top: 0.2rem;
-            }
+        &:hover {
+          background-color: rgba($color: $hover-light, $alpha: 0.1);
         }
+        cursor: pointer;
+        .icon {
+          color: $icon-light;
+          font-size: 3rem;
+          @include centerByFlex;
+          margin-right: 0.5rem;
+        }
+      }
     }
+  }
+
+  .post {
+    padding: 2rem;
+    flex: 5;
+   
+
+    .postcrte {
+      padding: 1.5rem;
+      background-color: $white;
+      border: 1px solid $border-light;
+      border-radius: 2rem;
+      padding-bottom: 1rem;
+
+      hr{
+        margin-top: 0.8rem;
+        border: none;
+        border-bottom: 1px solid $border-light;
+      }
+      .name {
+        font-size: 1.8rem;
+        color: #091127;
+        font-weight: 500;
+      }
+      .post1 {
+        .postform {
+          .aa {
+            margin: 0;
+            margin-top: 1rem;
+            width: 100%;
+            height: 10rem;
+            resize: none;
+            background-color: rgba($color: $inner-light, $alpha: 0.45);
+            border: 1px solid $border-light;
+            color: $font-light;
+            white-space: pre-wrap;
+          }
+        }
+
+        .post2 {
+          display: flex;
+          align-items: center;
+          justify-content: end;
+
+          .imgicon {
+            font-size: 2.5rem;
+            color: $icon-light;
+            cursor: pointer;
+            @include centerByFlex;
+          }
+
+          .btn-1 {
+            font-size: 1.5rem;
+            background-color:  $icon-light;
+           
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .right1 {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    .news {
+      color: $font-light;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.6rem;
+      background-color: $white;
+      border: 1px solid $border-light;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 80%;
+      height: 40rem;
+      .ll {
+        width: 15rem;
+        margin-top: 0.2rem;
+      }
+    }
+  }
 }
+
 .DARK-mainframe {
   display: flex;
   height: 92vh;
   background-color: $bg-dark;
   .left1 {
-      flex: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0 2rem 0;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 2rem 0;
 
-      .option,
-      .modechange {
-          background-color: $primaryDark;
-          border: 1px solid $border-dark;
-          border-radius: 1.5rem;
-          padding: 2rem;
-          width: 75%;
+    .option,
+    .modechange {
+      background-color: $primaryDark;
+      border: 1px solid $border-dark;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 75%;
+    }
+    .modechange {
+      .option2 {
+        display: flex;
+        padding: 1rem;
+        border-radius: 0.8rem;
+        font-size: 1.8rem;
+        align-items: center;
+        cursor: pointer;
+        color: $font-dark;
+        &:hover {
+          background-color: rgba($color: $hover-dark, $alpha: 0.1);
+        }
+        .icon {
+          @include centerByFlex();
+          font-size: 3rem;
+          margin-right: 0.8rem;
+          color: $icon-dark;
+        }
       }
-      .modechange {
-          .option2 {
-              display: flex;
-              padding: 1rem;
-              border-radius: 0.8rem;
-              font-size: 1.8rem;
-              align-items: center;
-              cursor: pointer;
-              color: $font-dark;
-              &:hover {
-                background-color: rgba($color: $hover-dark, $alpha: 0.1);
-              }
-              .icon {
-                @include centerByFlex();
-                font-size: 3rem;
-                margin-right: 0.8rem;
-              }
-            }
 
-            .mode {
-              display: flex;
-              padding: 1rem;
-              justify-content: space-between;
-              align-items: center;
-              .icon {
-                font-size: 3rem;
-                @include centerByFlex;
-                color: $font-dark;
-              }
-              .toggle-switch {
-                position: relative;
-                width: 65px;
-                display: inline-block;
-                text-align: left;
-              }
-              .checkbox {
-                display: none;
-              }
-              .label {
-                display: block;
-                overflow: hidden;
-                cursor: pointer;
-                border: 0 solid #bbb;
-                border-radius: 20px;
-              }
-              .inner {
-                display: block;
-                width: 200%;
-                margin-left: -100%;
-                transition: margin 0.3s ease-in 0s;
-              }
-              .inner:before,
-              .inner:after {
-                float: left;
-                width: 50%;
-                height: 2.5rem;
-                padding: 0;
-                line-height: 2.5rem;
-                color: #fff;
-                font-weight: bold;
-                box-sizing: border-box;
-              }
-              .inner:before {
-                content: " ";
-                padding-left: 10px;
-                background-color: #060;
-                color: #fff;
-              }
-              .inner:after {
-                content: " ";
-                padding-right: 10px;
-                background-color: #bbb;
-                color: #fff;
-                text-align: right;
-              }
-              .switch {
-                display: block;
-                width: 15px;
-                margin: 5px;
-                background: #fff;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                right: 40px;
-                border: 0 solid #bbb;
-                border-radius: 20px;
-                transition: all 0.3s ease-in 0s;
-              }
-              .checkbox:checked + .label .inner {
-                margin-left: 0;
-              }
-              .checkbox:checked + .label .switch {
-                right: 0px;
-              }
-            }
+      .mode {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        .icon {
+          font-size: 3rem;
+          @include centerByFlex;
+          color: $icon-dark;
+        }
+        .toggle-switch {
+          position: relative;
+          width: 65px;
+          display: inline-block;
+          text-align: left;
+        }
+        .checkbox {
+          display: none;
+        }
+        .label {
+          display: block;
+          overflow: hidden;
+          cursor: pointer;
+          border: 0 solid #bbb;
+          border-radius: 20px;
+        }
+        .inner {
+          display: block;
+          width: 200%;
+          margin-left: -100%;
+          transition: margin 0.3s ease-in 0s;
+        }
+        .inner:before,
+        .inner:after {
+          float: left;
+          width: 50%;
+          height: 2.5rem;
+          padding: 0;
+          line-height: 2.5rem;
+          color: #fff;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+        .inner:before {
+          content: " ";
+          padding-left: 10px;
+          background-color: #746CFE;
+          color: #fff;
+        }
+        .inner:after {
+          content: " ";
+          padding-right: 10px;
+          background-color: #bbb;
+          color: #fff;
+          text-align: right;
+        }
+        .switch {
+          display: block;
+          width: 15px;
+          margin: 5px;
+          background: #fff;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 40px;
+          border: 0 solid #bbb;
+          border-radius: 20px;
+          transition: all 0.3s ease-in 0s;
+        }
+        .checkbox:checked + .label .inner {
+          margin-left: 0;
+        }
+        .checkbox:checked + .label .switch {
+          right: 0px;
+        }
       }
-      .option {
-          .option1 {
-              color: $font-dark;
-              display: flex;
-              padding: 0.8rem;
-              border-radius: 1rem;
-              font-size: 1.8rem;
-              align-items: center;
-              &:hover {
-                  background-color: rgba($color: $hover-dark, $alpha: 0.1);
-              }
-              cursor: pointer;
-              .icon {
-                  font-size: 3rem;
-                  @include centerByFlex;
-                  margin-right: 0.5rem;
-              }
-
-           
-          }
+    }
+    .option {
+      .option1 {
+        color: $font-dark;
+        display: flex;
+        padding: 0.8rem;
+        border-radius: 1rem;
+        font-size: 1.8rem;
+        align-items: center;
+        &:hover {
+          background-color: rgba($color: $hover-dark, $alpha: 0.1);
+        }
+        cursor: pointer;
+        .icon {
+          color: $icon-dark;
+          font-size: 3rem;
+          @include centerByFlex;
+          margin-right: 0.5rem;
+        }
       }
+    }
   }
 
   .post {
-      flex: 5;
-      border: 1px solid;
+    padding: 2rem;
+    flex: 5;
+   
+
+    .postcrte {
+      padding: 1.5rem;
+      background-color: $primaryDark;
+      border: 1px solid $border-dark;
+      border-radius: 2rem;
+      padding-bottom: 1rem;
+
+      hr{
+        margin-top: 0.8rem;
+        border: none;
+        border-bottom: 1px solid $border-dark;
+      }
+      .name {
+        font-size: 1.8rem;
+        color: #E1E1E3;
+        font-weight: 500;
+      }
+      .post1 {
+        .postform {
+          .aa {
+            margin: 0;
+            margin-top: 1rem;
+            width: 100%;
+            height: 10rem;
+            resize: none;
+            background-color: rgba($color: $inner-dark, $alpha: 0.45);
+            border: 1px solid $border-dark;
+            color: $font-dark;
+            white-space: pre-wrap;
+          }
+        }
+
+        .post2 {
+          display: flex;
+          align-items: center;
+          justify-content: end;
+
+          .imgicon {
+            font-size: 2.5rem;
+            color: #746CFE;
+            cursor: pointer;
+            @include centerByFlex;
+          }
+
+          .btn-1 {
+            font-size: 1.5rem;
+            background-color: #746CFE;
+          }
+        }
+      }
+    }
   }
 
   .right1 {
-      flex: 2;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    .news {
+      color: $font-dark;
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: 1.6rem;
+      background-color: $primaryDark;
+      border: 1px solid $border-dark;
+      border-radius: 1.5rem;
       padding: 2rem;
-
-      .news {
-          color: $font-dark;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          font-size: 1.6rem;
-          background-color: $primaryDark;
-          border: 1px solid $border-dark;
-          border-radius: 1.5rem;
-          padding: 2rem;
-          width: 80%;
-          height: 40rem;
-          .ll {
-              width: 15rem;
-              margin-top: 0.2rem;
-          }
+      width: 80%;
+      height: 40rem;
+      hr{
+        border: none;
+        border-bottom: 1px solid $border-dark;
       }
+      .ll {
+        width: 15rem;
+        margin-top: 0.2rem;
+      }
+    }
   }
 }
