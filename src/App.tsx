@@ -15,6 +15,7 @@ import AllPages from "./AllPages";
 import Feed from "./components/feed/Feed";
 import NotificationPage from "./views/NotificationPage";
 import Settings from "./views/Settings";
+import MessagePage from "./views/MessagePage";
 
 function App() {
   const setStore = useSetRecoilState(userState);
@@ -33,6 +34,7 @@ function App() {
               <Route path="myprofile" element={<ProfilePage />} />
               <Route path="settings" element={<Settings />} />
             </Route>
+            <Route path="/messages" element={<MessagePage />} />
           </Route>
           <Route path="/auth" element={<AuthPage />} />
         </Routes>
