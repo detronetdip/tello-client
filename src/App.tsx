@@ -31,10 +31,10 @@ function App() {
             <Route path="/" element={<HomePage />}>
               <Route index element={<Feed />} />
               <Route path="notification" element={<NotificationPage />} />
-              <Route path="myprofile" element={<ProfilePage />} />
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="/messages" element={<MessagePage />} />
+            <Route path="myprofile" element={<ProfilePage />} />
           </Route>
           <Route path="/auth" element={<AuthPage />} />
         </Routes>
