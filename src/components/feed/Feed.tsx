@@ -23,7 +23,7 @@ const Feed = () => {
 
               <div className="username">
                 <p>User_name</p>
-                <p>DD-MM-YYYY MM:HH</p>
+                <p className="date">DD-MM-YYYY MM:HH</p>
               </div>
             </div>
 
@@ -50,7 +50,7 @@ const Feed = () => {
             <div className="like">
               <AiOutlineHeart />
             </div>
-            &nbsp;
+            &nbsp; &nbsp;
             <div className="cmnt">
               <MdComment />
             </div>

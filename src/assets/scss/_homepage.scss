@@ -155,21 +155,20 @@
       margin: 1rem 0 1rem;
     }
     .post {
-
-
       padding: 2rem;
       flex: 5;
 
       .mypost {
         background-color: $white;
-        padding: 1.2rem 1rem ;
+        padding: 1.5rem 1.2rem;
         border: 1px solid $border-light;
-        border-radius: 1rem;
+        border-radius: 2rem;
         .head {
           display: flex;
           justify-content: space-between;
 
           .aa {
+            margin-left: 0.8rem;
             .imgicon {
               font-size: 3.5rem;
             }
@@ -177,8 +176,11 @@
             justify-content: space-between;
 
             .username {
-              font-size: 1.3rem;
+              font-size: 1.8rem;
               margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
             }
           }
 
@@ -199,7 +201,7 @@
         }
 
         .option1 {
-          font-size: 2.3rem;
+          font-size: 2.5rem;
           display: flex;
           justify-content: space-between;
           padding: 0.8rem 1.3rem 0 1.3rem;
@@ -285,14 +287,15 @@
         width: 85%;
         height: 40rem;
         .ll {
-          width: 15rem;
+          border: none;
+          border-bottom: 1px solid $border-light;
           margin-top: 0.2rem;
+          width: 100%;
         }
       }
     }
   }
 }
-
 .DARK-mainframe {
   @include centerByFlex;
   background-color: $bg-dark;
@@ -331,10 +334,10 @@
               background-color: rgba($color: $hover-dark, $alpha: 0.1);
             }
             .icon {
+              color: $icon-dark;
               @include centerByFlex();
               font-size: 3rem;
               margin-right: 0.8rem;
-              color: $icon-dark;
             }
           }
 
@@ -438,9 +441,78 @@
       }
     }
 
+    .hr1 {
+      border: none;
+      border-bottom: 1.5px solid $border-dark;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hr2 {
+      border: none;
+      border-bottom: 1.5px solid $border-dark;
+      margin: 1rem 0 1rem;
+    }
     .post {
       padding: 2rem;
       flex: 5;
+
+      .mypost {
+        background-color: $primaryDark;
+        padding: 1.5rem 1.2rem;
+        border: 1px solid $border-dark;
+        border-radius: 2rem;
+        .head {
+          display: flex;
+          justify-content: space-between;
+
+          .aa {
+            margin-left: 0.8rem;
+            .imgicon {
+              color: $font-dark;
+              font-size: 3.5rem;
+            }
+            display: flex;
+            justify-content: space-between;
+
+            .username {
+              color: $font-dark;
+              font-size: 1.8rem;
+              margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          .dropdown {
+            color: $font-dark;
+            margin-top: 0.8rem;
+            font-size: 2.8rem;
+          }
+        }
+
+        .postimg {
+          @include centerByFlex;
+          div {
+            width: 95%;
+            img {
+              border-radius: 1.5rem;
+            }
+          }
+        }
+
+        .option1 {
+          color: $font-dark;
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.8rem 1.3rem 0 1.3rem;
+
+          .aa {
+            display: flex;
+          }
+        }
+      }
 
       .postcrte {
         padding: 1.5rem;
@@ -456,7 +528,7 @@
         }
         .name {
           font-size: 1.8rem;
-          color: #e1e1e3;
+          color: $font-dark;
           font-weight: 500;
         }
         .post1 {
@@ -481,14 +553,16 @@
 
             .imgicon {
               font-size: 2.5rem;
-              color: #746cfe;
+              color: $icon-dark;
               cursor: pointer;
               @include centerByFlex;
             }
 
             .btn-1 {
               font-size: 1.5rem;
-              background-color: #746cfe;
+              background-color: $icon-dark;
+
+              color: #ffffff;
             }
           }
         }
@@ -514,15 +588,15 @@
         padding: 2rem;
         width: 85%;
         height: 40rem;
-        hr {
+        .ll {
           border: none;
           border-bottom: 1px solid $border-dark;
-        }
-        .ll {
-          width: 15rem;
           margin-top: 0.2rem;
+          width: 100%;
         }
       }
     }
   }
 }
+
+
