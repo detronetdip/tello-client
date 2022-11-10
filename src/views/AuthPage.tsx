@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import LoginForm from "../components/authform/LoginForm";
 import RegistrationForm from "../components/authform/RegistrationForm";
+import OnbordingPopUp from "../components/popups/OnbordingPopUp";
 
 const AuthPage = () => {
   const [view, setView] = useState(1);
 
   return (
     <>
+  <OnbordingPopUp/>
       <div className="wrapper-g">
         <div className="row">
           <div className="left">
