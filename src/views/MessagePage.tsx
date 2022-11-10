@@ -25,7 +25,13 @@ const MessagePage = () => {
           <div className="chatheads">
             <div className="users1">
               <div className="icon">
-                <FaUserCircle />
+                <img src="/assets/icons/fakeuser.jpg" alt="" />
+              </div>
+              <div className="name">User_name</div>
+            </div>
+            <div className="users1">
+              <div className="icon">
+                <img src="/assets/icons/fakeuser.jpg" alt="" />
               </div>
               <div className="name">User_name</div>
             </div>
