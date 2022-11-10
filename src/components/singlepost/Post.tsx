@@ -1,4 +1,4 @@
-import moment from 'moment'
+import * as moment from 'moment'
 import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
