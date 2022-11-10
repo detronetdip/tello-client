@@ -1,8 +1,76 @@
-.DARK-profileFrame{
+.LIGHT-profileFrame {
     flex: 5;
     padding: 2rem;
+
+    .profileWrapper {
+
+       
+        .username5 {
+            display: flex;
+            border: 1px solid $border-light;
+            background-color: $white;
+            border-radius: 2rem;
+            width: 100%;
+            align-items: center;
+            padding: 1rem 1rem 1rem 1rem;
+
+            .icon {
+                font-size: 12.5rem;
+                @include centerByFlex;
+                color: $icon-light;
+            }
+
+            .name {
+                margin-left: 1rem;
+                margin-top: -2rem;
+                .name1 {
+                    font-size: 3rem;
+                }
+
+                .username1 {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
 }
-.LIGHT-profileFrame{
+
+.DARK-profileFrame {
     flex: 5;
     padding: 2rem;
+
+    .profileWrapper {
+
+       
+        .username5 {
+            display: flex;
+            border: 1px solid $border-dark;
+            background-color: $primaryDark;
+            border-radius: 2rem;
+            width: 100%;
+            align-items: center;
+            padding: 1rem 1rem 1rem 1rem;
+            color: $font-dark;
+
+            .icon {
+                font-size: 12.5rem;
+                @include centerByFlex;
+                color: $icon-dark;
+            }
+
+            .name {
+                margin-left: 1rem;
+                margin-top: -2rem;
+                .name1 {
+                    font-size: 3rem;
+                }
+
+                .username1 {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
 }
+
+

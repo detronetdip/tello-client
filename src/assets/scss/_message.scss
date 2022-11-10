@@ -1,4 +1,67 @@
-.messagePageWrapper{
-    min-height: 95vh;
-    background-color: $bg-dark;
+.messagePageWrapper {
+    min-height: 91vh;
+    background-color: $bg-light;
+    display: flex;
+    justify-content: center;
+
+    .users {
+        flex: 2;
+        border: 1px solid;
+        width: 100%;
+        padding: 1rem;
+        background-color: $white;
+        .searchwrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid $border-light;
+            border-radius: 1rem;
+            background-color: $inner-light;
+            &::placeholder{
+                font-weight: 400;
+            }
+            .searchuser {
+                width: 90%;
+                .usersearch {
+                    border: 0;
+                    background-color: transparent;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            .icon{
+                cursor: pointer;
+                font-size: 1.9rem;
+                color: $icon-light;
+                @include centerByFlex;
+                margin-left: 0.5rem;
+                background-color: $white;
+                border: 1px solid $border-light;
+                padding: 0.4rem;
+                border-radius: 0.6rem;
+            }
+        }
+        .users1 {
+            display: flex;
+            align-items: center;
+
+            .name {
+                margin-left: 0.8rem;
+            }
+        }
+    }
+
+    .chatsection {
+        flex: 5;
+        border: 1px solid;
+        width: 100%;
+
+        .header1 {
+            display: flex;
+            justify-content: space-between;
+
+            .mm {
+                display: flex;
+            }
+        }
+    }
 }
