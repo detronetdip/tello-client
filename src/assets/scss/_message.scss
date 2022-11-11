@@ -6,9 +6,9 @@
 
   .users {
     flex: 2;
-    border: 1px solid;
     width: 100%;
     padding: 1rem;
+    border-right: 1px solid $border-light;
     background-color: $white;
     .searchwrapper {
       display: flex;
@@ -51,22 +51,22 @@
         padding: 1.2rem 0.9rem;
         border-bottom: 1px solid $border-light;
         margin: 0.5rem 0;
-        .icon{
-            font-size: 3.2rem;
-            height: 5rem;
-            width: 5rem;
-            font-size: 0;
-            border-radius: 50%;
-            overflow: hidden;
-            img{
-                margin: 0;
+        .icon {
+          font-size: 3.2rem;
+          height: 5rem;
+          width: 5rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            margin: 0;
 
-                height: 100%;
-                width: 100%;
-            }
+            height: 100%;
+            width: 100%;
+          }
         }
         .name {
-            color: $font-light2;
+          color: $font-light2;
           margin-left: 0.9rem;
           font-size: 1.9rem;
         }
@@ -76,15 +76,40 @@
 
   .chatsection {
     flex: 5;
-    border: 1px solid;
     width: 100%;
-
     .header1 {
       display: flex;
       justify-content: space-between;
-
+      align-items: center;
+      padding: 0.6rem 2rem;
+      border-bottom: 1px solid $border-light;
       .mm {
         display: flex;
+        align-items: center;
+        .icon {
+          font-size: 3.2rem;
+          height: 4.9rem;
+          width: 4.9rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .name{
+            margin-left: 1rem;
+            font-size: 1.6rem;
+        }
+      }
+      .nn{
+        background-color: $white;
+        border: 1px solid $border-light;
+        padding: 0.9rem;
+        border-radius: 8px;
+        @include centerByFlex;
+        cursor: pointer;
+        .call{
+            font-size: 2rem;
+            transform: rotate(270deg);
+        }
       }
     }
   }

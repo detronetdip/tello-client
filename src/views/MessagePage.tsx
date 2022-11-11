@@ -42,7 +42,7 @@ const MessagePage = () => {
           <div className="header1">
             <div className="mm">
               <div className="icon">
-                <FaUserCircle />
+                <img src="/assets/icons/fakeuser.jpg" alt="" />
               </div>
               <div className="name">User_name</div>
             </div>
@@ -54,7 +54,7 @@ const MessagePage = () => {
             </div>
           </div>
 
-          <div className="message">
+          <div className="message-area">
             <div className="incoming">a</div>
 
             <div className="outgoing">b</div>
