@@ -2,12 +2,17 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
+import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
+import ChatHead from "../components/chatHeads/ChatHead";
+import SingleMessage from "../components/message/SingleMessage";
+import { useTheme } from "../hooks/useTheme";
 
 const MessagePage = () => {
+  const { theme } = useTheme();
   return (
     <>
-      <div className="messagePageWrapper">
+      <div className={`${theme}-messagePageWrapper`}>
         <div className="users">
           <div className="searchwrapper">
             <div className="searchuser">
@@ -23,18 +28,7 @@ const MessagePage = () => {
           </div>
 
           <div className="chatheads">
-            <div className="users1">
-              <div className="icon">
-                <img src="/assets/icons/fakeuser.jpg" alt="" />
-              </div>
-              <div className="name">User_name</div>
-            </div>
-            <div className="users1">
-              <div className="icon">
-                <img src="/assets/icons/fakeuser.jpg" alt="" />
-              </div>
-              <div className="name">User_name</div>
-            </div>
+            <ChatHead />
           </div>
         </div>
 
@@ -55,16 +49,16 @@ const MessagePage = () => {
           </div>
 
           <div className="message-area">
-            <div className="incoming">a</div>
-
-            <div className="outgoing">b</div>
+            <SingleMessage />
           </div>
 
           <div className="msgbox">
             <Input Class="msg5" placeholder={"Enter Message"} type={"text"} />
-            <div className="sendicon">
-              <RiSendPlaneFill />
-            </div>
+            <Button
+              content={<RiSendPlaneFill />}
+              Class="sendicon"
+              ripple={true}
+            />
           </div>
         </div>
       </div>
