@@ -1,122 +1,146 @@
 .LIGHT-nav_rapper {
-  @include centerByFlex;
-  justify-content: space-between;
-  border-bottom: 1px solid $border-light;
   background-color: $white;
-  .left {
-    .logo {
-      width: 9.4rem;
-      height: 4.1rem;
-      margin-left: 1.8rem;
-    }
-  }
-
-  .right {
+  @include centerByFlex;
+  border-bottom: 1px solid $border-light;
+  .fixedwrapper {
+    width: 100%;
     @include centerByFlex;
+    max-width: $MAX-WIDTH;
     justify-content: space-between;
-    margin-right: 2rem;
-
-    .serachbox {
-      @include centerByFlex;
-      justify-content: flex-start;
-      border: 1px solid $border-light;
-      border-radius: 3rem;
-      background-color: #e7f4fd;
-      width: 30rem;
-      padding: 0 1rem 0 1rem;
-      height: 4rem;
-
-      .srchicon {
-        font-size: 2rem;
-        color: $text-fade;
-      }
-      .aa {
-        background: transparent;
-        border: none;
-        &::placeholder {
-          color: $text-fade;
-          font-weight: 300;
-        }
+    padding: 0.9rem 0;
+    .left {
+      .logo {
+        width: 9.4rem;
+        height: 4.1rem;
+        margin-left: 1.8rem;
+        cursor: pointer;
       }
     }
 
-    .ll {
+    .right {
       @include centerByFlex;
       justify-content: space-between;
-      margin-left: 5rem;
+      margin-right: 2rem;
 
-      .profileicon {
+      .serachbox {
         @include centerByFlex;
+        justify-content: flex-start;
+        border: 1px solid $border-light;
+        border-radius: 3rem;
+        background-color: #e7f4fd;
+        width: 30rem;
+        padding: 0 1rem 0 1rem;
+        height: 4rem;
 
-        font-size: 6rem;
-        color: #93b8b3;
+        .srchicon {
+          font-size: 2rem;
+          color: $text-fade;
+          @include centerByFlex;
+        }
+        .aa {
+          background: transparent;
+          border: none;
+          &::placeholder {
+            color: $text-fade;
+            font-weight: 300;
+          }
+        }
       }
 
-      .username {
-        font-size: 1.5rem;
+      .ll {
+        @include centerByFlex;
+        justify-content: space-between;
+        margin-left: 5rem;
+
+        .profileicon {
+          @include centerByFlex;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
+          font-size: 6rem;
+          color: #93b8b3;
+        }
+
+        .username {
+          margin-left: 0.8rem;
+          font-size: 1.5rem;
+        }
       }
     }
   }
 }
 .DARK-nav_rapper {
-  @include centerByFlex;
-  justify-content: space-between;
-  border-bottom: 1px solid $border-dark;
   background-color: $primaryDark;
-  .left {
-    .logo {
-      width: 9.4rem;
-      height: 4.1rem;
-      margin-left: 1.8rem;
-    }
-  }
-
-  .right {
+  @include centerByFlex;
+  border-bottom: 1px solid $border-dark;
+  .fixedwrapper {
+    width: 100%;
     @include centerByFlex;
+    max-width: $MAX-WIDTH;
     justify-content: space-between;
-    margin-right: 2rem;
-
-    .serachbox {
-        background: $inner-dark;
-
-      @include centerByFlex;
-      justify-content: flex-start;
-      border: 1px solid $border-dark;
-      border-radius: 3rem;
-      width: 30rem;
-      padding: 0 1rem 0 1rem;
-      height: 4rem;
-
-      .srchicon {
-        font-size: 2rem;
-        color: $text-fade;
-      }
-      .aa {
-        background-color: transparent;
-        border: none;
-        color: $white;
-        &::placeholder {
-          color: $text-fade;
-          font-weight: 300;
-        }
+    padding: 0.9rem 0;
+    .left {
+      .logo {
+        width: 9.4rem;
+        height: 4.1rem;
+        cursor: pointer;
+        margin-left: 1.8rem;
       }
     }
 
-    .ll {
+    .right {
       @include centerByFlex;
       justify-content: space-between;
-      margin-left: 5rem;
+      margin-right: 2rem;
 
-      .profileicon {
+      .serachbox {
+        background: $inner-dark;
+
         @include centerByFlex;
+        justify-content: flex-start;
+        border: 1px solid $border-dark;
+        border-radius: 3rem;
+        width: 30rem;
+        padding: 0 1rem 0 1rem;
+        height: 4rem;
 
-        font-size: 6rem;
-        color: #93b8b3;
+        .srchicon {
+          font-size: 2rem;
+          @include centerByFlex;
+          color: $text-fade;
+        }
+        .aa {
+          background-color: transparent;
+          border: none;
+          color: $white;
+          &::placeholder {
+            color: $text-fade;
+            font-weight: 300;
+          }
+        }
       }
 
-      .username {
-        font-size: 1.5rem;
-        color: $white;
+      .ll {
+        @include centerByFlex;
+        justify-content: space-between;
+        margin-left: 5rem;
+
+        .profileicon {
+          @include centerByFlex;
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
+          font-size: 6rem;
+          color: #93b8b3;
+        }
+
+        .username {
+          font-size: 1.5rem;
+          margin-left: 0.8rem;
+          color: $white;
+        }
       }
     }
   }

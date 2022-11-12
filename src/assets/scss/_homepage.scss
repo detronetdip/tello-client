@@ -1,9 +1,14 @@
 .LIGHT-mainframe {
+  @include centerByFlex;
+  background-color: $bg-light;
+  .fixedWrapper {
+    width: 100%;
     display: flex;
-    height: 92vh;
-    background-color: $bg-light;
+    max-width: $MAX-WIDTH;
     .left1 {
-        flex: 2;
+      flex: 2;
+      .fullheight {
+        height: 91vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -12,327 +17,586 @@
 
         .option,
         .modechange {
-            background-color: $white;
-            border: 1px solid $border-light;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            width: 75%;
+          background-color: $white;
+          border: 1px solid $border-light;
+          border-radius: 1.5rem;
+          padding: 2rem;
+          width: 85%;
         }
         .modechange {
-            .option2 {
-                display: flex;
-                padding: 1rem;
-                border-radius: 0.8rem;
-                font-size: 1.8rem;
-                align-items: center;
-                cursor: pointer;
-                color: $font-light;
-                &:hover {
-                  background-color: rgba($color: $hover-light, $alpha: 0.1);
-                }
-                .icon {
-                  @include centerByFlex();
-                  font-size: 3rem;
-                  margin-right: 0.8rem;
-                }
-              }
+          .option2 {
+            display: flex;
+            padding: 1rem;
+            border-radius: 0.8rem;
+            font-size: 1.8rem;
+            align-items: center;
+            cursor: pointer;
+            color: $font-light;
+            &:hover {
+              background-color: rgba($color: $hover-light, $alpha: 0.1);
+            }
+            .icon {
+              color: $icon-light;
+              @include centerByFlex();
+              font-size: 3rem;
+              margin-right: 0.8rem;
+            }
+          }
 
-              .mode {
-                display: flex;
-                padding: 1rem;
-                justify-content: space-between;
-                align-items: center;
-                .icon {
-                  font-size: 2.6rem;
-                  @include centerByFlex;
-                  color: $font-light;
-                }
-                .toggle-switch {
-                  position: relative;
-                  width: 65px;
-                  display: inline-block;
-                  text-align: left;
-                }
-                .checkbox {
-                  display: none;
-                }
-                .label {
-                  display: block;
-                  overflow: hidden;
-                  cursor: pointer;
-                  border: 0 solid #bbb;
-                  border-radius: 20px;
-                }
-                .inner {
-                  display: block;
-                  width: 200%;
-                  margin-left: -100%;
-                  transition: margin 0.3s ease-in 0s;
-                }
-                .inner:before,
-                .inner:after {
-                  float: left;
-                  width: 50%;
-                  height: 2.5rem;
-                  padding: 0;
-                  line-height: 2.5rem;
-                  color: #fff;
-                  font-weight: bold;
-                  box-sizing: border-box;
-                }
-                .inner:before {
-                  content: " ";
-                  padding-left: 10px;
-                  background-color: #060;
-                  color: #fff;
-                }
-                .inner:after {
-                  content: " ";
-                  padding-right: 10px;
-                  background-color: #bbb;
-                  color: #fff;
-                  text-align: right;
-                }
-                .switch {
-                  display: block;
-                  width: 15px;
-                  margin: 5px;
-                  background: #fff;
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  right: 40px;
-                  border: 0 solid #bbb;
-                  border-radius: 20px;
-                  transition: all 0.3s ease-in 0s;
-                }
-                .checkbox:checked + .label .inner {
-                  margin-left: 0;
-                }
-                .checkbox:checked + .label .switch {
-                  right: 0px;
-                }
-              }
+          .mode {
+            display: flex;
+            padding: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            .icon {
+              font-size: 3rem;
+              @include centerByFlex;
+              color: $icon-light;
+            }
+            .toggle-switch {
+              position: relative;
+              width: 65px;
+              display: inline-block;
+              text-align: left;
+            }
+            .checkbox {
+              display: none;
+            }
+            .label {
+              display: block;
+              overflow: hidden;
+              cursor: pointer;
+              border: 0 solid #bbb;
+              border-radius: 20px;
+            }
+            .inner {
+              display: block;
+              width: 200%;
+              margin-left: -100%;
+              transition: margin 0.3s ease-in 0s;
+            }
+            .inner:before,
+            .inner:after {
+              float: left;
+              width: 50%;
+              height: 2.5rem;
+              padding: 0;
+              line-height: 2.5rem;
+              color: #fff;
+              font-weight: bold;
+              box-sizing: border-box;
+            }
+            .inner:before {
+              content: " ";
+              padding-left: 10px;
+              background-color: #746cfe;
+              color: #fff;
+            }
+            .inner:after {
+              content: " ";
+              padding-right: 10px;
+              background-color: #bbb;
+              color: #fff;
+              text-align: right;
+            }
+            .switch {
+              display: block;
+              width: 15px;
+              margin: 5px;
+              background: #fff;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 40px;
+              border: 0 solid #bbb;
+              border-radius: 20px;
+              transition: all 0.3s ease-in 0s;
+            }
+            .checkbox:checked + .label .inner {
+              margin-left: 0;
+            }
+            .checkbox:checked + .label .switch {
+              right: 0px;
+            }
+          }
         }
         .option {
-            .option1 {
-                color: $font-light;
-                display: flex;
-                padding: 0.8rem;
-                border-radius: 1rem;
-                font-size: 1.8rem;
-                align-items: center;
-                &:hover {
-                    background-color: rgba($color: $hover-light, $alpha: 0.1);
-                }
-                cursor: pointer;
-                .icon {
-                    font-size: 3rem;
-                    @include centerByFlex;
-                    margin-right: 0.5rem;
-                }
+          .option1 {
+            color: $font-light;
+            display: flex;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            font-size: 1.8rem;
+            align-items: center;
+            &:hover {
+              background-color: rgba($color: $hover-light, $alpha: 0.1);
             }
+            cursor: pointer;
+            .icon {
+              color: $icon-light;
+              font-size: 3rem;
+              @include centerByFlex;
+              margin-right: 0.5rem;
+            }
+          }
         }
+      }
     }
 
+    .hr1 {
+      border: none;
+      border-bottom: 1.5px solid $border-light;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hr2 {
+      border: none;
+      border-bottom: 1.5px solid $border-light;
+      margin: 1rem 0 1rem;
+    }
     .post {
-        flex: 5;
-        border: 1px solid;
+      padding: 2rem;
+      flex: 5;
+
+      .mypost {
+        background-color: $white;
+        padding: 1.5rem 1.2rem;
+        border: 1px solid $border-light;
+        border-radius: 2rem;
+        .head {
+          display: flex;
+          justify-content: space-between;
+
+          .aa {
+            margin-left: 0.8rem;
+            .imgicon {
+              font-size: 3.5rem;
+            }
+            display: flex;
+            justify-content: space-between;
+
+            .username {
+              font-size: 1.8rem;
+              margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          .dropdown {
+            margin-top: 0.8rem;
+            font-size: 2.8rem;
+          }
+        }
+
+        .postimg {
+          @include centerByFlex;
+          div {
+            width: 95%;
+            img {
+              border-radius: 1.5rem;
+            }
+          }
+        }
+
+        .option1 {
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.8rem 1.3rem 0 1.3rem;
+
+          .aa {
+            display: flex;
+          }
+        }
+      }
+
+      .postcrte {
+        padding: 1.5rem;
+        background-color: $white;
+        border: 1px solid $border-light;
+        border-radius: 2rem;
+        padding-bottom: 1rem;
+
+        hr {
+          margin-top: 0.8rem;
+          border: none;
+          border-bottom: 1px solid $border-light;
+        }
+        .name {
+          font-size: 1.8rem;
+          color: #091127;
+          font-weight: 500;
+        }
+        .post1 {
+          .postform {
+            .aa {
+              margin: 0;
+              margin-top: 1rem;
+              width: 100%;
+              height: 10rem;
+              resize: none;
+              background-color: rgba($color: $inner-light, $alpha: 0.45);
+              border: 1px solid $border-light;
+              color: $font-light;
+              white-space: pre-wrap;
+            }
+          }
+
+          .post2 {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            .imgicon {
+              font-size: 2.5rem;
+              color: $icon-light;
+              cursor: pointer;
+              @include centerByFlex;
+            }
+
+            .btn-1 {
+              font-size: 1.5rem;
+              background-color: $icon-light;
+
+              color: #ffffff;
+            }
+          }
+        }
+      }
     }
 
     .right1 {
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-
-        .news {
-            color: $font-light;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1.6rem;
-            background-color: $white;
-            border: 1px solid $border-light;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            width: 80%;
-            height: 40rem;
-            .ll {
-                width: 15rem;
-                margin-top: 0.2rem;
-            }
-        }
-    }
-}
-.DARK-mainframe {
-  display: flex;
-  height: 92vh;
-  background-color: $bg-dark;
-  .left1 {
       flex: 2;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
       padding: 2rem 0 2rem 0;
 
-      .option,
-      .modechange {
+      .news {
+        color: $font-light;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.6rem;
+        background-color: $white;
+        border: 1px solid $border-light;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        width: 85%;
+        height: 40rem;
+        .ll {
+          border: none;
+          border-bottom: 1px solid $border-light;
+          margin-top: 0.2rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.DARK-mainframe {
+  @include centerByFlex;
+  background-color: $bg-dark;
+  .fixedWrapper {
+    width: 100%;
+    display: flex;
+    max-width: $MAX-WIDTH;
+    .left1 {
+      flex: 2;
+      .fullheight {
+        height: 91vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0 2rem 0;
+
+        .option,
+        .modechange {
           background-color: $primaryDark;
           border: 1px solid $border-dark;
           border-radius: 1.5rem;
           padding: 2rem;
-          width: 75%;
-      }
-      .modechange {
+          width: 85%;
+        }
+        .modechange {
           .option2 {
-              display: flex;
-              padding: 1rem;
-              border-radius: 0.8rem;
-              font-size: 1.8rem;
-              align-items: center;
-              cursor: pointer;
-              color: $font-dark;
-              &:hover {
-                background-color: rgba($color: $hover-dark, $alpha: 0.1);
-              }
-              .icon {
-                @include centerByFlex();
-                font-size: 3rem;
-                margin-right: 0.8rem;
-              }
+            display: flex;
+            padding: 1rem;
+            border-radius: 0.8rem;
+            font-size: 1.8rem;
+            align-items: center;
+            cursor: pointer;
+            color: $font-dark;
+            &:hover {
+              background-color: rgba($color: $hover-dark, $alpha: 0.1);
             }
-
-            .mode {
-              display: flex;
-              padding: 1rem;
-              justify-content: space-between;
-              align-items: center;
-              .icon {
-                font-size: 3rem;
-                @include centerByFlex;
-                color: $font-dark;
-              }
-              .toggle-switch {
-                position: relative;
-                width: 65px;
-                display: inline-block;
-                text-align: left;
-              }
-              .checkbox {
-                display: none;
-              }
-              .label {
-                display: block;
-                overflow: hidden;
-                cursor: pointer;
-                border: 0 solid #bbb;
-                border-radius: 20px;
-              }
-              .inner {
-                display: block;
-                width: 200%;
-                margin-left: -100%;
-                transition: margin 0.3s ease-in 0s;
-              }
-              .inner:before,
-              .inner:after {
-                float: left;
-                width: 50%;
-                height: 2.5rem;
-                padding: 0;
-                line-height: 2.5rem;
-                color: #fff;
-                font-weight: bold;
-                box-sizing: border-box;
-              }
-              .inner:before {
-                content: " ";
-                padding-left: 10px;
-                background-color: #060;
-                color: #fff;
-              }
-              .inner:after {
-                content: " ";
-                padding-right: 10px;
-                background-color: #bbb;
-                color: #fff;
-                text-align: right;
-              }
-              .switch {
-                display: block;
-                width: 15px;
-                margin: 5px;
-                background: #fff;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                right: 40px;
-                border: 0 solid #bbb;
-                border-radius: 20px;
-                transition: all 0.3s ease-in 0s;
-              }
-              .checkbox:checked + .label .inner {
-                margin-left: 0;
-              }
-              .checkbox:checked + .label .switch {
-                right: 0px;
-              }
+            .icon {
+              color: $icon-dark;
+              @include centerByFlex();
+              font-size: 3rem;
+              margin-right: 0.8rem;
             }
-      }
-      .option {
-          .option1 {
-              color: $font-dark;
-              display: flex;
-              padding: 0.8rem;
-              border-radius: 1rem;
-              font-size: 1.8rem;
-              align-items: center;
-              &:hover {
-                  background-color: rgba($color: $hover-dark, $alpha: 0.1);
-              }
-              cursor: pointer;
-              .icon {
-                  font-size: 3rem;
-                  @include centerByFlex;
-                  margin-right: 0.5rem;
-              }
-
-           
           }
+
+          .mode {
+            display: flex;
+            padding: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            .icon {
+              font-size: 3rem;
+              @include centerByFlex;
+              color: $icon-dark;
+            }
+            .toggle-switch {
+              position: relative;
+              width: 65px;
+              display: inline-block;
+              text-align: left;
+            }
+            .checkbox {
+              display: none;
+            }
+            .label {
+              display: block;
+              overflow: hidden;
+              cursor: pointer;
+              border: 0 solid #bbb;
+              border-radius: 20px;
+            }
+            .inner {
+              display: block;
+              width: 200%;
+              margin-left: -100%;
+              transition: margin 0.3s ease-in 0s;
+            }
+            .inner:before,
+            .inner:after {
+              float: left;
+              width: 50%;
+              height: 2.5rem;
+              padding: 0;
+              line-height: 2.5rem;
+              color: #fff;
+              font-weight: bold;
+              box-sizing: border-box;
+            }
+            .inner:before {
+              content: " ";
+              padding-left: 10px;
+              background-color: #746cfe;
+              color: #fff;
+            }
+            .inner:after {
+              content: " ";
+              padding-right: 10px;
+              background-color: #bbb;
+              color: #fff;
+              text-align: right;
+            }
+            .switch {
+              display: block;
+              width: 15px;
+              margin: 5px;
+              background: #fff;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 40px;
+              border: 0 solid #bbb;
+              border-radius: 20px;
+              transition: all 0.3s ease-in 0s;
+            }
+            .checkbox:checked + .label .inner {
+              margin-left: 0;
+            }
+            .checkbox:checked + .label .switch {
+              right: 0px;
+            }
+          }
+        }
+        .option {
+          .option1 {
+            color: $font-dark;
+            display: flex;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            font-size: 1.8rem;
+            align-items: center;
+            &:hover {
+              background-color: rgba($color: $hover-dark, $alpha: 0.1);
+            }
+            cursor: pointer;
+            .icon {
+              color: $icon-dark;
+              font-size: 3rem;
+              @include centerByFlex;
+              margin-right: 0.5rem;
+            }
+          }
+        }
       }
-  }
+    }
 
-  .post {
+    .hr1 {
+      border: none;
+      border-bottom: 1.5px solid $border-dark;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .hr2 {
+      border: none;
+      border-bottom: 1.5px solid $border-dark;
+      margin: 1rem 0 1rem;
+    }
+    .post {
+      padding: 2rem;
       flex: 5;
-      border: 1px solid;
-  }
 
-  .right1 {
+      .mypost {
+        background-color: $primaryDark;
+        padding: 1.5rem 1.2rem;
+        border: 1px solid $border-dark;
+        border-radius: 2rem;
+        .head {
+          display: flex;
+          justify-content: space-between;
+
+          .aa {
+            margin-left: 0.8rem;
+            .imgicon {
+              color: $font-dark;
+              font-size: 3.5rem;
+            }
+            display: flex;
+            justify-content: space-between;
+
+            .username {
+              color: $font-dark;
+              font-size: 1.8rem;
+              margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          .dropdown {
+            color: $font-dark;
+            margin-top: 0.8rem;
+            font-size: 2.8rem;
+          }
+        }
+
+        .postimg {
+          @include centerByFlex;
+          div {
+            width: 95%;
+            img {
+              border-radius: 1.5rem;
+            }
+          }
+        }
+
+        .option1 {
+          color: $font-dark;
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.8rem 1.3rem 0 1.3rem;
+
+          .aa {
+            display: flex;
+          }
+        }
+      }
+
+      .postcrte {
+        padding: 1.5rem;
+        background-color: $primaryDark;
+        border: 1px solid $border-dark;
+        border-radius: 2rem;
+        padding-bottom: 1rem;
+
+        hr {
+          margin-top: 0.8rem;
+          border: none;
+          border-bottom: 1px solid $border-dark;
+        }
+        .name {
+          font-size: 1.8rem;
+          color: $font-dark;
+          font-weight: 500;
+        }
+        .post1 {
+          .postform {
+            .aa {
+              margin: 0;
+              margin-top: 1rem;
+              width: 100%;
+              height: 10rem;
+              resize: none;
+              background-color: rgba($color: $inner-dark, $alpha: 0.45);
+              border: 1px solid $border-dark;
+              color: $font-dark;
+              white-space: pre-wrap;
+            }
+          }
+
+          .post2 {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            .imgicon {
+              font-size: 2.5rem;
+              color: $icon-dark;
+              cursor: pointer;
+              @include centerByFlex;
+            }
+
+            .btn-1 {
+              font-size: 1.5rem;
+              background-color: $icon-dark;
+
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .right1 {
       flex: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
+      padding: 2rem 0 2rem 0;
 
       .news {
-          color: $font-dark;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          font-size: 1.6rem;
-          background-color: $primaryDark;
-          border: 1px solid $border-dark;
-          border-radius: 1.5rem;
-          padding: 2rem;
-          width: 80%;
-          height: 40rem;
-          .ll {
-              width: 15rem;
-              margin-top: 0.2rem;
-          }
+        color: $font-dark;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.6rem;
+        background-color: $primaryDark;
+        border: 1px solid $border-dark;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        width: 85%;
+        height: 40rem;
+        .ll {
+          border: none;
+          border-bottom: 1px solid $border-dark;
+          margin-top: 0.2rem;
+          width: 100%;
+        }
       }
+    }
   }
 }
+
+
