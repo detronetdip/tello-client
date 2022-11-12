@@ -16,7 +16,7 @@ const Post = () => {
           <div className="head">
             <div className="aa">
               <div className="imgicon">
-                <FaUserCircle />
+                <img src="/assets/icons/fakeuser.jpg" alt="" />
               </div>
 
               <div className="username">

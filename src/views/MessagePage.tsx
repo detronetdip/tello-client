@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
@@ -10,6 +10,19 @@ import { useTheme } from "../hooks/useTheme";
 
 const MessagePage = () => {
   const { theme } = useTheme();
+  const [messages, setMessages] = useState([
+    {
+      type: "incoming",
+    },
+    {
+      type: "outgoing",
+    },
+  ]);
+  const scrollBottom = useRef() as React.MutableRefObject<HTMLDivElement>;
+  useEffect(() => {
+    scrollBottom.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <>
       <div className={`${theme}-messagePageWrapper`}>
@@ -49,7 +62,10 @@ const MessagePage = () => {
           </div>
 
           <div className="message-area">
-            <SingleMessage />
+            {messages.map((msg) => (
+              <SingleMessage type={msg.type} />
+            ))}
+            <span className="downref" ref={scrollBottom}></span>
           </div>
 
           <div className="msgbox">

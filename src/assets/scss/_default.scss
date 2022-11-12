@@ -6,6 +6,9 @@
 }
 html {
   font-size: 62.5%;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 }
 button {
   outline: 0;

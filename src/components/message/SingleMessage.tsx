@@ -1,10 +1,10 @@
 import React from "react";
 import * as moment from "moment";
 
-const SingleMessage = () => {
+const SingleMessage = ({ type }: { type: "incoming" | "outgoing" | string; }) => {
   return (
     <>
-      <div className="msgrow incoming">
+      <div className={`msgrow ${type}`}>
         <div className="message">
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab id
