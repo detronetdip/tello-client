@@ -1,67 +1,444 @@
-.messagePageWrapper {
-    min-height: 91vh;
-    background-color: $bg-light;
-    display: flex;
-    justify-content: center;
+.LIGHT-messagePageWrapper {
+  min-height: 91vh;
+  background-color: $bg-light;
+  display: flex;
+  justify-content: center;
 
-    .users {
-        flex: 2;
-        border: 1px solid;
-        width: 100%;
-        padding: 1rem;
+  .users {
+    flex: 2;
+    width: 100%;
+    padding: 1rem;
+    border-right: 1px solid $border-light;
+    background-color: $white;
+    .searchwrapper {
+      display: flex;
+      align-items: center;
+      border: 1px solid $border-light;
+      border-radius: 2em;
+      background-color: $inner-light;
+      padding: 0.4rem;
+      &::placeholder {
+        font-weight: 400;
+      }
+      .searchuser {
+        width: 90%;
+        .usersearch {
+          border: 0;
+          background-color: transparent;
+          width: 100%;
+          margin: 0;
+          font-weight: 400;
+        }
+      }
+      .icon {
+        cursor: pointer;
+        font-size: 1.9rem;
+        color: $icon-light;
+        @include centerByFlex;
+        margin-left: 0.5rem;
         background-color: $white;
-        .searchwrapper {
-            display: flex;
-            align-items: center;
-            border: 1px solid $border-light;
-            border-radius: 1rem;
-            background-color: $inner-light;
-            &::placeholder{
-                font-weight: 400;
-            }
-            .searchuser {
-                width: 90%;
-                .usersearch {
-                    border: 0;
-                    background-color: transparent;
-                    width: 100%;
-                    margin: 0;
-                }
-            }
-            .icon{
-                cursor: pointer;
-                font-size: 1.9rem;
-                color: $icon-light;
-                @include centerByFlex;
-                margin-left: 0.5rem;
-                background-color: $white;
-                border: 1px solid $border-light;
-                padding: 0.4rem;
-                border-radius: 0.6rem;
-            }
-        }
-        .users1 {
-            display: flex;
-            align-items: center;
-
-            .name {
-                margin-left: 0.8rem;
-            }
-        }
+        border: 1px solid $border-light;
+        padding: 0.6rem;
+        border-radius: 50%;
+      }
     }
+    .chatheads {
+      padding: 1.2rem 0rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 12rem);
+      &::-webkit-scrollbar {
+        width: 0.9rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $scrollbar-light;
+      }
+      .users1 {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0.9rem;
+        border-bottom: 1px solid $border-light;
+        margin: 0.5rem 0;
+        .icon {
+          font-size: 3.2rem;
+          height: 5rem;
+          width: 5rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            margin: 0;
 
-    .chatsection {
-        flex: 5;
-        border: 1px solid;
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .name {
+          color: $font-light2;
+          margin-left: 0.9rem;
+          font-size: 1.9rem;
+        }
+      }
+    }
+  }
+
+  .chatsection {
+    flex: 5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .header1 {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 2rem;
+      border-bottom: 1px solid $border-light;
+      background-color: $white;
+      max-height: 8rem;
+      .mm {
+        display: flex;
+        align-items: center;
+        .icon {
+          font-size: 3.2rem;
+          height: 4.9rem;
+          width: 4.9rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .name {
+          margin-left: 1rem;
+          font-size: 1.6rem;
+        }
+      }
+      .nn {
+        background-color: $white;
+        border: 1px solid $border-light;
+        padding: 0.9rem;
+        border-radius: 8px;
+        @include centerByFlex;
+        cursor: pointer;
+        color: $icon-light;
+        transition: 0.5s;
+        &:hover {
+          background-color: $icon-light;
+          color: $white;
+        }
+        .call {
+          font-size: 2rem;
+          transform: rotate(270deg);
+        }
+      }
+    }
+    .message-area {
+      flex: 7;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 20rem);
+      &::-webkit-scrollbar {
+        width: 0.9rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $scrollbar-light;
+      }
+      .incoming {
+        justify-content: start;
+        .message {
+          background-color: $message-incoming-light;
+          border-radius: 0px 19px 19px 19px;
+          -webkit-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+        }
+      }
+      .outgoing {
+        justify-content: end;
+        .message {
+          background-color: $message-outgoing-light;
+          border-radius: 19px 19px 0 19px;
+          -webkit-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+        }
+      }
+      .msgrow {
+        display: flex;
+        margin: 0.5rem 0;
+        .message {
+          min-width: 10rem;
+          max-width: 50rem;
+          padding: 1rem 1.2rem;
+          color: $white;
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+
+        .timerow {
+          display: flex;
+          justify-content: end;
+          margin-top: 0.7rem;
+          font-size: 1rem;
+        }
+      }
+    }
+    .msgbox {
+      flex: 1;
+      max-height: 8rem;
+      background-color: $white;
+      border-top: 1px solid $border-light;
+
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 2rem;
+      .indv {
+        display: flex;
         width: 100%;
-
-        .header1 {
-            display: flex;
-            justify-content: space-between;
-
-            .mm {
-                display: flex;
-            }
-        }
+        align-items: center;
+        background-color: $input-bg-light;
+        border-radius: 2.8rem;
+        border: 1px solid $border-light;
+      }
+      .msg5 {
+        margin: 0;
+        width: 95%;
+        border: 0;
+        outline: 0;
+        padding: 1rem;
+        background-color: transparent;
+      }
+      .sendicon {
+        padding: 0.1rem;
+        @include centerByFlex;
+        background-color: transparent;
+        color: $icon-light;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 3rem;
+      }
     }
+  }
+}
+.DARK-messagePageWrapper {
+  min-height: 91vh;
+  background-color: $bg-dark;
+  display: flex;
+  justify-content: center;
+
+  .users {
+    flex: 2;
+    width: 100%;
+    padding: 1rem;
+    border-right: 1px solid $border-dark;
+    background-color: $primaryDark;
+    .searchwrapper {
+      display: flex;
+      align-items: center;
+      border: 1px solid $border-dark;
+      border-radius: 2rem;
+      background-color: $inner-dark;
+      padding: 0.4rem;
+      &::placeholder {
+        font-weight: 400;
+      }
+      .searchuser {
+        width: 90%;
+        .usersearch {
+          border: 0;
+          background-color: transparent;
+          width: 100%;
+          margin: 0;
+          font-weight: 400;
+          color: $white;
+        }
+      }
+      .icon {
+        cursor: pointer;
+        font-size: 1.9rem;
+        color: $icon-dark;
+        @include centerByFlex;
+        margin-left: 0.5rem;
+        background-color: $primaryDark;
+        border: 1px solid $border-dark;
+        padding: 0.6rem;
+        border-radius: 50%;
+      }
+    }
+    .chatheads {
+      padding: 1.2rem 0rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 12rem);
+      &::-webkit-scrollbar {
+        width: 0.9rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $scrollbar-light;
+      }
+      .users1 {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 0.9rem;
+        border-bottom: 1px solid $border-dark;
+        margin: 0.5rem 0;
+        .icon {
+          font-size: 3.2rem;
+          height: 5rem;
+          width: 5rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            margin: 0;
+
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .name {
+          color: $white;
+          margin-left: 0.9rem;
+          font-size: 1.9rem;
+        }
+      }
+    }
+  }
+
+  .chatsection {
+    flex: 5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .header1 {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 2rem;
+      border-bottom: 1px solid $border-dark;
+      background-color: $primaryDark;
+      max-height: 8rem;
+      .mm {
+        display: flex;
+        align-items: center;
+        .icon {
+          font-size: 3.2rem;
+          height: 4.9rem;
+          width: 4.9rem;
+          font-size: 0;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .name {
+          margin-left: 1rem;
+          font-size: 1.6rem;
+          color: $white;
+        }
+      }
+      .nn {
+        background-color: $primaryDark;
+
+        border: 1px solid $border-dark;
+        padding: 0.9rem;
+        border-radius: 8px;
+        @include centerByFlex;
+        cursor: pointer;
+        color: $icon-dark;
+        transition: 0.5s;
+        &:hover {
+          background-color: $icon-dark;
+          color: $white;
+        }
+        .call {
+          font-size: 2rem;
+          transform: rotate(270deg);
+        }
+      }
+    }
+    .message-area {
+      flex: 7;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 20rem);
+      &::-webkit-scrollbar {
+        width: 0.9rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $scrollbar-light;
+      }
+      .incoming {
+        justify-content: start;
+        .message {
+          background-color: $message-incoming-dark;
+          border-radius: 0px 19px 19px 19px;
+        }
+      }
+      .outgoing {
+        justify-content: end;
+        .message {
+          background-color: $message-outgoing-dark;
+          border-radius: 19px 19px 0 19px;
+        }
+      }
+      .msgrow {
+        display: flex;
+        margin: 0.5rem 0;
+        .message {
+          min-width: 10rem;
+          max-width: 50rem;
+          padding: 1rem 1.2rem;
+          color: $white;
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+
+        .timerow {
+          display: flex;
+          justify-content: end;
+          margin-top: 0.7rem;
+          font-size: 1rem;
+        }
+      }
+    }
+    .msgbox {
+      flex: 1;
+      max-height: 8rem;
+      background-color: $primaryDark;
+      border-top: 1px solid $border-dark;
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 2rem;
+      .indv {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        background-color: $input-bg-dark;
+        border-radius: 2.8rem;
+        border: 1px solid $border-dark;
+      }
+      .msg5 {
+        margin: 0;
+        width: 95%;
+        border: 0;
+        outline: 0;
+        padding: 1rem;
+        background-color: transparent;
+      }
+      .sendicon {
+        padding: 0.1rem;
+        @include centerByFlex;
+        background-color: transparent;
+        color: $message-outgoing-dark;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 3rem;
+      }
+    }
+  }
 }

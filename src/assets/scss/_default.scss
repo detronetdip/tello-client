@@ -1,47 +1,51 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+html {
+  font-size: 62.5%;
+  &::-webkit-scrollbar{
+    display: none;
   }
-  html {
-    font-size: 62.5%;
-  }
-  button {
-    outline: 0;
-    border: 0;
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #4703b4;
-    cursor: pointer;
-    margin: 0.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 400ms;
-    color: #fff;
-    cursor: pointer;
-  }
-  input,textarea {
-    outline: 0;
-    border: 1px solid;
-    border-radius: 8px;
-    padding: 0.8rem 1.4rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #eceaea;
-    margin: 0.8rem;
-  }
-  img{
-    height: 100%;
-    width: 100%;
-  }
-  .errorboundary{
-    margin-top: 1rem;
-    color: red;
-    font-size: 1.3rem;
-  }
-  $MAX-WIDTH:120rem;
+}
+button {
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #4703b4;
+  cursor: pointer;
+  margin: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 400ms;
+  color: #fff;
+  cursor: pointer;
+}
+input,
+textarea {
+  outline: 0;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0.8rem 1.4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #eceaea;
+  margin: 0.8rem;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+.errorboundary {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.3rem;
+}
+$MAX-WIDTH: 130rem;

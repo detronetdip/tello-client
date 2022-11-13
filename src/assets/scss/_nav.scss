@@ -7,11 +7,13 @@
     @include centerByFlex;
     max-width: $MAX-WIDTH;
     justify-content: space-between;
+    padding: 0.9rem 0;
     .left {
       .logo {
         width: 9.4rem;
         height: 4.1rem;
         margin-left: 1.8rem;
+        cursor: pointer;
       }
     }
 
@@ -33,6 +35,7 @@
         .srchicon {
           font-size: 2rem;
           color: $text-fade;
+          @include centerByFlex;
         }
         .aa {
           background: transparent;
@@ -51,12 +54,16 @@
 
         .profileicon {
           @include centerByFlex;
-
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
           font-size: 6rem;
           color: #93b8b3;
         }
 
         .username {
+          margin-left: 0.8rem;
           font-size: 1.5rem;
         }
       }
@@ -72,10 +79,12 @@
     @include centerByFlex;
     max-width: $MAX-WIDTH;
     justify-content: space-between;
+    padding: 0.9rem 0;
     .left {
       .logo {
         width: 9.4rem;
         height: 4.1rem;
+        cursor: pointer;
         margin-left: 1.8rem;
       }
     }
@@ -98,6 +107,7 @@
 
         .srchicon {
           font-size: 2rem;
+          @include centerByFlex;
           color: $text-fade;
         }
         .aa {
@@ -118,13 +128,17 @@
 
         .profileicon {
           @include centerByFlex;
-
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
           font-size: 6rem;
           color: #93b8b3;
         }
 
         .username {
           font-size: 1.5rem;
+          margin-left: 0.8rem;
           color: $white;
         }
       }

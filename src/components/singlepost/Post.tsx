@@ -1,4 +1,4 @@
-import * as moment from 'moment'
+import moment from 'moment'
 import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
@@ -16,7 +16,7 @@ const Post = () => {
           <div className="head">
             <div className="aa">
               <div className="imgicon">
-                <FaUserCircle />
+                <img src="/assets/icons/fakeuser.jpg" alt="" />
               </div>
 
               <div className="username">
