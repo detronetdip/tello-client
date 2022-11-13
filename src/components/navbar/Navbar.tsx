@@ -3,16 +3,22 @@ import Input from "../atoms/Input";
 import { RiSearch2Fill } from "react-icons/ri";
 import { HiUserCircle } from "react-icons/hi";
 import { useTheme } from "../../hooks/useTheme";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { theme } = useTheme();
+  const location = useNavigate();
   return (
     <>
       <div className={`${theme}-nav_rapper`}>
         <div className="fixedwrapper">
           <div className="left">
             <div className="logo">
-              <img src="/assets/icons/logo.png" alt="" />
+              <img
+                src="/assets/icons/logo.png"
+                alt=""
+                onClick={() => location("/")}
+              />
             </div>
           </div>
 
@@ -28,7 +34,7 @@ const Navbar = () => {
 
             <div className="ll">
               <div className="profileicon">
-                <HiUserCircle />
+                <img src="/assets/icons/fakeuser.jpg" alt="profile image" />
               </div>
 
               <div className="username">

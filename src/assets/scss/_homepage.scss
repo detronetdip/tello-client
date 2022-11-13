@@ -170,7 +170,11 @@
           .aa {
             margin-left: 0.8rem;
             .imgicon {
-              font-size: 3.5rem;
+              height: 4.5rem;
+              width: 4.5rem;
+              border-radius: 50%;
+              overflow: hidden;
+              cursor: pointer;
             }
             display: flex;
             justify-content: space-between;
@@ -469,7 +473,11 @@
             margin-left: 0.8rem;
             .imgicon {
               color: $font-dark;
-              font-size: 3.5rem;
+              height: 4.5rem;
+              width: 4.5rem;
+              border-radius: 50%;
+              overflow: hidden;
+              cursor: pointer;
             }
             display: flex;
             justify-content: space-between;
