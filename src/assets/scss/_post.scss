@@ -1,0 +1,116 @@
+.DARK-postwrapper{
+
+    .mypost {
+        background-color: $primaryDark;
+        padding: 1.5rem 1.2rem;
+        border: 1px solid $border-dark;
+        border-radius: 2rem;
+        .head {
+          display: flex;
+          justify-content: space-between;
+
+          .aa {
+            margin-left: 0.8rem;
+            .imgicon {
+              color: $font-dark;
+              font-size: 3.5rem;
+            }
+            display: flex;
+            justify-content: space-between;
+
+            .username {
+              color: $font-dark;
+              font-size: 1.8rem;
+              margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
+            }
+          }
+
+          .dropdown {
+            color: $font-dark;
+            margin-top: 0.8rem;
+            font-size: 2.8rem;
+          }
+        }
+
+        .postimg {
+          @include centerByFlex;
+          div {
+            width: 95%;
+            img {
+              border-radius: 1.5rem;
+            }
+          }
+        }
+
+        .option1 {
+          color: $font-dark;
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.8rem 1.3rem 0 1.3rem;
+
+          .aa {
+            display: flex;
+          }
+        }
+      }
+}
+.LIGHT-postwrapper{
+
+    .mypost {
+        background-color: $white;
+        padding: 1.5rem 1.2rem;
+        border: 1px solid $border-light;
+        border-radius: 2rem;
+        .head {
+          display: flex;
+          justify-content: space-between;
+    
+          .aa {
+            margin-left: 0.8rem;
+            .imgicon {
+              font-size: 3.5rem;
+            }
+            display: flex;
+            justify-content: space-between;
+    
+            .username {
+              font-size: 1.8rem;
+              margin-left: 1rem;
+              .date {
+                font-size: 1.2rem;
+              }
+            }
+          }
+    
+          .dropdown {
+            margin-top: 0.8rem;
+            font-size: 2.8rem;
+          }
+        }
+    
+        .postimg {
+          @include centerByFlex;
+          div {
+            width: 95%;
+            img {
+              border-radius: 1.5rem;
+            }
+          }
+        }
+    
+        .option1 {
+          font-size: 2.5rem;
+          display: flex;
+          justify-content: space-between;
+          padding: 0.8rem 1.3rem 0 1.3rem;
+    
+          .aa {
+            display: flex;
+          }
+        }
+      }
+}

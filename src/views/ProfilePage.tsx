@@ -1,48 +1,39 @@
-import React, { useState } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { userState } from "../context";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+import NavMenu from "../components/NavMenu";
+import Post from "../components/singlepost/Post";
+import { useTheme } from "../hooks/useTheme";
 
 function ProfilePage() {
-  const [data, setData] = useState({
-    data: "",
-  });
-
-  const state = useSetRecoilState(userState);
-  const navigae = useNavigate();
-
-  const getDataFromServer = () => {
-    axios
-      .get("http://localhost:3000/res", { withCredentials: true })
-      .then((res) => {
-        console.log(res);
-
-        setData((prev) => {
-          return {
-            ...prev,
-            data: res.data.data,
-          };
-        });
-      })
-      .catch((er) => {
-        console.log(er);
-        alert("token expired");
-        state((old) => {
-          return {
-            ...old,
-            isLoggedIn: false,
-          };
-        });
-        navigae("/refresh");
-      });
-  };
+  const { theme } = useTheme();
   return (
-    <div>
-      <h1>ProfilePage</h1>
-      Data from server is: {data.data}
-      <button onClick={getDataFromServer}>Get Data</button>
-    </div>
+    <>
+      <div className={`${theme}-mainframe`}>
+        <div className="fixedWrapper">
+          <NavMenu />
+          <div className={`${theme}-profileFrame`}>
+            <div className="profileWrapper">
+              <div className="username5">
+                <div className="icon">
+                  <img src="assets/icons/fakeuser.jpg" alt="" />
+                </div>
+                <div className="name">
+                  <p className="name1">User_Name</p>
+                  <p className="username1">@user_name</p>
+                </div>
+              </div>
+              <hr className="hr2"/>
+              <Post/>
+            </div>
+          </div>
+          <div className="right1">
+            <div className="news">
+              <p>All connections</p>
+              <hr className="ll" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

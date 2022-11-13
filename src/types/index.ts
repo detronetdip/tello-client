@@ -5,7 +5,7 @@ interface ClassAndStyles {
   styles?: object;
 }
 export interface ButtonProps extends ClassAndStyles {
-  content: string;
+  content: string | React.ReactElement;
   isDisable?: boolean;
   onclick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   ripple?: boolean;

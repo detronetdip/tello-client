@@ -11,6 +11,11 @@ import ProfilePage from "./views/ProfilePage";
 import Refresh from "./views/Refresh";
 import { useHttpRequest } from "./hooks/useHttpRequest";
 import Authentication from "./components/Auth/Authentication";
+import AllPages from "./AllPages";
+import Feed from "./components/feed/Feed";
+import NotificationPage from "./views/NotificationPage";
+import Settings from "./views/Settings";
+import MessagePage from "./views/MessagePage";
 
 function App() {
   const setStore = useSetRecoilState(userState);
@@ -20,22 +25,20 @@ function App() {
   else console.log(data);
   return (
     <div className="App">
-        <Authentication>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-         
-            <Route
-              path="/profile"
-              element={
-                <Private>
-                  <ProfilePage />
-                </Private>
-              }
-            />
-            <Route path="/auth" element={<AuthPage />} />
-         
-      </Routes>
-        </Authentication>
+      <Authentication>
+        <Routes>
+          <Route path="/" element={<AllPages />}>
+            <Route path="/" element={<HomePage />}>
+              <Route index element={<Feed />} />
+              <Route path="notification" element={<NotificationPage />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
+            <Route path="/messages" element={<MessagePage />} />
+            <Route path="myprofile" element={<ProfilePage />} />
+          </Route>
+          <Route path="/auth" element={<AuthPage />} />
+        </Routes>
+      </Authentication>
     </div>
   );
 }
