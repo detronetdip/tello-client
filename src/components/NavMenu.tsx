@@ -15,7 +15,11 @@ const NavMenu = () => {
           <div className="option">
             <ul>
               {navMenu.map((e) => (
-                <li className="option1" onClick={() => location(e.path)}>
+                <li
+                  className="option1"
+                  onClick={() => location(e.path)}
+                  key={`${e.path}-t`}
+                >
                   <div className="icon">
                     <e.icon />
                   </div>

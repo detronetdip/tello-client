@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
+import {IoMdSend} from "react-icons/io"
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import ChatHead from "../components/chatHeads/ChatHead";
@@ -69,12 +70,18 @@ const MessagePage = () => {
           </div>
 
           <div className="msgbox">
-            <Input Class="msg5" placeholder={"Enter Message"} type={"text"} />
-            <Button
-              content={<RiSendPlaneFill />}
-              Class="sendicon"
-              ripple={true}
-            />
+            <div className="indv">
+              <Input Class="msg5" placeholder={"Enter Message"} type={"text"} />
+              <Button
+                content={<IoMdSend />}
+                Class="sendicon"
+                onclick={() =>
+                  setMessages((old) => {
+                    return [...old, { type: "incoming" }];
+                  })
+                }
+              />
+            </div>
           </div>
         </div>
       </div>
