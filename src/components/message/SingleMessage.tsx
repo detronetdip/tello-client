@@ -1,5 +1,5 @@
 import React from "react";
-import * as moment from "moment";
+import moment from "moment";
 
 const SingleMessage = ({ type }: { type: "incoming" | "outgoing" | string; }) => {
   return (
