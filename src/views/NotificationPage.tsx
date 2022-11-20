@@ -52,13 +52,13 @@ const NotificationPage = () => {
     <>
       <div className={`${theme}-notificationFrame`}>
         <div className="notificationWrapper">
-          {tempData.map((e) => (
-            <div className="notificationrow">
-              <p className="outer">
+          {tempData.map((e,i) => (
+            <div className="notificationrow" key={i}>
+              <div className="outer">
                 <h3>{e.notification}</h3>
                 <br />
                 <p className="time">{moment().format("y/m/D hh:mm:ss")}</p>
-              </p>
+              </div>
             </div>
           ))}
         </div>
