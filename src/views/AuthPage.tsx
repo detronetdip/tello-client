@@ -3,12 +3,11 @@ import LoginForm from "../components/authform/LoginForm";
 import RegistrationForm from "../components/authform/RegistrationForm";
 import OnbordingPopUp from "../components/popups/OnbordingPopUp";
 
-const AuthPage = () => {
+function AuthPage(){
   const [view, setView] = useState(1);
 
   return (
-    <>
-  <OnbordingPopUp/>
+    
       <div className="wrapper-g">
         <div className="row">
           <div className="left">
@@ -19,9 +18,9 @@ const AuthPage = () => {
           <div className="right">
             <div className="formbox">
               <div className="allform">
-                {view == 1 ? (
+                {view === 1 ? (
                   <LoginForm changeForm={setView} />
-                ) : view == 2 ? (
+                ) : view === 2 ? (
                   <RegistrationForm changeForm={setView} />
                 ) : (
                   ""
@@ -31,7 +30,7 @@ const AuthPage = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

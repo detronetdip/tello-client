@@ -6,10 +6,10 @@ import { BsSunFill } from "react-icons/bs";
 import { BsFillMoonFill } from "react-icons/bs";
 import Togglebutton from "../components/atoms/Togglebutton";
 
-const NavMenu = () => {
+function NavMenu () {
   const location = useNavigate();
   return (
-    <>
+    
       <div className="left1">
         <div className="fullheight">
           <div className="option">
@@ -57,7 +57,7 @@ const NavMenu = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
 import { IoCallOutline } from "react-icons/io5";
-import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
-import {IoMdSend} from "react-icons/io"
+import { RiSearch2Line } from "react-icons/ri";
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import ChatHead from "../components/chatHeads/ChatHead";
 import SingleMessage from "../components/message/SingleMessage";
 import { useTheme } from "../hooks/useTheme";
 
-const MessagePage = () => {
+function MessagePage(){
   const { theme } = useTheme();
   const [messages, setMessages] = useState([
     {
@@ -25,7 +24,7 @@ const MessagePage = () => {
   }, [messages]);
 
   return (
-    <>
+    
       <div className={`${theme}-messagePageWrapper`}>
         <div className="users">
           <div className="searchwrapper">
@@ -63,8 +62,8 @@ const MessagePage = () => {
           </div>
 
           <div className="message-area">
-            {messages.map((msg) => (
-              <SingleMessage type={msg.type} />
+            {messages.map((msg,i) => (
+              <SingleMessage type={msg.type} key={i} />
             ))}
             <span className="downref" ref={scrollBottom}></span>
           </div>
@@ -85,7 +84,7 @@ const MessagePage = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

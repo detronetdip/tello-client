@@ -2,14 +2,14 @@ import React from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { object, string } from "yup";
 
-const LoginForm = ({ changeForm }: any) => {
-  const validationSchema = Yup.object({
-    email: Yup.string()
+function LoginForm({ changeForm }: any) {
+  const validationSchema = object({
+    email: string()
       .email("Invalid email address.")
       .required("Email is required."),
-    password: Yup.string().required("Password is required."),
+    password: string().required("Password is required."),
   });
   const handelSubmit = ({
     email,
@@ -30,7 +30,6 @@ const LoginForm = ({ changeForm }: any) => {
   });
 
   return (
-    <>
       <form className="loginForm">
         <Input
           type="email"
@@ -54,7 +53,7 @@ const LoginForm = ({ changeForm }: any) => {
           <Button
             content="Login"
             Class="btn mt-3"
-            ripple={true}
+            ripple
             onclick={() => formik.handleSubmit()}
           />
         </div>
@@ -71,8 +70,7 @@ const LoginForm = ({ changeForm }: any) => {
         </div>
         <br />
       </form>
-    </>
   );
-};
+}
 
 export default LoginForm;

@@ -1,15 +1,14 @@
 import React from "react";
 import Input from "../atoms/Input";
 import { RiSearch2Fill } from "react-icons/ri";
-import { HiUserCircle } from "react-icons/hi";
 import { useTheme } from "../../hooks/useTheme";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar () {
   const { theme } = useTheme();
   const location = useNavigate();
   return (
-    <>
+    
       <div className={`${theme}-nav_rapper`}>
         <div className="fixedwrapper">
           <div className="left">
@@ -44,7 +43,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 
