@@ -9,7 +9,7 @@ import Togglebutton from "../components/atoms/Togglebutton";
 function NavMenu () {
   const location = useNavigate();
   return (
-    <>
+    
       <div className="left1">
         <div className="fullheight">
           <div className="option">
@@ -57,7 +57,7 @@ function NavMenu () {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

@@ -4,7 +4,7 @@ import Post from "../singlepost/Post";
 
 function Feed () {
   return (
-    <>
+    
       <div className="post">
         <CreatePost />
 
@@ -12,7 +12,7 @@ function Feed () {
 
         <Post/>
       </div>
-    </>
+    
   );
 };
 

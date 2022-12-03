@@ -9,7 +9,7 @@ import { useTheme } from '../../hooks/useTheme'
 function Post () {
     const {theme} = useTheme();
   return (
-    <>
+  
        <div className={`${theme}-postwrapper`}>
        <div className="mypost">
           <div className="head">
@@ -58,7 +58,7 @@ function Post () {
           </div>
         </div>
        </div>
-    </>
+    
   )
 }
 

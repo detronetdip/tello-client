@@ -5,12 +5,10 @@ import Navbar from "./components/navbar/Navbar";
 
 function AllPages() {
   return (
-    <>
       <Authentication>
         <Navbar />
         <Outlet />
       </Authentication>
-    </>
   );
 };
 

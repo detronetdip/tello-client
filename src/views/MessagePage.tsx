@@ -24,7 +24,7 @@ function MessagePage(){
   }, [messages]);
 
   return (
-    <>
+    
       <div className={`${theme}-messagePageWrapper`}>
         <div className="users">
           <div className="searchwrapper">
@@ -84,7 +84,7 @@ function MessagePage(){
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

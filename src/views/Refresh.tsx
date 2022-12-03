@@ -13,9 +13,8 @@ function Refresh() {
       .then((res) => {
         console.log(res);
 
-        if (res.status == 200) {
-          if (res.data.code == 4004) {
-            alert("token regenerated");
+        if (res.status === 200) {
+          if (res.data.code === 4004) {
             setStore((old) => {
               return {
                 ...old,

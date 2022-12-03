@@ -49,7 +49,6 @@ function NotificationPage() {
     },
   ];
   return (
-    <>
       <div className={`${theme}-notificationFrame`}>
         <div className="notificationWrapper">
           {tempData.map((e) => (
@@ -63,7 +62,6 @@ function NotificationPage() {
           ))}
         </div>
       </div>
-    </>
   );
 };
 

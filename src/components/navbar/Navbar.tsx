@@ -8,7 +8,7 @@ function Navbar () {
   const { theme } = useTheme();
   const location = useNavigate();
   return (
-    <>
+    
       <div className={`${theme}-nav_rapper`}>
         <div className="fixedwrapper">
           <div className="left">
@@ -43,7 +43,7 @@ function Navbar () {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

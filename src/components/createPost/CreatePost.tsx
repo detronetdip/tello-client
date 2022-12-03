@@ -5,7 +5,7 @@ import Input from "../atoms/Input";
 
 function CreatePost () {
   return (
-    <>
+  
       <div className="postcrte">
         <p className="name">Create a Post</p>
         <hr />
@@ -25,11 +25,11 @@ function CreatePost () {
               <BiImageAdd />
             </div>
 
-            <Button content="Post" Class="btn-1" ripple={true} />
+            <Button content="Post" Class="btn-1" ripple />
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

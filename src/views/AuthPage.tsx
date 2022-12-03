@@ -6,7 +6,7 @@ function AuthPage(){
   const [view, setView] = useState(1);
 
   return (
-    <>
+    
       <div className="wrapper-g">
         <div className="row">
           <div className="left">
@@ -17,9 +17,9 @@ function AuthPage(){
           <div className="right">
             <div className="formbox">
               <div className="allform">
-                {view == 1 ? (
+                {view === 1 ? (
                   <LoginForm changeForm={setView} />
-                ) : view == 2 ? (
+                ) : view === 2 ? (
                   <RegistrationForm changeForm={setView} />
                 ) : (
                   ""
@@ -29,7 +29,7 @@ function AuthPage(){
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

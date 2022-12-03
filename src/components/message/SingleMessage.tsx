@@ -3,7 +3,7 @@ import moment from "moment";
 
 function SingleMessage({ type }: { type: "incoming" | "outgoing" | string }) {
   return (
-    <>
+  
       <div className={`msgrow ${type}`}>
         <div className="message">
           <p>Lorem ipsum, dolor sit amet</p>
@@ -12,7 +12,7 @@ function SingleMessage({ type }: { type: "incoming" | "outgoing" | string }) {
           </div>
         </div>
       </div>
-    </>
+  
   );
 }
 

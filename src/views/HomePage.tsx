@@ -6,7 +6,7 @@ import { useTheme } from "../hooks/useTheme";
 function HomePage() {
   const { theme } = useTheme();
   return (
-    <>
+    
       <div className={`${theme}-mainframe`}>
         <div className="fixedWrapper">
         <NavMenu />
@@ -20,7 +20,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-    </>
+    
   );
 }
 
