@@ -16,7 +16,7 @@ export function useHttpRequest(
           setIsLoding(false);
           setData(res.data);
         })
-        .catch((err) => {
+        .catch(() => {
           setIsLoding(false);
         });
     }, []);

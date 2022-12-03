@@ -1,16 +1,11 @@
 import React from "react";
 import { TooltipProps } from "../../types";
 
-function Tooltip({
-  info,
-  position,
-  Class,
-  styles,
-}: TooltipProps) {
+function Tooltip({ info, position, Class, styles }: TooltipProps) {
   return (
     <>
       <div className="tooltip">
-        <span></span>
+        <span>{info + position + Class + styles}</span>
       </div>
     </>
   );

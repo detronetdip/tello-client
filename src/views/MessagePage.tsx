@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
 import { IoCallOutline } from "react-icons/io5";
-import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
-import {IoMdSend} from "react-icons/io"
+import { RiSearch2Line } from "react-icons/ri";
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import ChatHead from "../components/chatHeads/ChatHead";
