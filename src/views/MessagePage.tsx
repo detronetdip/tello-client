@@ -62,8 +62,8 @@ function MessagePage(){
           </div>
 
           <div className="message-area">
-            {messages.map((msg) => (
-              <SingleMessage type={msg.type} />
+            {messages.map((msg,i) => (
+              <SingleMessage type={msg.type} key={i} />
             ))}
             <span className="downref" ref={scrollBottom}></span>
           </div>
