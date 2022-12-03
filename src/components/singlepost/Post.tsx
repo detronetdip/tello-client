@@ -3,14 +3,13 @@ import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { BsBookmarkHeartFill } from 'react-icons/bs'
-import { FaUserCircle } from 'react-icons/fa'
 import { MdComment } from 'react-icons/md'
 import { useTheme } from '../../hooks/useTheme'
 
-const Post = () => {
+function Post () {
     const {theme} = useTheme();
   return (
-    <>
+  
        <div className={`${theme}-postwrapper`}>
        <div className="mypost">
           <div className="head">
@@ -59,7 +58,7 @@ const Post = () => {
           </div>
         </div>
        </div>
-    </>
+    
   )
 }
 

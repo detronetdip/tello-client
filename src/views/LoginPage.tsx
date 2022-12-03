@@ -21,13 +21,13 @@ function LoginPage() {
     navigate("/Profile");
   };
   return (
-    <div>
+    <>
       <input type="text" placeholder="Enter Name" ref={a} />
       <Button
       content="Login"
       onclick={setUserLoggedIn}
       />
-    </div>
+    </>
   );
 }
 

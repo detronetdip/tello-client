@@ -1,7 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef } from "react";
 import { useTheme } from "../../hooks/useTheme";
 
-const Togglebutton = ({ label }: { label: string }) => {
+function Togglebutton ({ label }: { label: string })  {
   const { theme,setCurrentTheme } = useTheme();
   const check = useRef() as MutableRefObject<HTMLInputElement>;
   const changeTheme = () => {
