@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import {object,string} from "yup";
 
 const RegistrationForm = ({ changeForm }: any) => {
   const [viewOTPForm, setViewOTPForm] = useState(false);
-  const validationSchema = Yup.object({
-    email: Yup.string()
+  const validationSchema = object({
+    email: string()
       .email("Invalid email address.")
       .required("Email is required."),
-    username: Yup.string().required("Email is required."),
-    password: Yup.string().required("Password is required."),
+    username: string().required("Email is required."),
+    password: string().required("Password is required."),
   });
-  const otpValidaionSchema = Yup.object({
-    otp: Yup.string().required("OTP is required."),
+  const otpValidaionSchema = object({
+    otp: string().required("OTP is required."),
   });
   const handelSubmit = ({
     email,

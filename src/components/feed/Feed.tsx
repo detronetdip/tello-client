@@ -2,9 +2,9 @@ import React from "react";
 import CreatePost from "../createPost/CreatePost";
 import Post from "../singlepost/Post";
 
-const Feed = () => {
+function Feed () {
   return (
-    <>
+    
       <div className="post">
         <CreatePost />
 
@@ -12,7 +12,7 @@ const Feed = () => {
 
         <Post/>
       </div>
-    </>
+    
   );
 };
 
