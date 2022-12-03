@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { FunctionComponent } from "react";
 import { ButtonProps } from "../../types";
 
-const Button: FunctionComponent<ButtonProps> = ({
+function Button({
   Class,
   onclick,
   styles,
   content,
   isDisable = false,
   ripple,
-}: ButtonProps) => {
+}: ButtonProps) {
   const rippleStyle = {
     position: "absolute",
     borderRadius: "50%",
@@ -25,7 +24,7 @@ const Button: FunctionComponent<ButtonProps> = ({
       const button = event.currentTarget;
       const diameter = Math.max(button.clientWidth, button.clientHeight);
       const radius = diameter / 2;
-      const styles = {
+      styles = {
         ...rippleStyle,
         width: `${diameter}px`,
         height: `${diameter}px`,

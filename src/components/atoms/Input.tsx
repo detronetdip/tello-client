@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { InputProps } from "../../types";
 
-const Input: FunctionComponent<InputProps> = ({
+function Input({
   placeholder,
   type,
   Class,
@@ -14,7 +14,7 @@ const Input: FunctionComponent<InputProps> = ({
   id,
   name,
   error,
-}: InputProps) => {
+}: InputProps) {
   return (
     <>
       {view === "INPUT" ? (

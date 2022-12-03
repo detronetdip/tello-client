@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../context";
 
-const Refresh = () => {
+function Refresh() {
   const navigate = useNavigate();
   const setStore = useSetRecoilState(userState);
   useEffect(() => {
@@ -13,9 +13,8 @@ const Refresh = () => {
       .then((res) => {
         console.log(res);
 
-        if (res.status == 200) {
-          if (res.data.code == 4004) {
-            alert("token regenerated");
+        if (res.status === 200) {
+          if (res.data.code === 4004) {
             setStore((old) => {
               return {
                 ...old,
