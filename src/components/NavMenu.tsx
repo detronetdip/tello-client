@@ -6,7 +6,7 @@ import { BsSunFill } from "react-icons/bs";
 import { BsFillMoonFill } from "react-icons/bs";
 import Togglebutton from "../components/atoms/Togglebutton";
 
-const NavMenu = () => {
+function NavMenu () {
   const location = useNavigate();
   return (
     <>

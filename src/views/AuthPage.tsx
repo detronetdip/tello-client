@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "../components/authform/LoginForm";
 import RegistrationForm from "../components/authform/RegistrationForm";
 
-const AuthPage = () => {
+function AuthPage(){
   const [view, setView] = useState(1);
 
   return (

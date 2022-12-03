@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../context";
 
-const Refresh = () => {
+function Refresh() {
   const navigate = useNavigate();
   const setStore = useSetRecoilState(userState);
   useEffect(() => {

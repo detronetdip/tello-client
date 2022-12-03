@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChatHead = () => {
+function ChatHead () {
   return (
     <>
       <div className="users1">

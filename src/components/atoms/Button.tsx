@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { FunctionComponent } from "react";
 import { ButtonProps } from "../../types";
 
-const Button: FunctionComponent<ButtonProps> = ({
+function Button({
   Class,
   onclick,
   styles,
   content,
   isDisable = false,
   ripple,
-}: ButtonProps) => {
+}: ButtonProps) {
   const rippleStyle = {
     position: "absolute",
     borderRadius: "50%",

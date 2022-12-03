@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Authentication from "./components/Auth/Authentication";
 import Navbar from "./components/navbar/Navbar";
 
-const AllPages = () => {
+function AllPages() {
   return (
     <>
       <Authentication>

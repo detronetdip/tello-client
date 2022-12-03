@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { TooltipProps } from "../../types";
 
-const Tooltip: FunctionComponent<TooltipProps> = ({
+function Tooltip({
   info,
   position,
   Class,
   styles,
-}: TooltipProps) => {
+}: TooltipProps) {
   return (
     <>
       <div className="tooltip">
@@ -14,6 +14,6 @@ const Tooltip: FunctionComponent<TooltipProps> = ({
       </div>
     </>
   );
-};
+}
 
 export default Tooltip;

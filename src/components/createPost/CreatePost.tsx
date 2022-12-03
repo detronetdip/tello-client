@@ -3,7 +3,7 @@ import { BiImageAdd } from "react-icons/bi";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 
-const CreatePost = () => {
+function CreatePost () {
   return (
     <>
       <div className="postcrte">

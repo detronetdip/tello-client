@@ -4,7 +4,7 @@ import Input from "../atoms/Input";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const RegistrationForm = ({ changeForm }: any) => {
+function RegistrationForm ({ changeForm }: any) {
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address.")

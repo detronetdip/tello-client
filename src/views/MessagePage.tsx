@@ -9,7 +9,7 @@ import ChatHead from "../components/chatHeads/ChatHead";
 import SingleMessage from "../components/message/SingleMessage";
 import { useTheme } from "../hooks/useTheme";
 
-const MessagePage = () => {
+function MessagePage(){
   const { theme } = useTheme();
   const [messages, setMessages] = useState([
     {

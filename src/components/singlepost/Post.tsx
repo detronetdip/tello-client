@@ -7,7 +7,7 @@ import { FaUserCircle } from 'react-icons/fa'
 import { MdComment } from 'react-icons/md'
 import { useTheme } from '../../hooks/useTheme'
 
-const Post = () => {
+function Post () {
     const {theme} = useTheme();
   return (
     <>

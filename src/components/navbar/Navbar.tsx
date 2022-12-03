@@ -5,7 +5,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { useTheme } from "../../hooks/useTheme";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+function Navbar () {
   const { theme } = useTheme();
   const location = useNavigate();
   return (
