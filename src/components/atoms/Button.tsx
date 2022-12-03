@@ -24,7 +24,7 @@ function Button({
       const button = event.currentTarget;
       const diameter = Math.max(button.clientWidth, button.clientHeight);
       const radius = diameter / 2;
-      const styles = {
+      styles = {
         ...rippleStyle,
         width: `${diameter}px`,
         height: `${diameter}px`,
