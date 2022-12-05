@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "../components/authform/LoginForm";
 import RegistrationForm from "../components/authform/RegistrationForm";
+import OnbordingPopUp from "../components/popups/OnbordingPopUp";
 
 function AuthPage(){
   const [view, setView] = useState(1);
