@@ -1,33 +1,33 @@
-import { HiHome } from "react-icons/hi";
-import { IoNotificationsCircleSharp } from "react-icons/io5";
-import { AiFillMessage } from "react-icons/ai";
-import { HiUserCircle } from "react-icons/hi";
-import { AiFillSetting } from "react-icons/ai";
+import { BiHome } from "react-icons/bi";
+import { BiBell } from "react-icons/bi";
+import { BiMessageSquareDetail } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
+import { BsGear } from "react-icons/bs";
 
 export const navMenu = [
   {
     title: "Home",
-    icon: HiHome,
+    icon: BiHome,
     path:'/'
   },
   {
     title: "Notification",
-    icon: IoNotificationsCircleSharp,
+    icon: BiBell,
     path:'/notification'
   },
   {
     title: "Messages",
-    icon: AiFillMessage,
+    icon: BiMessageSquareDetail,
     path:'/messages'
   },
   {
     title: "Profile",
-    icon: HiUserCircle,
+    icon: BiUser,
     path:'/myprofile'
   },
   {
     title: "Settings",
-    icon: AiFillSetting,
+    icon: BsGear,
     path:'/settings'
   },
 ];
