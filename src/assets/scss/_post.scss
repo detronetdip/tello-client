@@ -32,6 +32,30 @@
             color: $font-dark;
             margin-top: 0.8rem;
             font-size: 2.8rem;
+            position: relative;
+            cursor: pointer;
+            .dropmenu{
+              right: 100%;
+              position: absolute;
+              background-color: $primaryDark;
+              border: 1px solid $border-dark;
+              padding: 0.5rem;
+              border-radius: 0.8rem;
+              width: 15rem;
+              ul{
+                list-style: none;
+                li{
+                  font-size: 1.4rem;
+                  padding: 0.6rem 0.5rem;
+                  margin: 0.5rem 0;
+                  cursor: pointer;
+                  border-radius: 0.5rem;
+                  &:hover{
+                    background-color: rgba($color: $hover-dark, $alpha: 0.1);
+                  }
+                }
+              }
+            }
           }
         }
 
@@ -89,6 +113,30 @@
           .dropdown {
             margin-top: 0.8rem;
             font-size: 2.8rem;
+            position: relative;
+            cursor: pointer;
+            .dropmenu{
+              right: 100%;
+              position: absolute;
+              background-color: $white;
+              border: 1px solid $border-light;
+              padding: 0.5rem;
+              border-radius: 0.8rem;
+              width: 15rem;
+              ul{
+                list-style: none;
+                li{
+                  font-size: 1.4rem;
+                  padding: 0.6rem 0.5rem;
+                  margin: 0.5rem 0;
+                  cursor: pointer;
+                  border-radius: 0.5rem;
+                  &:hover{
+                    background-color: rgba($color: $hover-light, $alpha: 0.3);
+                  }
+                }
+              }
+            }
           }
         }
     
