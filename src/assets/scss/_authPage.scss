@@ -28,6 +28,7 @@
         border: 1px solid $border-light;
         border-radius: 28px;
         padding: 2rem;
+        box-shadow: 2px 1px 12px rgba($color: $bg-dark, $alpha: 0.1);
         .input {
           width: 100%;
           margin: 0;
