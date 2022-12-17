@@ -79,6 +79,26 @@
 
           .aa {
             display: flex;
+            .like,.cmnt,.bookmark{
+              cursor: pointer;
+            }
+          }
+        }
+        .comntsec{
+          padding: 0.2rem 0 0 1rem;
+          input{
+            width: 84%;
+            padding: 0.9rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid $border-dark;
+            color: $font-dark;
+            border-radius: 0;
+            &::placeholder{
+              font-weight: 400;
+              color: $white;
+            }
           }
         }
       }
@@ -160,6 +180,9 @@
     
           .aa {
             display: flex;
+            .like,.cmnt,.bookmark{
+              cursor: pointer;
+            }
           }
         }
       }
