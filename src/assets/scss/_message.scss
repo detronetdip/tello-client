@@ -376,6 +376,22 @@
         .message {
           background-color: $message-incoming-dark;
           border-radius: 0px 19px 19px 19px;
+          position: relative;
+          .div{
+            position: absolute;
+            right: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            width: 5rem;
+          }
+        }
+        &:hover .div{
+          display: flex;
         }
       }
       .outgoing {
@@ -383,6 +399,22 @@
         .message {
           background-color: $message-outgoing-dark;
           border-radius: 19px 19px 0 19px;
+          position: relative;
+          .div{
+            position: absolute;
+            left: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            width: 5rem;
+          }
+        }
+        &:hover .div{
+          display: flex;
         }
       }
       .msgrow {
