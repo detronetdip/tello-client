@@ -10,7 +10,7 @@ import { IoMdSend } from "react-icons/io";
 
 import Input from "../atoms/Input";
 
-function Post() {
+function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
   const { theme } = useTheme();
   const [openMenu, setOpenMenu] = useState(false);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
@@ -62,10 +62,32 @@ function Post() {
 
         <div className="postimg">
           <div>
-            <img
-              src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
-              alt="slow internet...."
-            />
+            {type === "MEDIA" ? (
+              <img
+                src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
+                alt="slow internet...."
+              />
+            ) : type === "TEXTONLY" ? (
+              <p className="textOnly">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis?
+              </p>
+            ) : (
+              <>
+                <p className="textOnlyWithM">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti, totam. Sequi, est error laudantium exercitationem
+                  temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                  alias praesentium, quae inventore, ex nisi illum facilis?
+                </p>
+                <img
+                  src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
+                  alt="slow internet...."
+                />
+              </>
+            )}
           </div>
         </div>
 
