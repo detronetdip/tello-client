@@ -22,7 +22,7 @@ function ProfilePage() {
                 </div>
               </div>
               <hr className="hr2"/>
-              <Post/>
+              <Post type="TEXTONLY"/>
             </div>
           </div>
           <div className="right1">

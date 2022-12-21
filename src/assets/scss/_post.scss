@@ -37,6 +37,7 @@
             .dropmenu{
               box-shadow: 1px 1px 14px $primaryDark;
               right: 100%;
+              top: 0;
               position: absolute;
               background-color: $primaryDark;
               border: 1px solid $border-dark;
@@ -66,6 +67,19 @@
             width: 95%;
             img {
               border-radius: 1.5rem;
+            }
+            .textOnly{
+              color: $white;
+              font-size: 1.4rem;
+              line-height: 1.8rem;
+              letter-spacing: 0.1rem;
+              padding-bottom: 0.9rem;
+            }
+            .textOnlyWithM{
+              color: $white;
+              font-size: 1.3rem;
+              line-height: 1.4rem;
+              padding-bottom: 1.2rem;
             }
           }
         }
@@ -139,6 +153,7 @@
             .dropmenu{
               box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.158);
               right: 100%;
+              top: 0;
               position: absolute;
               background-color: $white;
               border: 1px solid $border-light;
@@ -168,6 +183,19 @@
             width: 95%;
             img {
               border-radius: 1.5rem;
+            }
+            .textOnly{
+              color: black;
+              font-size: 1.4rem;
+              line-height: 1.8rem;
+              letter-spacing: 0.1rem;
+              padding-bottom: 0.9rem;
+            }
+            .textOnlyWithM{
+              color: black;
+              font-size: 1.3rem;
+              line-height: 1.4rem;
+              padding-bottom: 1.2rem;
             }
           }
         }
