@@ -9,6 +9,7 @@ import Button from "../atoms/Button";
 import { IoMdSend } from "react-icons/io";
 
 import Input from "../atoms/Input";
+import ReadMore from "../atoms/ReadMore";
 
 function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
   const { theme } = useTheme();
@@ -69,10 +70,19 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
               />
             ) : type === "TEXTONLY" ? (
               <p className="textOnly">
+                <ReadMore
+                  text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis? 
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Corrupti, totam. Sequi, est error laudantium exercitationem
                 temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis?
+                alias praesentium, quae inventore, ex nisi illum facilis? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis?"
+                />
               </p>
             ) : (
               <>
