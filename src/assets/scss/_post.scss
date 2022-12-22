@@ -190,17 +190,22 @@
           border-radius: 1.5rem;
         }
         .textOnly {
-          color: black;
-          font-size: 1.4rem;
+          color: $black;
+          font-size: 1.36rem;
           line-height: 1.8rem;
-          letter-spacing: 0.1rem;
           padding-bottom: 0.9rem;
         }
         .textOnlyWithM {
-          color: black;
+          color: $black;
           font-size: 1.3rem;
           line-height: 1.4rem;
           padding-bottom: 1.2rem;
+        }
+        .rm{
+          margin-left: 0.21rem;
+          font-size: 1.5rem;
+          font-weight: 550;
+          cursor: pointer;
         }
       }
     }
