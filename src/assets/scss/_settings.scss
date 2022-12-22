@@ -1,8 +1,94 @@
-.DARK-settingsframe{
-    flex: 5;
-    padding: 2rem;
+.DARK-settingsframe {
+  flex: 5;
+  padding: 2rem;
+  h1 {
+    color: $font-dark;
+  }
+  .settingsbox {
+    margin-top: 1.2rem;
+    border: 1px solid $border-dark;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: $primaryDark;
+    form {
+      padding: 0.5rem 1.2rem;
+      .formrow {
+        margin: 1rem 0;
+        label {
+          color: $font-dark;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+        input {
+          margin: 0;
+          margin-top: 0.4rem;
+          background-color: $inner-dark;
+          border: 1px solid $border-dark;
+          width: 100%;
+          color: $white;
+          padding: 1.2rem 0.7rem;
+        }
+        p{
+            font-size: 1.2rem;
+            margin-top: 0.8rem;
+            color: $font-dark2;
+        }
+      }
+      .btnrow{
+        @include centerByFlex;
+        justify-content: end;
+        button{
+            background-color: $icon-dark;
+            margin-right: 0;
+        }
+      }
+    }
+  }
 }
-.LIGHT-settingsframe{
-    flex: 5;
-    padding: 2rem;
+.LIGHT-settingsframe {
+  flex: 5;
+  padding: 2rem;
+  h1 {
+    color: $font-light2;
+  }
+  .settingsbox {
+    margin-top: 1.2rem;
+    border: 1px solid $border-light;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: $white;
+    form {
+      padding: 0.5rem 1.2rem;
+      .formrow {
+        margin: 1rem 0;
+        label {
+          color: $font-light2;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+        input {
+          margin: 0;
+          margin-top: 0.4rem;
+          background-color: $inner-light;
+          border: 1px solid $border-light;
+          width: 100%;
+          color: $font-light2;
+          padding: 1.2rem 0.7rem;
+        }
+        p{
+            font-size: 1.2rem;
+            margin-top: 0.8rem;
+            color: $font-dark2;
+        }
+      }
+      .btnrow{
+        @include centerByFlex;
+        justify-content: end;
+        button{
+            background-color: $icon-light;
+            margin-right: 0;
+        }
+      }
+    }
+  }
 }
