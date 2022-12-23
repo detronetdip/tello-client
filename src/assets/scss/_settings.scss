@@ -108,6 +108,17 @@
     .checkbox:checked + .label .switch {
       right: 0px;
     }
+    .flexrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.2rem;
+
+      h4 {
+        color: $font-dark;
+        font-size: 1.3rem;
+      }
+    }
   }
 }
 .LIGHT-settingsframe {
@@ -213,6 +224,17 @@
       border: 0 solid #bbb;
       border-radius: 20px;
       transition: all 0.3s ease-in 0s;
+    }
+    .flexrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.2rem;
+
+      h4 {
+        color: $font-light2;
+        font-size: 1.3rem;
+      }
     }
   }
 }

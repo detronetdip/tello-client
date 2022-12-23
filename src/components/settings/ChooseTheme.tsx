@@ -20,21 +20,23 @@ function ChooseTheme({ label }: { label: string }) {
 
   return (
     <>
-      <h1 className="mt-2">Set Theme</h1>
       <div className="settingsbox">
-        <div className="toggle-switch">
-          <input
-            type="checkbox"
-            className="checkbox"
-            ref={check}
-            id={label}
-            onClick={changeTheme}
-          />
-          <label className="label" htmlFor={label}>
-            <span className="inner" />
-            <span className="switch" />
-          </label>
-        </div>{" "}
+        <div className="flexrow">
+          <h4>Toggle theme</h4>
+          <div className="toggle-switch">
+            <input
+              type="checkbox"
+              className="checkbox"
+              ref={check}
+              id={label}
+              onClick={changeTheme}
+            />
+            <label className="label" htmlFor={label}>
+              <span className="inner" />
+              <span className="switch" />
+            </label>
+          </div>{" "}
+        </div>
       </div>
     </>
   );
