@@ -1,4 +1,240 @@
-.DARK-settingsframe{
-    flex: 5;
-    padding: 2rem;
+.DARK-settingsframe {
+  flex: 5;
+  padding: 2rem;
+  h1 {
+    color: $font-dark;
+  }
+  .settingsbox {
+    margin-top: 1.2rem;
+    border: 1px solid $border-dark;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: $primaryDark;
+    form {
+      padding: 0.5rem 1.2rem;
+      .formrow {
+        margin: 1rem 0;
+        label {
+          color: $font-dark;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+        input {
+          margin: 0;
+          margin-top: 0.4rem;
+          background-color: $inner-dark;
+          border: 1px solid $border-dark;
+          width: 100%;
+          color: $white;
+          padding: 1.2rem 0.7rem;
+        }
+        p {
+          font-size: 1.2rem;
+          margin-top: 0.8rem;
+          color: $font-dark2;
+        }
+      }
+      .btnrow {
+        @include centerByFlex;
+        justify-content: end;
+        button {
+          background-color: $icon-dark;
+          margin-right: 0;
+        }
+      }
+    }
+    .toggle-switch {
+      position: relative;
+      width: 65px;
+      display: inline-block;
+      text-align: left;
+    }
+    .checkbox {
+      display: none;
+    }
+    .label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 0 solid #bbb;
+      border-radius: 20px;
+    }
+    .inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+    }
+    .inner:before,
+    .inner:after {
+      float: left;
+      width: 50%;
+      height: 2.5rem;
+      padding: 0;
+      line-height: 2.5rem;
+      color: #fff;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    .inner:before {
+      content: " ";
+      padding-left: 10px;
+      background-color: #746cfe;
+      color: #fff;
+    }
+    .inner:after {
+      content: " ";
+      padding-right: 10px;
+      background-color: #bbb;
+      color: #fff;
+      text-align: right;
+    }
+    .switch {
+      display: block;
+      width: 15px;
+      margin: 5px;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 40px;
+      border: 0 solid #bbb;
+      border-radius: 20px;
+      transition: all 0.3s ease-in 0s;
+    }
+    .checkbox:checked + .label .inner {
+      margin-left: 0;
+    }
+    .checkbox:checked + .label .switch {
+      right: 0px;
+    }
+    .flexrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.2rem;
+
+      h4 {
+        color: $font-dark;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+.LIGHT-settingsframe {
+  flex: 5;
+  padding: 2rem;
+  h1 {
+    color: $font-light2;
+  }
+  .settingsbox {
+    margin-top: 1.2rem;
+    border: 1px solid $border-light;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: $white;
+    form {
+      padding: 0.5rem 1.2rem;
+      .formrow {
+        margin: 1rem 0;
+        label {
+          color: $font-light2;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+        input {
+          margin: 0;
+          margin-top: 0.4rem;
+          background-color: $inner-light;
+          border: 1px solid $border-light;
+          width: 100%;
+          color: $font-light2;
+          padding: 1.2rem 0.7rem;
+        }
+        p {
+          font-size: 1.2rem;
+          margin-top: 0.8rem;
+          color: $font-dark2;
+        }
+      }
+      .btnrow {
+        @include centerByFlex;
+        justify-content: end;
+        button {
+          background-color: $icon-light;
+          margin-right: 0;
+        }
+      }
+    }
+    .toggle-switch {
+      position: relative;
+      width: 65px;
+      display: inline-block;
+      text-align: left;
+    }
+    .checkbox {
+      display: none;
+    }
+    .label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 0 solid #bbb;
+      border-radius: 20px;
+    }
+    .inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+    }
+    .inner:before,
+    .inner:after {
+      float: left;
+      width: 50%;
+      height: 2.5rem;
+      padding: 0;
+      line-height: 2.5rem;
+      color: #fff;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    .inner:before {
+      content: " ";
+      padding-left: 10px;
+      background-color: #746cfe;
+      color: #fff;
+    }
+    .inner:after {
+      content: " ";
+      padding-right: 10px;
+      background-color: #bbb;
+      color: #fff;
+      text-align: right;
+    }
+    .switch {
+      display: block;
+      width: 15px;
+      margin: 5px;
+      background: #fff;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 40px;
+      border: 0 solid #bbb;
+      border-radius: 20px;
+      transition: all 0.3s ease-in 0s;
+    }
+    .flexrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.2rem;
+
+      h4 {
+        color: $font-light2;
+        font-size: 1.3rem;
+      }
+    }
+  }
 }

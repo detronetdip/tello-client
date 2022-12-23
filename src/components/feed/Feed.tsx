@@ -10,7 +10,9 @@ function Feed () {
 
         <hr className="hr1" />
 
+        <Post type="TEXTONLY"/>
         <Post type="TEXTMEDIA"/>
+        <Post type="TEXTONLY"/>
       </div>
     
   );

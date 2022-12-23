@@ -10,7 +10,6 @@
       overflow: hidden;
       cursor: pointer;
     }
-
     .username5 {
       display: flex;
       border: 1px solid $border-light;
@@ -19,11 +18,14 @@
       width: 100%;
       align-items: center;
       padding: 1rem 1rem 1rem 1rem;
+      color: $black;
 
       .icon {
-        font-size: 12.5rem;
         @include centerByFlex;
-        color: $icon-light;
+        height: 15rem;
+        width: 15rem;
+        border-radius: 50%;
+        overflow: hidden;
       }
 
       .name {
