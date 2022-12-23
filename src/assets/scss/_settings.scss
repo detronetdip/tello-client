@@ -214,11 +214,5 @@
       border-radius: 20px;
       transition: all 0.3s ease-in 0s;
     }
-    .checkbox:checked + .label .inner {
-      margin-left: 0;
-    }
-    .checkbox:checked + .label .switch {
-      right: 0px;
-    }
   }
 }
