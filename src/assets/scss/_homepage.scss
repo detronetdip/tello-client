@@ -134,7 +134,7 @@
             cursor: pointer;
             .icon {
               color: $icon-light;
-              font-size: 3rem;
+              font-size: 2.5rem;
               @include centerByFlex;
               margin-right: 0.5rem;
             }
@@ -170,7 +170,11 @@
           .aa {
             margin-left: 0.8rem;
             .imgicon {
-              font-size: 3.5rem;
+              height: 4.5rem;
+              width: 4.5rem;
+              border-radius: 50%;
+              overflow: hidden;
+              cursor: pointer;
             }
             display: flex;
             justify-content: space-between;
@@ -213,7 +217,7 @@
       }
 
       .postcrte {
-        padding: 1.5rem;
+        padding: 1rem 1.5rem;
         background-color: $white;
         border: 1px solid $border-light;
         border-radius: 2rem;
@@ -233,14 +237,21 @@
           .postform {
             .aa {
               margin: 0;
-              margin-top: 1rem;
+              margin-top: 0.8rem;
               width: 100%;
-              height: 10rem;
+              height: 9rem;
               resize: none;
               background-color: rgba($color: $inner-light, $alpha: 0.45);
               border: 1px solid $border-light;
               color: $font-light;
               white-space: pre-wrap;
+              &::-webkit-scrollbar {
+                width: 0.5rem;
+              }
+              &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: #bbb;
+              }
             }
           }
 
@@ -250,17 +261,18 @@
             justify-content: end;
 
             .imgicon {
-              font-size: 2.5rem;
+              font-size: 2.9rem;
               color: $icon-light;
               cursor: pointer;
               @include centerByFlex;
+              margin-top: 0.8rem;
             }
 
             .btn-1 {
-              font-size: 1.5rem;
+              font-size: 1.4rem;
               background-color: $icon-light;
-
               color: #ffffff;
+              margin: 0.8rem 0 0 0.8rem;
             }
           }
         }
@@ -432,7 +444,7 @@
             cursor: pointer;
             .icon {
               color: $icon-dark;
-              font-size: 3rem;
+              font-size: 2.5rem;
               @include centerByFlex;
               margin-right: 0.5rem;
             }
@@ -469,7 +481,11 @@
             margin-left: 0.8rem;
             .imgicon {
               color: $font-dark;
-              font-size: 3.5rem;
+              height: 4.5rem;
+              width: 4.5rem;
+              border-radius: 50%;
+              overflow: hidden;
+              cursor: pointer;
             }
             display: flex;
             justify-content: space-between;
@@ -515,7 +531,7 @@
       }
 
       .postcrte {
-        padding: 1.5rem;
+        padding: 1rem 1.5rem;
         background-color: $primaryDark;
         border: 1px solid $border-dark;
         border-radius: 2rem;
@@ -535,14 +551,21 @@
           .postform {
             .aa {
               margin: 0;
-              margin-top: 1rem;
+              margin-top: 0.8rem;
               width: 100%;
-              height: 10rem;
+              height: 9rem;
               resize: none;
               background-color: rgba($color: $inner-dark, $alpha: 0.45);
               border: 1px solid $border-dark;
               color: $font-dark;
               white-space: pre-wrap;
+              &::-webkit-scrollbar {
+                width: 0.5rem;
+              }
+              &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: $scrollbar-light;
+              }
             }
           }
 
@@ -552,17 +575,18 @@
             justify-content: end;
 
             .imgicon {
-              font-size: 2.5rem;
+              font-size: 2.9rem;
               color: $icon-dark;
               cursor: pointer;
               @include centerByFlex;
+              margin-top: 0.8rem;
             }
 
             .btn-1 {
-              font-size: 1.5rem;
+              font-size: 1.4rem;
               background-color: $icon-dark;
-
               color: #ffffff;
+              margin: 0.8rem 0 0 0.8rem;
             }
           }
         }
@@ -598,5 +622,3 @@
     }
   }
 }
-
-

@@ -1,17 +1,30 @@
-import React from "react";
-import { FaUserCircle } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { IoMdSend } from "react-icons/io";
 import { IoCallOutline } from "react-icons/io5";
-import { RiSearch2Line, RiSendPlaneFill } from "react-icons/ri";
+import { RiSearch2Line } from "react-icons/ri";
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
 import ChatHead from "../components/chatHeads/ChatHead";
 import SingleMessage from "../components/message/SingleMessage";
 import { useTheme } from "../hooks/useTheme";
 
-const MessagePage = () => {
+function MessagePage(){
   const { theme } = useTheme();
+  const [messages, setMessages] = useState([
+    {
+      type: "incoming",
+    },
+    {
+      type: "outgoing",
+    },
+  ]);
+  const scrollBottom = useRef() as React.MutableRefObject<HTMLDivElement>;
+  useEffect(() => {
+    scrollBottom.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
-    <>
+    
       <div className={`${theme}-messagePageWrapper`}>
         <div className="users">
           <div className="searchwrapper">
@@ -49,20 +62,29 @@ const MessagePage = () => {
           </div>
 
           <div className="message-area">
-            <SingleMessage />
+            {messages.map((msg,i) => (
+              <SingleMessage type={msg.type} key={i} />
+            ))}
+            <span className="downref" ref={scrollBottom}></span>
           </div>
 
           <div className="msgbox">
-            <Input Class="msg5" placeholder={"Enter Message"} type={"text"} />
-            <Button
-              content={<RiSendPlaneFill />}
-              Class="sendicon"
-              ripple={true}
-            />
+            <div className="indv">
+              <Input Class="msg5" placeholder={"Enter Message"} type={"text"} />
+              <Button
+                content={<IoMdSend />}
+                Class="sendicon"
+                onclick={() =>
+                  setMessages((old) => {
+                    return [...old, { type: "incoming" }];
+                  })
+                }
+              />
+            </div>
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 

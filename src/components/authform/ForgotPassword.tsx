@@ -2,37 +2,26 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import {object,string} from "yup";
+import { object, string } from "yup";
 
-const RegistrationForm = ({ changeForm }: any) => {
+function ForgotPassword({ changeForm }: any) {
   const [viewOTPForm, setViewOTPForm] = useState(false);
+
   const validationSchema = object({
     email: string()
       .email("Invalid email address.")
       .required("Email is required."),
-    username: string().required("Email is required."),
-    password: string().required("Password is required."),
   });
   const otpValidaionSchema = object({
     otp: string().required("OTP is required."),
   });
-  const handelSubmit = ({
-    email,
-    password,
-    username,
-  }: {
-    email: string;
-    password: string;
-    username: string;
-  }) => {
-    console.log(email, password, username);
-    setViewOTPForm(true);
+  const handelSubmit = ({ email }: { email: string }) => {
+    console.log(email);
+    setViewOTPForm(true)
   };
-  const registrationForm = useFormik({
+  const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
-      username: "",
     },
     validationSchema,
     onSubmit: handelSubmit,
@@ -51,49 +40,25 @@ const RegistrationForm = ({ changeForm }: any) => {
   return (
     <>
       {!viewOTPForm ? (
-        <form className="loginForm">
+        <form className="ForgotPassword">
           <Input
             type="email"
             placeholder="Enter your email"
             Class="input mt-2"
-            onChange={registrationForm.handleChange}
-            value={registrationForm.values.email}
+            onChange={formik.handleChange}
+            value={formik.values.email}
             name="email"
-            error={
-              registrationForm.touched.email && registrationForm.errors.email
-            }
-          />
-          <Input
-            type="text"
-            placeholder="Enter your username"
-            Class="input mt-2"
-            onChange={registrationForm.handleChange}
-            value={registrationForm.values.username}
-            name="username"
-            error={
-              registrationForm.touched.username &&
-              registrationForm.errors.username
-            }
-          />
-          <Input
-            type="password"
-            placeholder="Enter your password"
-            Class="input mt-3"
-            onChange={registrationForm.handleChange}
-            value={registrationForm.values.password}
-            name="password"
-            error={
-              registrationForm.touched.password &&
-              registrationForm.errors.password
-            }
+            error={formik.touched.email && formik.errors.email}
           />
           <div className="btnrow">
             <Button
-              content="Register"
+              content="Submit"
               Class="btn mt-3"
-              onclick={() => registrationForm.handleSubmit()}
+              ripple
+              onclick={() => formik.handleSubmit()}
             />
           </div>
+          <hr className="line" />
           <div className="fgtp">
             <span onClick={() => changeForm(1)}>Login</span>
           </div>
@@ -123,6 +88,6 @@ const RegistrationForm = ({ changeForm }: any) => {
       )}
     </>
   );
-};
+}
 
-export default RegistrationForm;
+export default ForgotPassword;

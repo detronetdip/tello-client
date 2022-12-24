@@ -5,10 +5,10 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 axiosInstance.interceptors.response.use(
-  function (response) {
+   (response)=>{
     return response;
   },
-  function (error) {
+   (error)=>{
     console.log(error, "http error");
     return Promise.reject(error);
   }

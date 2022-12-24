@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "../hooks/useTheme";
 import moment from "moment";
 
-const NotificationPage = () => {
+function NotificationPage() {
   const { theme } = useTheme();
   const tempData = [
     {
@@ -49,21 +49,19 @@ const NotificationPage = () => {
     },
   ];
   return (
-    <>
       <div className={`${theme}-notificationFrame`}>
         <div className="notificationWrapper">
-          {tempData.map((e) => (
-            <div className="notificationrow">
-              <p className="outer">
+          {tempData.map((e,i) => (
+            <div className="notificationrow" key={i}>
+              <div className="outer">
                 <h3>{e.notification}</h3>
                 <br />
                 <p className="time">{moment().format("y/m/D hh:mm:ss")}</p>
-              </p>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </>
   );
 };
 

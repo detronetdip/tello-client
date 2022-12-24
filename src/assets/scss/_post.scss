@@ -1,116 +1,231 @@
-.DARK-postwrapper{
+.DARK-postwrapper {
+  .mypost {
+    background-color: $primaryDark;
+    padding: 1.5rem 1.2rem;
+    border: 1px solid $border-dark;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    .head {
+      display: flex;
+      justify-content: space-between;
 
-    .mypost {
-        background-color: $primaryDark;
-        padding: 1.5rem 1.2rem;
-        border: 1px solid $border-dark;
-        border-radius: 2rem;
-        .head {
-          display: flex;
-          justify-content: space-between;
-
-          .aa {
-            margin-left: 0.8rem;
-            .imgicon {
-              color: $font-dark;
-              font-size: 3.5rem;
-            }
-            display: flex;
-            justify-content: space-between;
-
-            .username {
-              color: $font-dark;
-              font-size: 1.8rem;
-              margin-left: 1rem;
-              .date {
-                font-size: 1.2rem;
-              }
-            }
-          }
-
-          .dropdown {
-            color: $font-dark;
-            margin-top: 0.8rem;
-            font-size: 2.8rem;
-          }
-        }
-
-        .postimg {
-          @include centerByFlex;
-          div {
-            width: 95%;
-            img {
-              border-radius: 1.5rem;
-            }
-          }
-        }
-
-        .option1 {
+      .aa {
+        margin-left: 0.8rem;
+        .imgicon {
           color: $font-dark;
-          font-size: 2.5rem;
-          display: flex;
-          justify-content: space-between;
-          padding: 0.8rem 1.3rem 0 1.3rem;
+          font-size: 3.5rem;
+        }
+        display: flex;
+        justify-content: space-between;
 
-          .aa {
-            display: flex;
+        .username {
+          color: $font-dark;
+          font-size: 1.8rem;
+          margin-left: 1rem;
+          .date {
+            font-size: 1.2rem;
           }
         }
       }
-}
-.LIGHT-postwrapper{
 
-    .mypost {
-        background-color: $white;
-        padding: 1.5rem 1.2rem;
-        border: 1px solid $border-light;
-        border-radius: 2rem;
-        .head {
-          display: flex;
-          justify-content: space-between;
-    
-          .aa {
-            margin-left: 0.8rem;
-            .imgicon {
-              font-size: 3.5rem;
-            }
-            display: flex;
-            justify-content: space-between;
-    
-            .username {
-              font-size: 1.8rem;
-              margin-left: 1rem;
-              .date {
-                font-size: 1.2rem;
+      .dropdown {
+        color: $font-dark;
+        margin-top: 0.8rem;
+        font-size: 2.8rem;
+        position: relative;
+        cursor: pointer;
+        .dropmenu {
+          box-shadow: 1px 1px 14px $primaryDark;
+          right: 100%;
+          top: 0;
+          position: absolute;
+          background-color: $primaryDark;
+          border: 1px solid $border-dark;
+          padding: 0.5rem;
+          border-radius: 0.8rem;
+          width: 15rem;
+          ul {
+            list-style: none;
+            li {
+              font-size: 1.4rem;
+              padding: 0.6rem 0.5rem;
+              margin: 0.5rem 0;
+              cursor: pointer;
+              border-radius: 0.5rem;
+              &:hover {
+                background-color: rgba($color: $hover-dark, $alpha: 0.1);
               }
             }
           }
-    
-          .dropdown {
-            margin-top: 0.8rem;
-            font-size: 2.8rem;
-          }
         }
-    
-        .postimg {
-          @include centerByFlex;
-          div {
-            width: 95%;
-            img {
-              border-radius: 1.5rem;
-            }
-          }
+      }
+    }
+
+    .postimg {
+      @include centerByFlex;
+      div {
+        width: 95%;
+        img {
+          border-radius: 1.5rem;
         }
-    
-        .option1 {
-          font-size: 2.5rem;
-          display: flex;
-          justify-content: space-between;
-          padding: 0.8rem 1.3rem 0 1.3rem;
-    
-          .aa {
-            display: flex;
+        .textOnly {
+          color: $white;
+          font-size: 1.36rem;
+          line-height: 1.8rem;
+          padding-bottom: 0.9rem;
+        }
+        .textOnlyWithM {
+          color: $white;
+          font-size: 1.3rem;
+          line-height: 1.4rem;
+          padding-bottom: 1.2rem;
+        }
+        .rm{
+          margin-left: 0.21rem;
+          font-size: 1.5rem;
+          font-weight: 550;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .option1 {
+      color: $font-dark;
+      font-size: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 1.3rem 0 1.3rem;
+
+      .aa {
+        display: flex;
+        .like,
+        .cmnt,
+        .bookmark {
+          cursor: pointer;
+        }
+      }
+    }
+    .comntsec {
+      padding: 0.2rem 0 0 1rem;
+      input {
+        width: 84%;
+        padding: 0.9rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $border-dark;
+        color: $font-dark;
+        border-radius: 0;
+        &::placeholder {
+          font-weight: 400;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+.LIGHT-postwrapper {
+  .mypost {
+    background-color: $white;
+    padding: 1.5rem 1.2rem;
+    border: 1px solid $border-light;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    .head {
+      display: flex;
+      justify-content: space-between;
+
+      .aa {
+        margin-left: 0.8rem;
+        .imgicon {
+          font-size: 3.5rem;
+        }
+        display: flex;
+        justify-content: space-between;
+
+        .username {
+          font-size: 1.8rem;
+          margin-left: 1rem;
+          .date {
+            font-size: 1.2rem;
           }
         }
       }
+
+      .dropdown {
+        margin-top: 0.8rem;
+        font-size: 2.8rem;
+        position: relative;
+        cursor: pointer;
+        .dropmenu {
+          box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.158);
+          right: 100%;
+          top: 0;
+          position: absolute;
+          background-color: $white;
+          border: 1px solid $border-light;
+          padding: 0.5rem;
+          border-radius: 0.8rem;
+          width: 15rem;
+          ul {
+            list-style: none;
+            li {
+              font-size: 1.4rem;
+              padding: 0.6rem 0.5rem;
+              margin: 0.5rem 0;
+              cursor: pointer;
+              border-radius: 0.5rem;
+              &:hover {
+                background-color: rgba($color: $hover-light, $alpha: 0.3);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .postimg {
+      @include centerByFlex;
+      div {
+        width: 95%;
+        img {
+          border-radius: 1.5rem;
+        }
+        .textOnly {
+          color: $black;
+          font-size: 1.36rem;
+          line-height: 1.8rem;
+          padding-bottom: 0.9rem;
+        }
+        .textOnlyWithM {
+          color: $black;
+          font-size: 1.3rem;
+          line-height: 1.4rem;
+          padding-bottom: 1.2rem;
+        }
+        .rm{
+          margin-left: 0.21rem;
+          font-size: 1.5rem;
+          font-weight: 550;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .option1 {
+      font-size: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 1.3rem 0 1.3rem;
+
+      .aa {
+        display: flex;
+        .like,
+        .cmnt,
+        .bookmark {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

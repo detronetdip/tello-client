@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       border: 1px solid $border-light;
-      border-radius: 0.6rem;
+      border-radius: 2em;
       background-color: $inner-light;
       padding: 0.4rem;
       &::placeholder {
@@ -39,7 +39,7 @@
         background-color: $white;
         border: 1px solid $border-light;
         padding: 0.6rem;
-        border-radius: 0.6rem;
+        border-radius: 50%;
       }
     }
     .chatheads {
@@ -122,7 +122,7 @@
         cursor: pointer;
         color: $icon-light;
         transition: 0.5s;
-        &:hover{
+        &:hover {
           background-color: $icon-light;
           color: $white;
         }
@@ -147,13 +147,21 @@
       .incoming {
         justify-content: start;
         .message {
-          background-color: $icon-light;
+          background-color: $message-incoming-light;
+          border-radius: 0px 19px 19px 19px;
+          -webkit-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
         }
       }
       .outgoing {
         justify-content: end;
         .message {
-          background-color: $icon-dark;
+          background-color: $message-outgoing-light;
+          border-radius: 19px 19px 0 19px;
+          -webkit-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
         }
       }
       .msgrow {
@@ -162,8 +170,7 @@
         .message {
           min-width: 10rem;
           max-width: 50rem;
-          padding: 1rem;
-          border-radius: 8px;
+          padding: 1rem 1.2rem;
           color: $white;
           font-size: 1.5rem;
           font-weight: 400;
@@ -182,26 +189,35 @@
       max-height: 8rem;
       background-color: $white;
       border-top: 1px solid $border-light;
+
       display: flex;
       align-items: center;
       padding: 0.9rem 2rem;
+      .indv {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        background-color: $input-bg-light;
+        border-radius: 2.8rem;
+        border: 1px solid $border-light;
+      }
       .msg5 {
         margin: 0;
         width: 95%;
         border: 0;
         outline: 0;
-        background-color: $icon-light2;
-        padding: 1.5rem;
-        border: 1px solid $border-light;
+        padding: 1rem;
+        background-color: transparent;
       }
       .sendicon {
-        padding: 0.7rem;
-        font-size: 3rem;
+        padding: 0.1rem;
         @include centerByFlex;
-        background-color: $icon-light;
+        background-color: transparent;
+        color: $icon-light;
         margin-left: 0.5rem;
-        border-radius: 8px;
+        border-radius: 50%;
         cursor: pointer;
+        font-size: 3rem;
       }
     }
   }
@@ -222,7 +238,7 @@
       display: flex;
       align-items: center;
       border: 1px solid $border-dark;
-      border-radius: 0.6rem;
+      border-radius: 2rem;
       background-color: $inner-dark;
       padding: 0.4rem;
       &::placeholder {
@@ -248,7 +264,7 @@
         background-color: $primaryDark;
         border: 1px solid $border-dark;
         padding: 0.6rem;
-        border-radius: 0.6rem;
+        border-radius: 50%;
       }
     }
     .chatheads {
@@ -325,7 +341,7 @@
       }
       .nn {
         background-color: $primaryDark;
-        
+
         border: 1px solid $border-dark;
         padding: 0.9rem;
         border-radius: 8px;
@@ -333,7 +349,7 @@
         cursor: pointer;
         color: $icon-dark;
         transition: 0.5s;
-        &:hover{
+        &:hover {
           background-color: $icon-dark;
           color: $white;
         }
@@ -358,13 +374,47 @@
       .incoming {
         justify-content: start;
         .message {
-          background-color: $icon-dark;
+          background-color: $message-incoming-dark;
+          border-radius: 0px 19px 19px 19px;
+          position: relative;
+          .div{
+            position: absolute;
+            right: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            width: 5rem;
+          }
+        }
+        &:hover .div{
+          display: flex;
         }
       }
       .outgoing {
         justify-content: end;
         .message {
-          background-color: $icon-dark;
+          background-color: $message-outgoing-dark;
+          border-radius: 19px 19px 0 19px;
+          position: relative;
+          .div{
+            position: absolute;
+            left: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            width: 5rem;
+          }
+        }
+        &:hover .div{
+          display: flex;
         }
       }
       .msgrow {
@@ -373,8 +423,7 @@
         .message {
           min-width: 10rem;
           max-width: 50rem;
-          padding: 1rem;
-          border-radius: 8px;
+          padding: 1rem 1.2rem;
           color: $white;
           font-size: 1.5rem;
           font-weight: 400;
@@ -396,24 +445,31 @@
       display: flex;
       align-items: center;
       padding: 0.9rem 2rem;
+      .indv {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        background-color: $input-bg-dark;
+        border-radius: 2.8rem;
+        border: 1px solid $border-dark;
+      }
       .msg5 {
         margin: 0;
         width: 95%;
         border: 0;
         outline: 0;
-        background-color: $icon-light2;
-        padding: 1.5rem;
-        border: 1px solid $border-dark;
-        color: $white;
+        padding: 1rem;
+        background-color: transparent;
       }
       .sendicon {
-        padding: 0.7rem;
-        font-size: 3rem;
+        padding: 0.1rem;
         @include centerByFlex;
-        background-color: $icon-dark;
+        background-color: transparent;
+        color: $message-outgoing-dark;
         margin-left: 0.5rem;
-        border-radius: 8px;
+        border-radius: 50%;
         cursor: pointer;
+        font-size: 3rem;
       }
     }
   }

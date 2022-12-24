@@ -4,25 +4,23 @@ import Input from "../atoms/Input";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 
-function LoginForm({ changeForm }: any) {
+function ChangePassword({ changeForm }: any) {
   const validationSchema = object({
-    email: string()
-      .email("Invalid email address.")
-      .required("Email is required."),
     password: string().required("Password is required."),
+    confirmPassword: string().required("Password is required."),
   });
   const handelSubmit = ({
-    email,
+    confirmPassword,
     password,
   }: {
-    email: string;
+    confirmPassword: string;
     password: string;
   }) => {
-    console.log(email, password);
+    console.log(confirmPassword, password);
   };
   const formik = useFormik({
     initialValues: {
-      email: "",
+        confirmPassword: "",
       password: "",
     },
     validationSchema,
@@ -30,16 +28,7 @@ function LoginForm({ changeForm }: any) {
   });
 
   return (
-      <form className="loginForm">
-        <Input
-          type="email"
-          placeholder="Enter your email"
-          Class="input mt-2"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          name="email"
-          error={formik.touched.email && formik.errors.email}
-        />
+      <form className="ChangePassword">
         <Input
           type="password"
           placeholder="Enter your password"
@@ -49,28 +38,28 @@ function LoginForm({ changeForm }: any) {
           name="password"
           error={formik.touched.password && formik.errors.password}
         />
+         <Input
+          type="password"
+          placeholder="Re-type password"
+          Class="input mt-2"
+          onChange={formik.handleChange}
+          value={formik.values.confirmPassword}
+          name="email"
+          error={formik.touched.confirmPassword && formik.errors.confirmPassword}
+        />
         <div className="btnrow">
           <Button
-            content="Login"
+            content="Change"
             Class="btn mt-3"
             ripple
             onclick={() => formik.handleSubmit()}
           />
         </div>
         <div className="fgtp">
-          <span onClick={()=>changeForm(3)}>Forgot password?</span>
+          <span onClick={()=>changeForm(1)}>Login</span>
         </div>
-        <hr className="line" />
-        <div className="btnrow">
-          <Button
-            content="Create Account"
-            Class="btn mt-3 cg"
-            onclick={() => changeForm(2)}
-          />
-        </div>
-        <br />
       </form>
   );
 }
 
-export default LoginForm;
+export default ChangePassword;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { currentTheme } from "../context";
 

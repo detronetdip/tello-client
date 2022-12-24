@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
-import { useTheme } from "../hooks/useTheme";
-import NavMenu from "../components/NavMenu";
 import { Outlet } from "react-router-dom";
+import NavMenu from "../components/NavMenu";
+import { useTheme } from "../hooks/useTheme";
 
 function HomePage() {
   const { theme } = useTheme();
   return (
-    <>
+    
       <div className={`${theme}-mainframe`}>
         <div className="fixedWrapper">
         <NavMenu />
@@ -21,7 +20,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-    </>
+    
   );
 }
 

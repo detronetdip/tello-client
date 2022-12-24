@@ -1,24 +1,24 @@
 import React from "react";
-import * as moment from "moment";
+import moment from "moment";
+import { BiTrash } from "react-icons/bi";
 
-const SingleMessage = () => {
+
+function SingleMessage({ type }: { type: "incoming" | "outgoing" | string }) {
   return (
-    <>
-      <div className="msgrow incoming">
+  
+      <div className={`msgrow ${type}`}>
         <div className="message">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab id
-            harum sint molestias perspiciatis neque fuga aperiam officia a
-            voluptas consequuntur, deleniti, adipisci nemo fugit veritatis!
-            Ipsum asperiores sed porro.
-          </p>
+          <p>Lorem ipsum, dolor sit amet</p>
           <div className="timerow">
             <span>{moment().format("LT")}</span>
           </div>
+          <div className="div">
+            <BiTrash/>
+          </div>
         </div>
       </div>
-    </>
+  
   );
-};
+}
 
 export default SingleMessage;

@@ -1,0 +1,62 @@
+.popupholder {
+    position: relative;
+    height: 0.01rem;
+
+    .popupcontainer {
+        background-color: rgba(0, 0, 0, 0.308);
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 10;
+        @include centerByFlex;
+
+        .main {
+            .box1 {
+            }
+            .box2 {
+            }
+
+            .box3 {
+                .interestbox {
+                    margin-top: 2rem;
+                    padding: 1rem;
+                    min-height: 45rem;
+                    .interestform {
+                        border-bottom: 1px solid $border-light;
+                        padding: 1rem;
+                        display: flex;
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+                .allinterest {
+                    margin-top: 2rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    .single-interest {
+                        margin: 0.5rem 0.5rem;
+                        background-color: $white;
+
+                        border-radius: 18px;
+                        border: 1px solid $border-light;
+                        color: $inner-dark;
+                        display: flex;
+                        align-items: center;
+                        span {
+                            padding: 0.7rem;
+                            margin: 0 0.2rem;
+                            @include centerByFlex;
+                            &:last-child {
+                                padding: 0;
+                                font-size: 2rem;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

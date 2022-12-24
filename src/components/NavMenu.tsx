@@ -1,21 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { navMenu } from "./data/navMenuData";
-import { BiLogOut } from "react-icons/bi";
+import { BiLogOutCircle } from "react-icons/bi";
 import { BsSunFill } from "react-icons/bs";
 import { BsFillMoonFill } from "react-icons/bs";
 import Togglebutton from "../components/atoms/Togglebutton";
 
-const NavMenu = () => {
+function NavMenu () {
   const location = useNavigate();
   return (
-    <>
+    
       <div className="left1">
         <div className="fullheight">
           <div className="option">
             <ul>
               {navMenu.map((e) => (
-                <li className="option1" onClick={() => location(e.path)}>
+                <li
+                  className="option1"
+                  onClick={() => location(e.path)}
+                  key={`${e.path}-t`}
+                >
                   <div className="icon">
                     <e.icon />
                   </div>
@@ -31,7 +35,7 @@ const NavMenu = () => {
             <ul>
               <li className="option2" onClick={() => location("/auth")}>
                 <div className="icon">
-                  <BiLogOut />
+                  <BiLogOutCircle />
                 </div>
                 <div className="name">
                   <p>Sign out</p>
@@ -53,7 +57,7 @@ const NavMenu = () => {
           </div>
         </div>
       </div>
-    </>
+    
   );
 };
 
