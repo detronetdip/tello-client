@@ -12,11 +12,11 @@ function ReadMore({ text }: { text: String }) {
   const ar: boolean = text.length >= 600;
   return (
     <>
-      <div className="readmore">
+      <p className="readmore">
         {!viewMore?showArr.join(""):text}
         {ar && !viewMore ? <span className="rm" onClick={()=>setViewMore(true)}>...Read More</span> : null}
         {ar && viewMore ? <span className="rm" onClick={()=>setViewMore(false)}>...Read Less</span> : null}
-      </div>
+      </p>
       {/* <div className="readmore">{ar.join("")}</div> */}
     </>
   );
