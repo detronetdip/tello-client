@@ -16,7 +16,7 @@ function CreatePost() {
   };
   return (
     <>
-      {openImageEditor ? <ImageEditor file={file as File} /> : null}
+      {openImageEditor ? <ImageEditor file={file as File} closeEditor={setOpenImageEditor} /> : null}
       <div className="postcrte">
         <p className="name">Create a Post</p>
         <hr />
