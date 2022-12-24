@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
+import ImageEditor from "../imageEditor/ImageEditor";
 
-function CreatePost () {
+function CreatePost() {
+  const [openImageEditor, setOpenImageEditor] = useState(false);
+  const [file, setFile] = useState<File | undefined>();
+  const onLoadHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const file = (e.target as HTMLInputElement).files?.[0];
+    setFile(file);
+    setOpenImageEditor(true);
+  };
   return (
-  
+    <>
+      {openImageEditor ? <ImageEditor file={file as File} /> : null}
       <div className="postcrte">
         <p className="name">Create a Post</p>
         <hr />
@@ -21,16 +32,24 @@ function CreatePost () {
           </form>
 
           <div className="post2">
-            <div className="imgicon">
+            <label className="imgicon" htmlFor="postIMG">
               <BiImageAdd />
-            </div>
-
+            </label>
+            <Input
+              type="file"
+              id="postIMG"
+              placeholder=""
+              styles={{ display: "none" }}
+              onChange={(
+                e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+              ) => onLoadHandler(e)}
+            />
             <Button content="Post" Class="btn-1" ripple />
           </div>
         </div>
       </div>
-    
+    </>
   );
-};
+}
 
 export default CreatePost;
