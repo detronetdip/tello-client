@@ -69,7 +69,7 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
                 alt="slow internet...."
               />
             ) : type === "TEXTONLY" ? (
-              <p className="textOnly">
+              <div className="textOnly">
                 <ReadMore
                   text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Corrupti, totam. Sequi, est error laudantium exercitationem
@@ -83,15 +83,15 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
                 temporibus eveniet doloribus nesciunt obcaecati eligendi hic
                 alias praesentium, quae inventore, ex nisi illum facilis?"
                 />
-              </p>
+              </div>
             ) : (
               <>
-                <p className="textOnlyWithM">
+                <div className="textOnlyWithM">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Corrupti, totam. Sequi, est error laudantium exercitationem
                   temporibus eveniet doloribus nesciunt obcaecati eligendi hic
                   alias praesentium, quae inventore, ex nisi illum facilis?
-                </p>
+                </div>
                 <img
                   src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
                   alt="slow internet...."
