@@ -6,17 +6,17 @@ import ImageEditor from "../imageEditor/ImageEditor";
 
 function CreatePost() {
   const [openImageEditor, setOpenImageEditor] = useState(false);
-  const [file, setFile] = useState<File | undefined>();
+  const [file, setFile] = useState<string>();
   const onLoadHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const file = (e.target as HTMLInputElement).files?.[0];
+    const file = URL.createObjectURL((e.target as HTMLInputElement).files?.[0] as Blob);
     setFile(file);
     setOpenImageEditor(true);
   };
   return (
     <>
-      {openImageEditor ? <ImageEditor file={file as File} closeEditor={setOpenImageEditor} /> : null}
+      {openImageEditor ? <ImageEditor file={file as string} closeEditor={setOpenImageEditor} /> : null}
       <div className="postcrte">
         <p className="name">Create a Post</p>
         <hr />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../atoms/Button";
 import { editorOptions } from "../data/imageEditorOptions";
 
@@ -6,77 +6,111 @@ function ImageEditor({
   file,
   closeEditor,
 }: {
-  file: File;
+  file: string;
   closeEditor: Function;
 }) {
-  const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
+  const [isCan, setIscan] = useState(false);
+  const [editProperties, setEditProperties] = useState({
+    Brightness: "100",
+    Contrast: "100",
+    Blur: "0",
+    Greyscale: "0",
+    Hue: "0",
+    Invert: "0",
+    Opacity: "100",
+    Saturation: "100",
+    Sepia: "0",
+  });
+  const imageRef = useRef() as React.MutableRefObject<HTMLImageElement>;
+  const canvasRef = useRef() as React.MutableRefObject<HTMLCanvasElement>;
+
+  useEffect(() => {
+    imageRef.current.style.filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
+    console.log(imageRef.current.style.filter,editProperties)
+  }, [editProperties]);
   const [metadata, setMetadata] = useState({
     option: "Brightness",
     unit: "%",
     step: 1,
     range: {
-      start: -100,
-      default: 1,
-      end: 100,
+      start: 0,
+      default: 100,
+      end: 200,
     },
   });
-  const imageRef = useRef() as React.MutableRefObject<HTMLImageElement>;
-  // useEffect(() => {
-  //   const cont = canvasRef.current.getContext("2d");
-  //   const img = new Image();
-  //   img.onload = () => {
-  //     canvasRef.current.height = 390;
-  //     cont?.drawImage(
-  //       img,
-  //       0,
-  //       0,
-  //       canvasRef.current.width,
-  //       canvasRef.current.height
-  //     );
-  //   };
-  //   img.src = URL.createObjectURL(file);
-  //   img.style.filter="brightness(200%)"
-  //   console.log(img);
-  //   setContext(cont);
-  // }, []);
-  // useEffect(()=>{
-
-  //    if(context){
-  //     alert(9)
-  //     const cont = canvasRef.current.getContext("2d");
-  //     cont.filter = 'contrast(1.4) sepia(1) drop-shadow(-9px 9px 3px #e81)';
-  //     console.log(cont)
-  //   }
-
-  // },[context])
   const handelSlide = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (metadata.option) {
       case "Brightness":
-        imageRef.current.style.filter = `brightness(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Brightness: e.target.value,
+          };
+        });
         break;
       case "Contrast":
-        imageRef.current.style.filter = `contrast(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Contrast: e.target.value,
+          };
+        });
         break;
       case "Blur":
-        imageRef.current.style.filter = `blur(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Blur: e.target.value,
+          };
+        });
         break;
       case "Greyscale":
-        imageRef.current.style.filter = `grayscale(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Greyscale: e.target.value,
+          };
+        });
         break;
       case "Hue":
-        imageRef.current.style.filter = `hue-rotate(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Hue: e.target.value,
+          };
+        });
         break;
       case "Invert":
-        imageRef.current.style.filter = `invert(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Invert: e.target.value,
+          };
+        });
         break;
       case "Opacity":
-        imageRef.current.style.filter = `opacity(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Opacity: e.target.value,
+          };
+        });
         break;
       case "Saturation":
-        imageRef.current.style.filter = `saturate(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Saturation: e.target.value,
+          };
+        });
         break;
       case "Sepia":
-        imageRef.current.style.filter = `sepia(${e.target.value}${metadata.unit})`;
+        setEditProperties((old) => {
+          return {
+            ...old,
+            Sepia: e.target.value,
+          };
+        });
         break;
     }
     setMetadata((old) => {
@@ -89,15 +123,24 @@ function ImageEditor({
       };
     });
   };
-  const test = () => {};
+  const finishEdit = () => {
+    const c = document.createElement("canvas");
+    const ctx = c.getContext("2d");
+    c.height = imageRef.current.naturalHeight;
+    c.width = imageRef.current.naturalWidth;
+    (
+      ctx as CanvasRenderingContext2D
+    ).filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
+    ctx?.drawImage(imageRef.current, 0, 0, c.width, c.height);
+    console.log(c.toDataURL());
+  };
 
   return (
     <>
       <div className="imageEditorContainer">
-        <canvas hidden></canvas>
         <div className="overlayContainer">
           <div className="middlebox">
-            <img src={URL.createObjectURL(file)} ref={imageRef}></img>
+            <img src={file} ref={imageRef}></img>
             <div className="editpanel">
               <div className="slider">
                 <span>{metadata.range.start}</span>
@@ -107,7 +150,7 @@ function ImageEditor({
                   name="cowbell"
                   min={metadata.range.start}
                   max={metadata.range.end}
-                  value={metadata.range.default}
+                  value={+metadata.range.default}
                   step={metadata.step}
                   onChange={handelSlide}
                 />
@@ -118,7 +161,7 @@ function ImageEditor({
                 {editorOptions.map((each) => (
                   <div
                     key={each.option}
-                    className="editoptions"
+                    className={`editoptions ${each.option===metadata.option?"active":null}`}
                     onClick={() => {
                       setMetadata((old) => {
                         return {
@@ -128,7 +171,9 @@ function ImageEditor({
                           step: each.step,
                           range: {
                             start: each.range.start,
-                            default: each.range.default,
+                            default: editProperties[
+                              each.option as keyof typeof editProperties
+                            ] as unknown as number,
                             end: each.range.end,
                           },
                         };
@@ -147,7 +192,7 @@ function ImageEditor({
             </div>
             <div className="btn">
               <Button content="Discard" onclick={() => closeEditor(false)} />
-              <Button content="Next" />
+              <Button content="Next" onclick={finishEdit} />
             </div>
           </div>
         </div>

@@ -53,14 +53,14 @@
           }
           .editoptions {
             margin: 0.1rem 0.3rem;
+            background-color: $border-light;
+            border-radius: 7px;
             .option {
               padding: 0.8rem;
               display: flex;
               flex-direction: column;
               align-items: center;
-              background-color: $border-light;
               width: 8rem;
-              border-radius: 7px;
               cursor: pointer;
               .icn {
                 @include centerByFlex;
@@ -73,6 +73,9 @@
                 font-size: 1rem;
               }
             }
+          }
+          .active{
+            background-color: $scrollbar-light;
           }
         }
       }
