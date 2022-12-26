@@ -9,7 +9,6 @@ function ImageEditor({
   file: string;
   closeEditor: Function;
 }) {
-  const [isCan, setIscan] = useState(false);
   const [editProperties, setEditProperties] = useState({
     Brightness: "100",
     Contrast: "100",
@@ -22,11 +21,9 @@ function ImageEditor({
     Sepia: "0",
   });
   const imageRef = useRef() as React.MutableRefObject<HTMLImageElement>;
-  const canvasRef = useRef() as React.MutableRefObject<HTMLCanvasElement>;
 
   useEffect(() => {
     imageRef.current.style.filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
-    console.log(imageRef.current.style.filter,editProperties)
   }, [editProperties]);
   const [metadata, setMetadata] = useState({
     option: "Brightness",
