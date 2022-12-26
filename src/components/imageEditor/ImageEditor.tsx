@@ -155,7 +155,6 @@ function ImageEditor({
                   onChange={handelSlide}
                 />
                 <span>{metadata.range.end}</span>
-                <Button content="Save" />
               </div>
               <div className="optionpanel">
                 {editorOptions.map((each) => (
