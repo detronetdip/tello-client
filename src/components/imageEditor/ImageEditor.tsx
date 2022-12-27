@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTheme } from "../../hooks/useTheme";
 import Button from "../atoms/Button";
 import { editorOptions } from "../data/imageEditorOptions";
 
 function ImageEditor({
   file,
   closeEditor,
+  setFile,
 }: {
   file: string;
   closeEditor: Function;
+  setFile: Function;
 }) {
-  const [isCan, setIscan] = useState(false);
+  const { theme } = useTheme();
   const [editProperties, setEditProperties] = useState({
     Brightness: "100",
     Contrast: "100",
@@ -22,11 +25,9 @@ function ImageEditor({
     Sepia: "0",
   });
   const imageRef = useRef() as React.MutableRefObject<HTMLImageElement>;
-  const canvasRef = useRef() as React.MutableRefObject<HTMLCanvasElement>;
 
   useEffect(() => {
     imageRef.current.style.filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
-    console.log(imageRef.current.style.filter,editProperties)
   }, [editProperties]);
   const [metadata, setMetadata] = useState({
     option: "Brightness",
@@ -132,12 +133,16 @@ function ImageEditor({
       ctx as CanvasRenderingContext2D
     ).filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
     ctx?.drawImage(imageRef.current, 0, 0, c.width, c.height);
-    console.log(c.toDataURL());
+    c.toBlob((blob) => {
+      const url = URL.createObjectURL(blob as Blob);
+      setFile(url);
+      closeEditor(false);
+    });
   };
 
   return (
     <>
-      <div className="imageEditorContainer">
+      <div className={`${theme}-imageEditorContainer`}>
         <div className="overlayContainer">
           <div className="middlebox">
             <img src={file} ref={imageRef}></img>
@@ -155,13 +160,14 @@ function ImageEditor({
                   onChange={handelSlide}
                 />
                 <span>{metadata.range.end}</span>
-                <Button content="Save" />
               </div>
               <div className="optionpanel">
                 {editorOptions.map((each) => (
                   <div
                     key={each.option}
-                    className={`editoptions ${each.option===metadata.option?"active":null}`}
+                    className={`editoptions ${
+                      each.option === metadata.option ? "active" : null
+                    }`}
                     onClick={() => {
                       setMetadata((old) => {
                         return {

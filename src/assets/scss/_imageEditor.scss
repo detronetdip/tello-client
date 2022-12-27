@@ -1,4 +1,99 @@
-.imageEditorContainer {
+.DARK-imageEditorContainer {
+  position: relative;
+  height: 0.1rem;
+  .overlayContainer {
+    z-index: 9;
+    position: fixed;
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.04);
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    @include centerByFlex;
+    .middlebox {
+      border: 1px solid $border-dark;
+      background-color: $white;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: $bg-dark;
+      overflow: hidden;
+      img{
+        height: 30rem;
+        width: 66rem;
+        object-fit: contain;
+      }
+      .editpanel {
+        .slider {
+          padding: 1rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          input {
+            margin: 0;
+            padding: 0;
+            width: 90%;
+          }
+          span{
+            margin: 0 0.8rem;
+            font-size: 1.2rem;
+            color: $font-dark;
+          }
+        }
+        .optionpanel {
+          margin-top: 1rem;
+          padding: 0.5rem 0;
+          border-top: 1px solid $border-dark;
+          display: flex;
+          max-width: 65.5rem;
+          overflow-x: auto;
+          &::-webkit-scrollbar {
+            height: 0.2rem;
+          }
+          &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: $scrollbar-light;
+          }
+          .editoptions {
+            margin: 0.1rem 0.3rem;
+            background-color: $primaryDark;
+            border-radius: 7px;
+            .option {
+              padding: 0.8rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 8rem;
+              cursor: pointer;
+              .icn {
+                @include centerByFlex;
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+                color: $font-dark;
+              }
+              span {
+                color: $font-dark;
+                font-size: 1rem;
+              }
+            }
+          }
+          .active{
+            background-color: $scrollbar-light;
+          }
+        }
+      }
+      .btn{
+        display: flex;
+        justify-content: end;
+        button{
+          background-color: $icon-dark;
+        }
+      }
+    }
+  }
+}
+.LIGHT-imageEditorContainer {
   position: relative;
   height: 0.1rem;
   .overlayContainer {
@@ -17,9 +112,11 @@
       background-color: $white;
       padding: 1rem;
       border-radius: 10px;
+      overflow: hidden;
       img{
         height: 30rem;
         width: 66rem;
+        object-fit: contain;
       }
       .editpanel {
         .slider {
@@ -35,6 +132,7 @@
           span{
             margin: 0 0.8rem;
             font-size: 1.2rem;
+            color: $font-light2;
           }
         }
         .optionpanel {
@@ -53,7 +151,6 @@
           }
           .editoptions {
             margin: 0.1rem 0.3rem;
-            background-color: $border-light;
             border-radius: 7px;
             .option {
               padding: 0.8rem;
@@ -82,6 +179,64 @@
       .btn{
         display: flex;
         justify-content: end;
+        button{
+          background-color: $icon-light;
+        }
+      }
+    }
+  }
+}
+.DARK-postImageContainer {
+  position: relative;
+  height: 0.1rem;
+  .overlayContainer {
+    z-index: 9;
+    position: fixed;
+    backdrop-filter: blur(7px) saturate(180%);
+    -webkit-backdrop-filter: blur(7px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.04);
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    @include centerByFlex;
+    .middlebox {
+      border: 1px solid $border-dark;
+      background-color: $white;
+      padding: 0.9rem;
+      border-radius: 10px;
+      background-color: $bg-dark;
+      overflow: hidden;
+      img{
+        height: 20rem;
+        width: 66rem;
+        object-fit: contain;
+      }
+      textarea{
+        margin: 0;
+        width: 100%;
+        height: 11rem;
+        resize: none;
+        // background-color: rgba($color: $inner-dark, $alpha: 0.45);
+        background-color: transparent;
+        border: none;
+        color: $font-dark;
+        white-space: pre-wrap;
+        &::-webkit-scrollbar {
+          width: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background-color: $scrollbar-light;
+        }
+      }
+      
+      .btn{
+        display: flex;
+        justify-content: end;
+        button{
+          background-color: $icon-dark;
+        }
       }
     }
   }
