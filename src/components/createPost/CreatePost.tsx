@@ -1,22 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
+import InputWithRef from "../atoms/InputWithRef";
 import ImageEditor from "../imageEditor/ImageEditor";
+import ImagePost from "../postWithImage/ImagePost";
 
 function CreatePost() {
-  const [openImageEditor, setOpenImageEditor] = useState(false);
-  const [file, setFile] = useState<File | undefined>();
+  const [render, setRender] = useState(Date.now());
+  const [openPostWithImage, setOpenPostWithImage] = useState(false);
+  const [file, setFile] = useState<string>();
+  const fileInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const onLoadHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const file = (e.target as HTMLInputElement).files?.[0];
+    const file = URL.createObjectURL(
+      (e.target as HTMLInputElement).files?.[0] as Blob
+    );
     setFile(file);
-    setOpenImageEditor(true);
+    setOpenPostWithImage(true);
+  };
+  const closePopUp = (v: Boolean) => {
+    setRender(Date.now());
+    setOpenPostWithImage(false);
   };
   return (
     <>
-      {openImageEditor ? <ImageEditor file={file as File} closeEditor={setOpenImageEditor} /> : null}
+      {openPostWithImage ? (
+        <ImagePost
+          file={file as string}
+          closeEditor={closePopUp}
+          setFile={setFile}
+        />
+      ) : null}
       <div className="postcrte">
         <p className="name">Create a Post</p>
         <hr />
@@ -35,7 +51,9 @@ function CreatePost() {
             <label className="imgicon" htmlFor="postIMG">
               <BiImageAdd />
             </label>
-            <Input
+            <InputWithRef
+              key={render}
+              ref={fileInputRef}
               type="file"
               id="postIMG"
               placeholder=""

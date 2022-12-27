@@ -68,7 +68,7 @@ export const editorOptions = [
     unit: "%",
     step: 1,
     range: {
-      start: -100,
+      start: 0,
       default: 0,
       end: 100,
     },
@@ -90,7 +90,7 @@ export const editorOptions = [
     unit: "%",
     step: 1,
     range: {
-      start: -200,
+      start: 0,
       default: 100,
       end: 200,
     },
