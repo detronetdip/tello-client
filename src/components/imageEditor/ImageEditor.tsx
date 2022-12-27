@@ -6,9 +6,11 @@ import { editorOptions } from "../data/imageEditorOptions";
 function ImageEditor({
   file,
   closeEditor,
+  setFile,
 }: {
   file: string;
   closeEditor: Function;
+  setFile: Function;
 }) {
   const { theme } = useTheme();
   const [editProperties, setEditProperties] = useState({
@@ -131,7 +133,11 @@ function ImageEditor({
       ctx as CanvasRenderingContext2D
     ).filter = `brightness(${editProperties.Brightness}%) contrast(${editProperties.Contrast}%) blur(${editProperties.Blur}px) grayscale(${editProperties.Greyscale}%) hue-rotate(${editProperties.Hue}deg) invert(${editProperties.Invert}%) opacity(${editProperties.Opacity}%) saturate(${editProperties.Saturation}%) sepia(${editProperties.Sepia}%)`;
     ctx?.drawImage(imageRef.current, 0, 0, c.width, c.height);
-    console.log(c.toDataURL());
+    c.toBlob((blob) => {
+      const url = URL.createObjectURL(blob as Blob);
+      setFile(url);
+      closeEditor(false);
+    });
   };
 
   return (
@@ -159,7 +165,9 @@ function ImageEditor({
                 {editorOptions.map((each) => (
                   <div
                     key={each.option}
-                    className={`editoptions ${each.option===metadata.option?"active":null}`}
+                    className={`editoptions ${
+                      each.option === metadata.option ? "active" : null
+                    }`}
                     onClick={() => {
                       setMetadata((old) => {
                         return {

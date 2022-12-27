@@ -18,7 +18,7 @@ export interface InputProps extends ClassAndStyles {
   value?: string | number;
   id?: string;
   name?: string;
-  error?:string | null | boolean;
+  error?: string | null | boolean;
   onBlur?: (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
