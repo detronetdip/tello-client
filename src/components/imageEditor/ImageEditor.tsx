@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTheme } from "../../hooks/useTheme";
 import Button from "../atoms/Button";
 import { editorOptions } from "../data/imageEditorOptions";
 
@@ -9,6 +10,7 @@ function ImageEditor({
   file: string;
   closeEditor: Function;
 }) {
+  const { theme } = useTheme();
   const [editProperties, setEditProperties] = useState({
     Brightness: "100",
     Contrast: "100",
@@ -134,7 +136,7 @@ function ImageEditor({
 
   return (
     <>
-      <div className="imageEditorContainer">
+      <div className={`${theme}-imageEditorContainer`}>
         <div className="overlayContainer">
           <div className="middlebox">
             <img src={file} ref={imageRef}></img>
