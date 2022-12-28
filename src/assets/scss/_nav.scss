@@ -4,7 +4,7 @@
   z-index: 9;
   position: fixed;
   width: 100%;
-  background: rgba($color: $white, $alpha: 0.6);
+  background: rgba($color: $white, $alpha: 0.65);
   backdrop-filter: blur(8px);
   .fixedwrapper {
     width: 100%;
@@ -80,7 +80,7 @@
   z-index: 9;
   position: fixed;
   width: 100%;
-  background: rgba($color: $primaryDark, $alpha: 0.6);
+  background: rgba($color: $primaryDark, $alpha: 0.65);
   backdrop-filter: blur(8px);
   .fixedwrapper {
     width: 100%;
