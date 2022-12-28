@@ -1,8 +1,9 @@
 .LIGHT-messagePageWrapper {
-  min-height: 91vh;
+  min-height: 100vh;
   background-color: $bg-light;
   display: flex;
   justify-content: center;
+  padding-top: 6rem;
 
   .users {
     flex: 2;
@@ -223,11 +224,11 @@
   }
 }
 .DARK-messagePageWrapper {
-  min-height: 91vh;
+  min-height: 100vh;
   background-color: $bg-dark;
   display: flex;
   justify-content: center;
-
+  padding-top: 6rem;
   .users {
     flex: 2;
     width: 100%;
