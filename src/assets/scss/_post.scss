@@ -195,6 +195,7 @@
 
     .postimg {
       @include centerByFlex;
+      cursor: pointer;
       div {
         width: 95%;
         img {
