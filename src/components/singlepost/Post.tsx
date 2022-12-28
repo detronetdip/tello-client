@@ -6,7 +6,6 @@ import { BsBookmarkHeartFill } from "react-icons/bs";
 import { MdComment } from "react-icons/md";
 import { useTheme } from "../../hooks/useTheme";
 import Button from "../atoms/Button";
-import { IoMdSend } from "react-icons/io";
 
 import Input from "../atoms/Input";
 import ReadMore from "../atoms/ReadMore";
@@ -130,6 +129,7 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
                 <Button content="post" />
               </div>
             </form>
+            <Button Class="btn" content="View All Comments" />
           </div>
         ) : null}
       </div>
