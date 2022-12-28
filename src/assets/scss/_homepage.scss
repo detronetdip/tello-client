@@ -7,6 +7,10 @@
     max-width: $MAX-WIDTH;
     .left1 {
       flex: 2;
+      position: fixed;
+      margin-top: 5rem;
+      left: 3.4%;
+      width: 22rem;
       .fullheight {
         height: 91vh;
         display: flex;
@@ -21,7 +25,7 @@
           border: 1px solid $border-light;
           border-radius: 1.5rem;
           padding: 2rem;
-          width: 85%;
+          width: 100%;
         }
         .modechange {
           .option2 {
@@ -121,6 +125,7 @@
           }
         }
         .option {
+          width: 100%;
           .option1 {
             color: $font-light;
             display: flex;
@@ -156,13 +161,20 @@
     }
     .post {
       padding: 2rem;
+      display: flex;
       flex: 5;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5rem;
 
       .mypost {
         background-color: $white;
         padding: 1.5rem 1.2rem;
         border: 1px solid $border-light;
         border-radius: 2rem;
+        width: 100%;
+        max-width: 75rem;
         .head {
           display: flex;
           justify-content: space-between;
@@ -222,7 +234,8 @@
         border: 1px solid $border-light;
         border-radius: 2rem;
         padding-bottom: 1rem;
-
+        width: 100%;
+        max-width: 75rem;
         hr {
           margin-top: 0.8rem;
           border: none;
@@ -285,6 +298,10 @@
       flex-direction: column;
       align-items: center;
       padding: 2rem 0 2rem 0;
+      position: fixed;
+      right: 2.2%;
+      width: 25rem;
+      margin-top: 5rem;
 
       .news {
         color: $font-light;
@@ -317,6 +334,10 @@
     max-width: $MAX-WIDTH;
     .left1 {
       flex: 2;
+      position: fixed;
+      margin-top: 5rem;
+      left: 3.4%;
+      width: 22rem;
       .fullheight {
         height: 91vh;
         display: flex;
@@ -331,7 +352,7 @@
           border: 1px solid $border-dark;
           border-radius: 1.5rem;
           padding: 2rem;
-          width: 85%;
+          width: 100%;
         }
         .modechange {
           .option2 {
@@ -431,6 +452,7 @@
           }
         }
         .option {
+          width: 100%;
           .option1 {
             color: $font-dark;
             display: flex;
@@ -466,13 +488,20 @@
     }
     .post {
       padding: 2rem;
+      display: flex;
       flex: 5;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5rem;
 
       .mypost {
         background-color: $primaryDark;
         padding: 1.5rem 1.2rem;
         border: 1px solid $border-dark;
         border-radius: 2rem;
+        width: 100%;
+        max-width: 75rem;
         .head {
           display: flex;
           justify-content: space-between;
@@ -529,13 +558,14 @@
           }
         }
       }
-
       .postcrte {
         padding: 1rem 1.5rem;
         background-color: $primaryDark;
         border: 1px solid $border-dark;
         border-radius: 2rem;
         padding-bottom: 1rem;
+        width: 100%;
+        max-width: 75rem;
 
         hr {
           margin-top: 0.8rem;
@@ -599,6 +629,10 @@
       flex-direction: column;
       align-items: center;
       padding: 2rem 0 2rem 0;
+      position: fixed;
+      right: 2.2%;
+      width: 25rem;
+      margin-top: 5rem;
 
       .news {
         color: $font-dark;
