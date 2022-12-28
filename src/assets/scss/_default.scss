@@ -6,7 +6,7 @@
 }
 html {
   font-size: 62.5%;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 }
@@ -49,6 +49,13 @@ img {
   font-size: 1.3rem;
 }
 $MAX-WIDTH: 130rem;
-.mt-2{
+.mt-2 {
   margin-top: 2rem;
+}
+.readmore {
+  span {
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
 }

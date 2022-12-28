@@ -4,6 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 import { MdComment } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 import Button from "../atoms/Button";
 
@@ -12,6 +13,7 @@ import ReadMore from "../atoms/ReadMore";
 
 function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
   const { theme } = useTheme();
+  const location=useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const menuRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -94,6 +96,7 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
                 <img
                   src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
                   alt="slow internet...."
+              onClick={()=>location("/post/123")}
                 />
               </>
             )}
