@@ -1,3 +1,6 @@
+.mode2{
+  display: none
+}
 .LIGHT-mainframe {
   @include centerByFlex;
   background-color: $bg-light;
@@ -651,6 +654,123 @@
           border-bottom: 1px solid $border-dark;
           margin-top: 0.2rem;
           width: 100%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1294px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 70rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1242px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 65rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1184px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 60rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1138px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .left1 {
+        left: 0.7%;
+      }
+      .right1 {
+        right: -0.8%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1068px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .left1 {
+        width: 20rem;
+      }
+      .right1 {
+        width: 23rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1026px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .left1 {
+        width: 10rem;
+        .fullheight {
+          .option {
+            width: auto;
+            .option1 {
+              padding: 0;
+              padding-bottom: 0.8rem;
+              .icon{
+                margin-right: 0;
+              }
+              .name {
+                display: none;
+              }
+            }
+          }
+          .modechange{
+            width: auto;
+            .option2 {
+              padding: 0;
+              padding-bottom: 0.8rem;
+              .icon{
+                margin-right: 0;
+                padding: 0;
+              }
+              .name {
+                display: none;
+              }
+            }
+            .mode{
+              display: none;
+            }
+          }
+        }
+      }
+      .right1 {
+        display: none;
+      }
+    }
+  }
+  
+}
+@media only screen and (max-width: 794px) {
+  .DARK-mainframe, .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 50rem;
         }
       }
     }

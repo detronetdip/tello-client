@@ -16,7 +16,7 @@ function ViewPost() {
       <div className="flexrow">
         <div className="left">
           <div className="imgwapper">
-           <Post click={false} type="TEXTMEDIA"/>
+           <Post comment={false} click={false} type="TEXTMEDIA"/>
           </div>
         </div>
         <div className="right">

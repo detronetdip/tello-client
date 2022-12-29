@@ -14,9 +14,11 @@ import ReadMore from "../atoms/ReadMore";
 function Post({
   type,
   click = true,
+  comment = true,
 }: {
   type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA";
   click?: boolean;
+  comment?: boolean;
 }) {
   const { theme } = useTheme();
   const location = useNavigate();
@@ -94,8 +96,8 @@ function Post({
             ) : (
               <>
                 <div className="textOnlyWithM">
-                <ReadMore
-                  text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  <ReadMore
+                    text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Corrupti, totam. Sequi, est error laudantium exercitationem
                 temporibus eveniet doloribus nesciunt obcaecati eligendi hic
                 alias praesentium, quae inventore, ex nisi illum facilis? 
@@ -106,11 +108,11 @@ function Post({
                 Corrupti, totam. Sequi, est error laudantium exercitationem
                 temporibus eveniet doloribus nesciunt obcaecati eligendi hic
                 alias praesentium, quae inventore, ex nisi illum facilis?"
-                />
+                  />
                 </div>
                 {click ? (
                   <img
-                  src="/assets/icons/mock.jpg"
+                    src="/assets/icons/mock.jpg"
                     alt="slow internet...."
                     onClick={() => location("/post/123")}
                   />
@@ -128,12 +130,14 @@ function Post({
               <AiOutlineHeart />
             </div>
             &nbsp; &nbsp;
-            <div
-              className="cmnt"
-              onClick={() => setIsCommentOpen(!isCommentOpen)}
-            >
-              <MdComment />
-            </div>
+            {comment ? (
+              <div
+                className="cmnt"
+                onClick={() => setIsCommentOpen(!isCommentOpen)}
+              >
+                <MdComment />
+              </div>
+            ) : null}
           </div>
           <div className="bookmark">
             <BsBookmarkHeartFill />
