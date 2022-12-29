@@ -1,0 +1,99 @@
+
+.DARK-bg {
+    padding: 1rem 1rem 0.5rem;
+    position: relative;
+
+    .middlebox {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(7px) saturate(180%);
+        -webkit-backdrop-filter: blur(7px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.04);
+        top: 0;
+        z-index: 9;
+        @include centerByFlex;
+        left: 0;
+
+        .box {
+            color: $white;
+            border: 1px solid $border-dark;
+            border-radius: 1.7rem;
+            padding: 2rem;
+            background-color: $primaryDark;
+            max-width: 65.5rem;
+
+            .heading {
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 2rem;
+                border-bottom: 1px solid $border-dark;
+                padding-bottom: 0.8rem;
+            }
+
+            .body {
+                font-size: 1.5rem;
+                text-align: justify;
+            }
+
+            .btnrow {
+                text-align: end;
+                .btn5 {
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+
+
+.LIGHT-bg {
+    padding: 1rem 1rem 0.5rem;
+    position: relative;
+
+    .middlebox {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(7px) saturate(180%);
+        -webkit-backdrop-filter: blur(7px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.65);
+        top: 0;
+        z-index: 9;
+        @include centerByFlex;
+        left: 0;
+
+        .box {
+            color: $font-light2;
+            border: 1px solid $border-light;
+            border-radius: 1.7rem;
+            padding: 2rem;
+            background-color: $white;
+            max-width: 65.5rem;
+
+            .heading {
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 2rem;
+                border-bottom: 1px solid $border-dark;
+                padding-bottom: 0.8rem;
+            }
+
+            .body {
+                font-size: 1.5rem;
+                text-align: justify;
+            }
+
+            .btnrow {
+                text-align: end;
+                .btn5 {
+                    background-color: red;
+                }
+                .btn6{
+                    background-color: $icon-light;
+                }
+            }
+        }
+    }
+}
