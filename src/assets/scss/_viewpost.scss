@@ -1,0 +1,56 @@
+.DARK-viewpost {
+  background-color: $bg-dark;
+  padding-top: 6rem;
+  .flexrow {
+    padding: 0 3rem;
+    min-height: calc(100vh - 6rem);
+    display: flex;
+    height: 100%;
+    .left {
+      flex: 5;
+      @include centerByFlex;
+      .imgwapper {
+        height: 50rem;
+        border-radius: 8px;
+        overflow: hidden;
+        object-fit: contain;
+      }
+    }
+    .right {
+      flex: 2;
+      padding: 0.8rem;
+      border-left: 1px solid $border-dark;
+      .userinfo {
+          border-bottom: 1px solid $border-dark;
+          padding-bottom: 1rem;
+        .toprow {
+          margin-left: 0.8rem;
+          .imgicon {
+            color: $font-dark;
+            height: 3.5rem;
+            width: 3.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+          display: flex;
+          padding-bottom: 0.8rem;
+          border-bottom: 1px solid $border-dark;
+
+          .username {
+            color: $font-dark;
+            font-size: 1.8rem;
+            margin-left: 1rem;
+            .date {
+              font-size: 1.2rem;
+            }
+          }
+        }
+        .postcontent {
+          color: $white;
+          margin-top: 0.8rem;
+          font-size: 1.24rem;
+        }
+      }
+    }
+  }
+}

@@ -63,6 +63,7 @@
 
     .postimg {
       @include centerByFlex;
+      cursor: pointer;
       div {
         width: 95%;
         img {
@@ -80,7 +81,7 @@
           line-height: 1.4rem;
           padding-bottom: 1.2rem;
         }
-        .rm{
+        .rm {
           margin-left: 0.21rem;
           font-size: 1.5rem;
           font-weight: 550;
@@ -120,6 +121,14 @@
           font-weight: 400;
           color: $white;
         }
+      }
+      button {
+        background-color: $icon-dark;
+      }
+      .btn {
+        font-size: 1.2rem;
+        padding: 0.6rem;
+        border-radius: 15px;
       }
     }
   }
@@ -186,6 +195,7 @@
 
     .postimg {
       @include centerByFlex;
+      cursor: pointer;
       div {
         width: 95%;
         img {
@@ -203,7 +213,7 @@
           line-height: 1.4rem;
           padding-bottom: 1.2rem;
         }
-        .rm{
+        .rm {
           margin-left: 0.21rem;
           font-size: 1.5rem;
           font-weight: 550;
@@ -225,6 +235,30 @@
         .bookmark {
           cursor: pointer;
         }
+      }
+    }
+    .comntsec {
+      padding: 0.2rem 0 0 1rem;
+      input {
+        width: 84%;
+        padding: 0.9rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $border-dark;
+        color: $font-light2;
+        border-radius: 0;
+        &::placeholder {
+          font-weight: 400;
+        }
+      }
+      button {
+        background-color: $icon-light;
+      }
+      .btn {
+        font-size: 1.2rem;
+        padding: 0.6rem;
+        border-radius: 15px;
       }
     }
   }

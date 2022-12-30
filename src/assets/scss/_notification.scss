@@ -1,54 +1,55 @@
-.DARK-notificationFrame{
-    flex: 5;
-    padding: 2rem;
-    .notificationWrapper{
-        height: 100%;
-        overflow-y: auto;
-        &::-webkit-scrollbar{
-            width: 0.5rem;
-        }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background-color: rgba(175, 175, 175, 0.075);
-        }
-        .notificationrow{
-            padding: 0 0.5rem;
-           .outer{
-            border: 1px solid $border-dark;
-            padding: 2rem 1.5rem;
-            border-radius: 8px;
-            background-color: $primaryDark;
-            color: $font-dark;
-            font-size: 1.4rem;
-            margin: 0.5rem 0;
-           }
-        }
+.DARK-notificationFrame {
+  flex: 5;
+  padding: 2rem;
+  .notificationWrapper {
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 5rem;
+    &::-webkit-scrollbar {
+      display: none;
     }
+    .notificationrow {
+      padding: 0 0.5rem;
+      @include centerByFlex;
+      .outer {
+        border: 1px solid $border-dark;
+        padding: 2rem 1.5rem;
+        border-radius: 8px;
+        background-color: $primaryDark;
+        color: $font-dark;
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        width: 100%;
+        max-width: 75rem;
+      }
+    }
+  }
 }
-.LIGHT-notificationFrame{
-    flex: 5;
-    padding: 2rem;
-    .notificationWrapper{
-        height: 100%;
-        overflow-y: auto;
-        &::-webkit-scrollbar{
-            width: 0.5rem;
-        }
-        &::-webkit-scrollbar-thumb{
-            border-radius: 10px;
-            background-color: rgba(175, 175, 175, 0.075);
-        }
-        .notificationrow{
-            padding: 0 0.5rem;
-           .outer{
-            border: 1px solid $border-light;
-            padding: 2rem 1.5rem;
-            border-radius: 8px;
-            background-color: $white;
-            color: $font-light;
-            font-size: 1.4rem;
-            margin: 0.5rem 0;
-           }
-        }
+.LIGHT-notificationFrame {
+  flex: 5;
+  padding: 2rem;
+  .notificationWrapper {
+    height: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 5rem;
+    &::-webkit-scrollbar {
+      display: none;
     }
+    .notificationrow {
+      @include centerByFlex;
+      padding: 0 0.5rem;
+      .outer {
+        border: 1px solid $border-light;
+        padding: 2rem 1.5rem;
+        border-radius: 8px;
+        background-color: $white;
+        color: $font-light;
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        width: 100%;
+        max-width: 75rem;
+      }
+    }
+  }
 }

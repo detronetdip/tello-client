@@ -1,8 +1,14 @@
 .LIGHT-profileFrame {
   flex: 5;
   padding: 2rem;
+  min-height: 100vh;
+  padding-top: 7rem;
 
   .profileWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     .imgicon {
       height: 4.5rem;
       width: 4.5rem;
@@ -11,6 +17,8 @@
       cursor: pointer;
     }
     .username5 {
+      width: 100%;
+      max-width: 75rem;
       display: flex;
       border: 1px solid $border-light;
       background-color: $white;
@@ -40,14 +48,24 @@
         }
       }
     }
+    .mypost {
+      width: 100%;
+      max-width: 75rem;
+    }
   }
 }
 
 .DARK-profileFrame {
   flex: 5;
   padding: 2rem;
+  min-height: 100vh;
+  padding-top: 7rem;
 
   .profileWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     .imgicon {
       height: 4.5rem;
       width: 4.5rem;
@@ -56,6 +74,8 @@
       cursor: pointer;
     }
     .username5 {
+      width: 100%;
+      max-width: 75rem;
       display: flex;
       border: 1px solid $border-dark;
       background-color: $primaryDark;
@@ -84,6 +104,10 @@
           font-size: 2rem;
         }
       }
+    }
+    .mypost {
+      width: 100%;
+      max-width: 75rem;
     }
   }
 }

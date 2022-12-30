@@ -1,6 +1,9 @@
 .DARK-settingsframe {
   flex: 5;
-  padding: 2rem;
+  padding-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   h1 {
     color: $font-dark;
   }
@@ -10,6 +13,8 @@
     padding: 0.5rem;
     border-radius: 12px;
     background-color: $primaryDark;
+    width: 100vw;
+    max-width: 75rem;
     form {
       padding: 0.5rem 1.2rem;
       .formrow {
@@ -114,6 +119,12 @@
       justify-content: space-between;
       padding: 1.5rem 1.2rem;
 
+      .btnrow{
+        .dl-btn{
+          background-color: red;
+        }
+      }
+
       h4 {
         color: $font-dark;
         font-size: 1.3rem;
@@ -124,6 +135,10 @@
 .LIGHT-settingsframe {
   flex: 5;
   padding: 2rem;
+  padding-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   h1 {
     color: $font-light2;
   }
@@ -133,6 +148,8 @@
     padding: 0.5rem;
     border-radius: 12px;
     background-color: $white;
+    width: 100vw;
+    max-width: 75rem;
     form {
       padding: 0.5rem 1.2rem;
       .formrow {
@@ -230,6 +247,12 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 1.2rem;
+
+      .btnrow{
+        .dl-btn{
+          background-color: red;
+        }
+      }
 
       h4 {
         color: $font-light2;

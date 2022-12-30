@@ -8,6 +8,7 @@ import Feed from "./components/feed/Feed";
 import NotificationPage from "./views/NotificationPage";
 import Settings from "./views/Settings";
 import MessagePage from "./views/MessagePage";
+import ViewPost from "./views/ViewPost";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/messages" element={<MessagePage />} />
           <Route path="myprofile" element={<ProfilePage />} />
+          <Route path="/post/:id" element={<ViewPost />} />
         </Route>
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
