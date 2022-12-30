@@ -6,21 +6,19 @@ import { useTheme } from "../hooks/useTheme";
 function HomePage() {
   const { theme } = useTheme();
   return (
-    
-      <div className={`${theme}-mainframe`}>
-        <div className="fixedWrapper">
+    <div className={`${theme}-mainframe`}>
+      <div className="fixedWrapper">
         <NavMenu />
-          <Outlet />
+        <Outlet />
 
-          <div className="right1">
-            <div className="news">
-              <p>News and Interests</p>
-              <hr className="ll" />
-            </div>
+        <div className="right1">
+          <div className="news">
+            <p>News and Interests</p>
+            <hr className="ll" />
           </div>
         </div>
       </div>
-    
+    </div>
   );
 }
 
