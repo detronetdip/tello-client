@@ -2,53 +2,194 @@
   background-color: $bg-dark;
   padding-top: 6rem;
   .flexrow {
-    padding: 0 3rem;
     min-height: calc(100vh - 6rem);
     display: flex;
     height: 100%;
     .left {
-      flex: 5;
+      padding: 0 3rem;
+      flex: 4;
+      // height: calc(100vh - 6rem);
+      overflow: auto;
       @include centerByFlex;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       .imgwapper {
-        height: 50rem;
-        border-radius: 8px;
-        overflow: hidden;
-        object-fit: contain;
+        .mypost {
+          background-color: $primaryDark;
+          padding: 1.5rem 1.2rem;
+          border-radius: 2rem;
+          margin: 1rem 0;
+          .hr2{
+            display: none;
+          }
+          .head {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $border-dark;
+            margin-bottom: 1rem;
+            .aa {
+              margin-left: 0.8rem;
+              .imgicon {
+                color: $font-dark;
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 50%;
+                overflow: hidden;
+              }
+              display: flex;
+              justify-content: space-between;
+
+              .username {
+                color: $font-dark;
+                font-size: 1.8rem;
+                margin-left: 1rem;
+                .date {
+                  font-size: 1.2rem;
+                }
+              }
+            }
+
+            .dropdown {
+              color: $font-dark;
+              margin-top: 0.8rem;
+              font-size: 2.8rem;
+              position: relative;
+              cursor: pointer;
+              .dropmenu {
+                box-shadow: 1px 1px 14px $primaryDark;
+                right: 100%;
+                top: 0;
+                position: absolute;
+                background-color: $primaryDark;
+                border: 1px solid $border-dark;
+                padding: 0.5rem;
+                border-radius: 0.8rem;
+                width: 15rem;
+                ul {
+                  list-style: none;
+                  li {
+                    font-size: 1.4rem;
+                    padding: 0.6rem 0.5rem;
+                    margin: 0.5rem 0;
+                    cursor: pointer;
+                    border-radius: 0.5rem;
+                    &:hover {
+                      background-color: rgba($color: $hover-dark, $alpha: 0.1);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .postimg {
+            @include centerByFlex;
+            cursor: pointer;
+            div {
+              width: 95%;
+              img {
+                border-radius: 1.5rem;
+              }
+              .textOnly {
+                color: $white;
+                font-size: 1.36rem;
+                line-height: 1.8rem;
+                padding-bottom: 0.9rem;
+              }
+              .textOnlyWithM {
+                color: $white;
+                font-size: 1.3rem;
+                line-height: 1.4rem;
+                padding-bottom: 1.2rem;
+              }
+              .rm {
+                margin-left: 0.21rem;
+                font-size: 1.5rem;
+                font-weight: 550;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .option1 {
+            color: $font-dark;
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 1.3rem 0 1.3rem;
+
+            .aa {
+              display: flex;
+              .like,
+              .cmnt,
+              .bookmark {
+                cursor: pointer;
+              }
+            }
+          }
+          .comntsec {
+            padding: 0.2rem 0 0 1rem;
+            input {
+              width: 84%;
+              padding: 0.9rem;
+              background-color: transparent;
+              border: none;
+              outline: none;
+              border-bottom: 1px solid $border-dark;
+              color: $font-dark;
+              border-radius: 0;
+              &::placeholder {
+                font-weight: 400;
+                color: $white;
+              }
+            }
+            button {
+              background-color: $icon-dark;
+            }
+            .btn {
+              font-size: 1.2rem;
+              padding: 0.6rem;
+              border-radius: 15px;
+            }
+          }
+        }
       }
     }
     .right {
       flex: 2;
-      padding: 0.8rem;
       border-left: 1px solid $border-dark;
-      .userinfo {
-          border-bottom: 1px solid $border-dark;
-          padding-bottom: 1rem;
-        .toprow {
-          margin-left: 0.8rem;
-          .imgicon {
+      padding: 0.8rem;
+      .cmntsc {
+        padding: 0.2rem 0 0 0;
+        display: flex;
+        background-color: $primaryDark;
+        height: calc(100vh - 9rem);
+        margin-top: 0.8rem;
+        border-radius: 0.8rem;
+        form {
+          width: 100%;
+        }
+        input {
+          width: 80%;
+          padding: 0.9rem;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: $white;
+          border-radius: 0;
+          &::placeholder {
+            font-weight: 400;
             color: $font-dark;
-            height: 3.5rem;
-            width: 3.5rem;
-            border-radius: 50%;
-            overflow: hidden;
-          }
-          display: flex;
-          padding-bottom: 0.8rem;
-          border-bottom: 1px solid $border-dark;
-
-          .username {
-            color: $font-dark;
-            font-size: 1.8rem;
-            margin-left: 1rem;
-            .date {
-              font-size: 1.2rem;
-            }
           }
         }
-        .postcontent {
-          color: $white;
-          margin-top: 0.8rem;
-          font-size: 1.24rem;
+        button {
+          background-color: transparent;
+          padding: 0.2rem;
+          transition: 0.2s;
+          &:hover {
+            color: $icon-dark;
+          }
         }
       }
     }

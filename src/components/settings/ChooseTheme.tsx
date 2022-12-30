@@ -15,8 +15,11 @@ function ChooseTheme({ label }: { label: string }) {
   useEffect(() => {
     if (theme === "DARK") {
       check.current.checked = true;
+    }else{
+      check.current.checked = false;
+
     }
-  }, []);
+  }, [theme]);
 
   return (
     <>
