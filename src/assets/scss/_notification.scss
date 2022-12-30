@@ -53,3 +53,51 @@
     }
   }
 }
+@media only screen and (max-width: 1294px) {
+  .DARK-notificationFrame,
+  .LIGHT-notificationFrame {
+    .notificationWrapper {
+      .notificationrow {
+        .outer {
+          max-width: 70rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1242px) {
+  .DARK-notificationFrame,
+  .LIGHT-notificationFrame {
+    .notificationWrapper {
+      .notificationrow {
+        .outer {
+          max-width: 65rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1184px) {
+  .DARK-notificationFrame,
+  .LIGHT-notificationFrame {
+    .notificationWrapper {
+      .notificationrow {
+        .outer {
+          max-width: 60rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 792px) {
+  .DARK-notificationFrame,
+  .LIGHT-notificationFrame {
+    .notificationWrapper {
+      .notificationrow {
+        .outer {
+          max-width: 50rem;
+        }
+      }
+    }
+  }
+}
