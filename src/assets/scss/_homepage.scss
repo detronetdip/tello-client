@@ -1,5 +1,13 @@
-.mode2{
-  display: none
+.mode2 {
+  display: none;
+}
+.DARK-mainframe,
+.LIGHT-mainframe {
+  .fixedWrapper .left1 .fullheight .modechange ul li {
+    &:last-child {
+      display: none;
+    }
+  }
 }
 .LIGHT-mainframe {
   @include centerByFlex;
@@ -45,7 +53,7 @@
             .icon {
               color: $icon-light;
               @include centerByFlex();
-              font-size: 3rem;
+              font-size: 2.6rem;
               margin-right: 0.8rem;
             }
           }
@@ -372,7 +380,7 @@
             .icon {
               color: $icon-dark;
               @include centerByFlex();
-              font-size: 3rem;
+              font-size: 2.6rem;
               margin-right: 0.8rem;
             }
           }
@@ -660,7 +668,8 @@
   }
 }
 @media only screen and (max-width: 1294px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .post {
         .mypost,
@@ -672,7 +681,8 @@
   }
 }
 @media only screen and (max-width: 1242px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .post {
         .mypost,
@@ -684,7 +694,8 @@
   }
 }
 @media only screen and (max-width: 1184px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .post {
         .mypost,
@@ -696,7 +707,8 @@
   }
 }
 @media only screen and (max-width: 1138px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .left1 {
         left: 0.7%;
@@ -708,7 +720,8 @@
   }
 }
 @media only screen and (max-width: 1068px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .left1 {
         width: 20rem;
@@ -720,7 +733,8 @@
   }
 }
 @media only screen and (max-width: 1026px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .left1 {
         width: 10rem;
@@ -730,7 +744,7 @@
             .option1 {
               padding: 0;
               padding-bottom: 0.8rem;
-              .icon{
+              .icon {
                 margin-right: 0;
               }
               .name {
@@ -738,12 +752,17 @@
               }
             }
           }
-          .modechange{
+          .modechange {
             width: auto;
+            ul li {
+              &:last-child {
+                display: initial;
+              }
+            }
             .option2 {
               padding: 0;
               padding-bottom: 0.8rem;
-              .icon{
+              .icon {
                 margin-right: 0;
                 padding: 0;
               }
@@ -751,7 +770,7 @@
                 display: none;
               }
             }
-            .mode{
+            .mode {
               display: none;
             }
           }
@@ -762,10 +781,10 @@
       }
     }
   }
-  
 }
 @media only screen and (max-width: 794px) {
-  .DARK-mainframe, .LIGHT-mainframe {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
     .fixedWrapper {
       .post {
         .mypost,
