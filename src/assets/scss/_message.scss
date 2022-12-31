@@ -475,3 +475,19 @@
     }
   }
 }
+@media only screen and (max-width: 830px) {
+  .DARK-messagePageWrapper{
+    .users{
+      flex: 3;
+    }
+  }
+}
+@media only screen and (max-width: 682px) {
+  .DARK-messagePageWrapper{
+    .users{
+      position: absolute;
+      z-index: 3;
+      min-height: 100vh;
+    }
+  }
+}

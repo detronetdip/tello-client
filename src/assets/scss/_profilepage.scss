@@ -111,3 +111,47 @@
     }
   }
 }
+@media only screen and (max-width: 1294px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 70rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1242px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 65rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1184px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 60rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 792px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 50rem;
+      }
+    }
+  }
+}

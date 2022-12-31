@@ -11,9 +11,17 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import ReadMore from "../atoms/ReadMore";
 
-function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
+function Post({
+  type,
+  click = true,
+  comment = true,
+}: {
+  type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA";
+  click?: boolean;
+  comment?: boolean;
+}) {
   const { theme } = useTheme();
-  const location=useNavigate();
+  const location = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const menuRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -88,16 +96,29 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
             ) : (
               <>
                 <div className="textOnlyWithM">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti, totam. Sequi, est error laudantium exercitationem
-                  temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                  alias praesentium, quae inventore, ex nisi illum facilis?
+                  <ReadMore
+                    text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis? 
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Corrupti, totam. Sequi, est error laudantium exercitationem
+                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
+                alias praesentium, quae inventore, ex nisi illum facilis?"
+                  />
                 </div>
-                <img
-                  src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
-                  alt="slow internet...."
-              onClick={()=>location("/post/123")}
-                />
+                {click ? (
+                  <img
+                    src="/assets/icons/mock.jpg"
+                    alt="slow internet...."
+                    onClick={() => location("/post/123")}
+                  />
+                ) : (
+                  <img src="/assets/icons/mock.jpg" alt="" />
+                )}
               </>
             )}
           </div>
@@ -109,12 +130,14 @@ function Post({ type }: { type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA" }) {
               <AiOutlineHeart />
             </div>
             &nbsp; &nbsp;
-            <div
-              className="cmnt"
-              onClick={() => setIsCommentOpen(!isCommentOpen)}
-            >
-              <MdComment />
-            </div>
+            {comment ? (
+              <div
+                className="cmnt"
+                onClick={() => setIsCommentOpen(!isCommentOpen)}
+              >
+                <MdComment />
+              </div>
+            ) : null}
           </div>
           <div className="bookmark">
             <BsBookmarkHeartFill />

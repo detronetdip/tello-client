@@ -119,6 +119,12 @@
       justify-content: space-between;
       padding: 1.5rem 1.2rem;
 
+      .btnrow{
+        .dl-btn{
+          background-color: red;
+        }
+      }
+
       h4 {
         color: $font-dark;
         font-size: 1.3rem;
@@ -242,10 +248,52 @@
       justify-content: space-between;
       padding: 1.5rem 1.2rem;
 
+      .btnrow{
+        .dl-btn{
+          background-color: red;
+        }
+      }
+
       h4 {
         color: $font-light2;
         font-size: 1.3rem;
       }
     }
+  }
+}
+@media only screen and (max-width: 1294px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox{
+        max-width: 70rem;
+      }
+    
+  }
+}
+@media only screen and (max-width: 1242px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox{
+        max-width: 65rem;
+      }
+    
+  }
+}
+@media only screen and (max-width: 1184px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox{
+        max-width: 60rem;
+      }
+    
+  }
+}
+@media only screen and (max-width: 794px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox{
+        max-width: 50rem;
+      }
+    
   }
 }
