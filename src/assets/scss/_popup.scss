@@ -39,7 +39,7 @@
             .btnrow {
                 text-align: end;
                 .btn5 {
-                    background-color: red;
+                    background-color: $danger;
                 }
             }
         }
@@ -58,7 +58,7 @@
         height: 100vh;
         backdrop-filter: blur(7px) saturate(180%);
         -webkit-backdrop-filter: blur(7px) saturate(180%);
-        background-color: rgba(255, 255, 255, 0.65);
+        background-color: rgba(0, 0, 0, 0.5);
         top: 0;
         z-index: 9;
         @include centerByFlex;
@@ -88,7 +88,7 @@
             .btnrow {
                 text-align: end;
                 .btn5 {
-                    background-color: red;
+                    background-color: $danger;
                 }
                 .btn6{
                     background-color: $icon-light;
