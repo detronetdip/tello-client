@@ -378,7 +378,7 @@
           background-color: $message-incoming-dark;
           border-radius: 0px 19px 19px 19px;
           position: relative;
-          .div{
+          .div {
             position: absolute;
             right: -20%;
             top: 50%;
@@ -391,7 +391,7 @@
             width: 5rem;
           }
         }
-        &:hover .div{
+        &:hover .div {
           display: flex;
         }
       }
@@ -401,7 +401,7 @@
           background-color: $message-outgoing-dark;
           border-radius: 19px 19px 0 19px;
           position: relative;
-          .div{
+          .div {
             position: absolute;
             left: -20%;
             top: 50%;
@@ -414,7 +414,7 @@
             width: 5rem;
           }
         }
-        &:hover .div{
+        &:hover .div {
           display: flex;
         }
       }
@@ -476,18 +476,25 @@
   }
 }
 @media only screen and (max-width: 830px) {
-  .DARK-messagePageWrapper{
-    .users{
+  .DARK-messagePageWrapper {
+    .users {
       flex: 3;
     }
   }
 }
 @media only screen and (max-width: 682px) {
-  .DARK-messagePageWrapper{
-    .users{
+  .DARK-messagePageWrapper {
+    .users {
       position: absolute;
       z-index: 3;
       min-height: 100vh;
+    }
+    .slide-out {
+      transform: translateX(-100%);
+    }
+    .slide-in {
+      transition: 0.2s;
+      transform: translateX(0%);
     }
   }
 }

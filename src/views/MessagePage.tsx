@@ -26,7 +26,7 @@ function MessagePage(){
   return (
     
       <div className={`${theme}-messagePageWrapper`}>
-        <div className="users">
+        <div className="users slide-in">
           <div className="searchwrapper">
             <div className="searchuser">
               <Input
