@@ -12,7 +12,6 @@ function Navbar() {
   const { theme } = useTheme();
   const location = useNavigate();
   const path = useLocation();
-  console.log(path.pathname.split("/")[1]);
   const handelSideBar = useSetRecoilState(sidebar);
   const sideBar = useRecoilValue(sidebar);
   return (
