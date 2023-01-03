@@ -166,3 +166,32 @@
     }
   }
 }
+@media only screen and (max-width: 590px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 60rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 398px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+     .username5{
+      .icon{
+        height: 7rem;
+        width: 7rem;
+      }
+      .name{
+        .name1{
+          font-size: 2rem;
+        }
+      }
+     }
+    }
+  }
+}

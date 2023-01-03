@@ -315,3 +315,36 @@
     }
   }
 }
+
+@media only screen and (max-width: 590px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox {
+      max-width: 50rem;
+    }
+  }
+}
+@media only screen and (max-width: 532px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox {
+      max-width: 40rem;
+    }
+  }
+}
+@media only screen and (max-width: 424px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox {
+      max-width: 35rem;
+    }
+  }
+}
+@media only screen and (max-width: 376px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox {
+      max-width: 30rem;
+    }
+  }
+}

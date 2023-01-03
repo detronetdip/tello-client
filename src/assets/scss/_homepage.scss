@@ -12,6 +12,7 @@
 .LIGHT-mainframe {
   @include centerByFlex;
   background-color: $bg-light;
+  transition: 0.25s;
   .fixedWrapper {
     width: 100%;
     display: flex;
@@ -25,6 +26,131 @@
       height: 100vh;
       z-index: 2;
       position: fixed;
+      .option,
+      .modechange {
+        padding: 2rem;
+        width: 100%;
+      }
+      .modechange {
+        padding-top: 0;
+        .option2 {
+          display: flex;
+          padding: 0.8rem;
+          border-radius: 0.8rem;
+          font-size: 1.8rem;
+          align-items: center;
+          cursor: pointer;
+          color: $font-light;
+          &:hover {
+            background-color: rgba($color: $hover-light, $alpha: 0.1);
+          }
+          .icon {
+            color: $icon-light;
+            @include centerByFlex();
+            font-size: 2.5rem;
+            margin-right: 0.5rem;
+          }
+        }
+
+        .mode {
+          display: flex;
+          padding: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          .icon {
+            font-size: 2.5rem;
+            @include centerByFlex;
+            color: $icon-light;
+          }
+          .toggle-switch {
+            position: relative;
+            width: 65px;
+            display: inline-block;
+            text-align: left;
+          }
+          .checkbox {
+            display: none;
+          }
+          .label {
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+            border: 0 solid #bbb;
+            border-radius: 20px;
+          }
+          .inner {
+            display: block;
+            width: 200%;
+            margin-left: -100%;
+            transition: margin 0.3s ease-in 0s;
+          }
+          .inner:before,
+          .inner:after {
+            float: left;
+            width: 50%;
+            height: 2.5rem;
+            padding: 0;
+            line-height: 2.5rem;
+            color: #fff;
+            font-weight: bold;
+            box-sizing: border-box;
+          }
+          .inner:before {
+            content: " ";
+            padding-left: 10px;
+            background-color: #bbb;
+            color: #fff;
+          }
+          .inner:after {
+            content: " ";
+            padding-right: 10px;
+            background-color: #bbb;
+            color: #fff;
+            text-align: right;
+          }
+          .switch {
+            display: block;
+            width: 15px;
+            margin: 5px;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 40px;
+            border: 0 solid #bbb;
+            border-radius: 20px;
+            transition: all 0.3s ease-in 0s;
+          }
+          .checkbox:checked + .label .inner {
+            margin-left: 0;
+          }
+          .checkbox:checked + .label .switch {
+            left: 0px;
+          }
+        }
+      }
+      .option {
+        padding-bottom: 0;
+        width: 100%;
+        .option1 {
+          color: $font-light;
+          display: flex;
+          padding: 0.8rem;
+          border-radius: 1rem;
+          font-size: 1.8rem;
+          align-items: center;
+          &:hover {
+            background-color: rgba($color: $hover-light, $alpha: 0.1);
+          }
+          cursor: pointer;
+          .icon {
+            color: $icon-light;
+            font-size: 2.5rem;
+            @include centerByFlex;
+            margin-right: 0.5rem;
+          }
+        }
+      }
     }
     .left1 {
       flex: 2;
@@ -363,6 +489,131 @@
       z-index: 2;
       position: fixed;
       border-top: 1px solid $border-dark;
+      .option,
+      .modechange {
+        padding: 2rem;
+        width: 100%;
+      }
+      .modechange {
+        padding-top: 0;
+        .option2 {
+          display: flex;
+          padding: 0.8rem;
+          border-radius: 0.8rem;
+          font-size: 1.8rem;
+          align-items: center;
+          cursor: pointer;
+          color: $font-dark;
+          &:hover {
+            background-color: rgba($color: $hover-dark, $alpha: 0.1);
+          }
+          .icon {
+            color: $icon-dark;
+            @include centerByFlex();
+            font-size: 2.5rem;
+            margin-right: 0.5rem;
+          }
+        }
+
+        .mode {
+          display: flex;
+          padding: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          .icon {
+            font-size: 2.5rem;
+            @include centerByFlex;
+            color: $icon-dark;
+          }
+          .toggle-switch {
+            position: relative;
+            width: 65px;
+            display: inline-block;
+            text-align: left;
+          }
+          .checkbox {
+            display: none;
+          }
+          .label {
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+            border: 0 solid #bbb;
+            border-radius: 20px;
+          }
+          .inner {
+            display: block;
+            width: 200%;
+            margin-left: -100%;
+            transition: margin 0.3s ease-in 0s;
+          }
+          .inner:before,
+          .inner:after {
+            float: left;
+            width: 50%;
+            height: 2.5rem;
+            padding: 0;
+            line-height: 2.5rem;
+            color: #fff;
+            font-weight: bold;
+            box-sizing: border-box;
+          }
+          .inner:before {
+            content: " ";
+            padding-left: 10px;
+            background-color: #746cfe;
+            color: #fff;
+          }
+          .inner:after {
+            content: " ";
+            padding-right: 10px;
+            background-color: #bbb;
+            color: #fff;
+            text-align: right;
+          }
+          .switch {
+            display: block;
+            width: 15px;
+            margin: 5px;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 40px;
+            border: 0 solid #bbb;
+            border-radius: 20px;
+            transition: all 0.3s ease-in 0s;
+          }
+          .checkbox:checked + .label .inner {
+            margin-left: 0;
+          }
+          .checkbox:checked + .label .switch {
+            right: 0px;
+          }
+        }
+      }
+      .option {
+        padding-bottom: 0;
+        width: 100%;
+        .option1 {
+          color: $font-dark;
+          display: flex;
+          padding: 0.8rem;
+          border-radius: 1rem;
+          font-size: 1.8rem;
+          align-items: center;
+          &:hover {
+            background-color: rgba($color: $hover-dark, $alpha: 0.1);
+          }
+          cursor: pointer;
+          .icon {
+            color: $icon-dark;
+            font-size: 2.5rem;
+            @include centerByFlex;
+            margin-right: 0.5rem;
+          }
+        }
+      }
     }
     .left1 {
       flex: 2;
@@ -833,6 +1084,12 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 60rem;
+        }
+      }
       .left1 {
         display: none;
       }
@@ -840,11 +1097,10 @@
         display: initial;
         transition: 0.5s;
       }
-      .smallsidebar-close{
+      .smallsidebar-close {
         transform: translateX(-100%);
-        
       }
-      .smallsidebar-expand{
+      .smallsidebar-expand {
         transform: translateX(0%);
       }
     }
