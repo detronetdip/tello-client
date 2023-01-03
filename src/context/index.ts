@@ -14,4 +14,10 @@ const currentTheme = atom({
       : "LIGHT",
   },
 });
-export { userState, currentTheme };
+const sidebar = atom({
+  key: "sidebar",
+  default: {
+    open: false,
+  },
+});
+export { userState, currentTheme, sidebar };

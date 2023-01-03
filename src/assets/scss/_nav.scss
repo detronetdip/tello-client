@@ -18,6 +18,12 @@
         height: 4.1rem;
         margin-left: 1.8rem;
         cursor: pointer;
+        .logo-large {
+          display: initial;
+        }
+        .logo-small {
+          display: none;
+        }
       }
     }
 
@@ -94,6 +100,12 @@
         height: 4.1rem;
         cursor: pointer;
         margin-left: 1.8rem;
+        .logo-large {
+          display: initial;
+        }
+        .logo-small {
+          display: none;
+        }
       }
     }
 
@@ -122,6 +134,7 @@
           background-color: transparent;
           border: none;
           color: $white;
+          width: 100%;
           &::placeholder {
             color: $text-fade;
             font-weight: 300;
@@ -148,6 +161,95 @@
           font-size: 1.5rem;
           margin-left: 0.8rem;
           color: $white;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 690px) {
+  .DARK-nav_rapper,
+  .LIGHT-nav_rapper {
+    .fixedwrapper {
+      .left {
+        .logo {
+          width: 6rem;
+          .logo-large {
+            display: none;
+          }
+          .logo-small {
+            display: initial;
+          }
+        }
+      }
+      .right {
+        .serachbox {
+          width: 20rem;
+        }
+        .ll {
+          .username {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 590px) {
+  .DARK-nav_rapper,
+  .LIGHT-nav_rapper {
+    .fixedwrapper {
+      .right {
+        .ll {
+          margin-left: 2rem;
+        }
+        .kl {
+          margin-left: 1.3rem;
+          font-size: 2.4rem;
+          @include centerByFlex;
+        }
+      }
+    }
+  }
+  .DARK-nav_rapper {
+    .fixedwrapper {
+      .right {
+        .kl {
+          color: $white;
+        }
+      }
+    }
+  }
+  .LIGHT-nav_rapper {
+    .fixedwrapper {
+      .right {
+        .kl {
+          color: $primaryDark;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 414px) {
+  .DARK-nav_rapper,
+  .LIGHT-nav_rapper {
+    .fixedwrapper {
+      .left{
+        .logo{
+          margin-left: 1rem;
+        }
+      }
+      .right {
+        margin-right: 1rem;
+        .serachbox{
+          width: 15rem;
+        }
+        .ll {
+          margin-left: 1rem;
+        }
+        .kl {
+          margin-left: 1.3rem;
+          font-size: 2.4rem;
+          @include centerByFlex;
         }
       }
     }
