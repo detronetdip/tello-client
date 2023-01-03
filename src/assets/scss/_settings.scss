@@ -307,3 +307,11 @@
     }
   }
 }
+@media only screen and (max-width: 690px) {
+  .DARK-settingsframe,
+  .LIGHT-settingsframe {
+    .settingsbox {
+      max-width: 40rem;
+    }
+  }
+}

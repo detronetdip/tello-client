@@ -155,3 +155,14 @@
     }
   }
 }
+@media only screen and (max-width: 690px) {
+  .DARK-profileFrame,
+  .LIGHT-profileFrame {
+    .profileWrapper {
+      .username5,
+      .mypost {
+        max-width: 40rem;
+      }
+    }
+  }
+}

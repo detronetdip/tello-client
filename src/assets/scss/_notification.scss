@@ -101,3 +101,15 @@
     }
   }
 }
+@media only screen and (max-width: 690px) {
+  .DARK-notificationFrame,
+  .LIGHT-notificationFrame {
+    .notificationWrapper {
+      .notificationrow {
+        .outer {
+          max-width: 40rem;
+        }
+      }
+    }
+  }
+}

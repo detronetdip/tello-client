@@ -16,6 +16,16 @@
     width: 100%;
     display: flex;
     max-width: $MAX-WIDTH;
+    .smallsidebar {
+      display: none;
+      background-color: $white;
+      border-right: 1px solid $border-light;
+      margin-top: 5.8rem;
+      width: 22rem;
+      height: 100vh;
+      z-index: 2;
+      position: fixed;
+    }
     .left1 {
       flex: 2;
       position: fixed;
@@ -343,6 +353,17 @@
     width: 100%;
     display: flex;
     max-width: $MAX-WIDTH;
+    .smallsidebar {
+      display: none;
+      background-color: $primaryDark;
+      border-right: 1px solid $border-dark;
+      margin-top: 5.8rem;
+      width: 22rem;
+      height: 100vh;
+      z-index: 2;
+      position: fixed;
+      border-top: 1px solid $border-dark;
+    }
     .left1 {
       flex: 2;
       position: fixed;
@@ -791,6 +812,40 @@
         .postcrte {
           max-width: 50rem;
         }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 690px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 40rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 590px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .left1 {
+        display: none;
+      }
+      .smallsidebar {
+        display: initial;
+        transition: 0.5s;
+      }
+      .smallsidebar-close{
+        transform: translateX(-100%);
+        
+      }
+      .smallsidebar-expand{
+        transform: translateX(0%);
       }
     }
   }
