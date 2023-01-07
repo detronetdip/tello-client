@@ -20,4 +20,11 @@ const sidebar = atom({
     open: false,
   },
 });
-export { userState, currentTheme, sidebar };
+const chat = atom({
+  key: "chatConfig",
+  default: {
+    open: false,
+    currentName: "",
+  },
+});
+export { userState, currentTheme, sidebar, chat };
