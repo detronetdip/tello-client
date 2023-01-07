@@ -1,7 +1,7 @@
 .mode2 {
   display: none;
 }
-.kl{
+.kl {
   display: none;
 }
 .DARK-mainframe,
@@ -302,6 +302,8 @@
       border: none;
       border-bottom: 1.5px solid $border-light;
       margin: 1rem 0 1.5rem;
+      width: 100%;
+      max-width: 75rem;
     }
 
     .hr2 {
@@ -762,9 +764,11 @@
     }
 
     .hr1 {
+      width: 100%;
       border: none;
       border-bottom: 1.5px solid $border-dark;
       margin: 1rem 0 1.5rem;
+      max-width: 75rem;
     }
 
     .hr2 {
@@ -946,6 +950,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 70rem;
+      }
       .post {
         .mypost,
         .postcrte {
@@ -959,6 +966,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 65rem;
+      }
       .post {
         .mypost,
         .postcrte {
@@ -972,6 +982,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 60rem;
+      }
       .post {
         .mypost,
         .postcrte {
@@ -1061,6 +1074,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 50rem;
+      }
       .post {
         .mypost,
         .postcrte {
@@ -1074,6 +1090,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 40rem;
+      }
       .post {
         .mypost,
         .postcrte {
@@ -1087,6 +1106,9 @@
   .DARK-mainframe,
   .LIGHT-mainframe {
     .fixedWrapper {
+      .hr1 {
+        max-width: 60rem;
+      }
       .post {
         .mypost,
         .postcrte {

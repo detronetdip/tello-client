@@ -35,6 +35,9 @@
           width: 100%;
           color: $white;
           padding: 1.2rem 0.7rem;
+          &::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+          }
         }
         p {
           font-size: 1.2rem;
