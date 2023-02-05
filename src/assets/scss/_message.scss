@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   padding-top: 6rem;
-
   .users {
     flex: 2;
     width: 100%;
@@ -13,9 +12,10 @@
     background-color: $white;
     .searchwrapper {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       border: 1px solid $border-light;
-      border-radius: 2em;
+      border-radius: 2rem;
       background-color: $inner-light;
       padding: 0.4rem;
       &::placeholder {
@@ -98,20 +98,30 @@
       border-bottom: 1px solid $border-light;
       background-color: $white;
       max-height: 8rem;
-      .mm {
+      .lft {
         display: flex;
         align-items: center;
-        .icon {
-          font-size: 3.2rem;
-          height: 4.9rem;
-          width: 4.9rem;
-          font-size: 0;
-          border-radius: 50%;
-          overflow: hidden;
-        }
-        .name {
-          margin-left: 1rem;
+        .back {
+          @include centerByFlex;
+          color: $primaryDark;
+          margin-right: 0.8rem;
           font-size: 1.6rem;
+        }
+        .mm {
+          display: flex;
+          align-items: center;
+          .icon {
+            font-size: 3.2rem;
+            height: 4.9rem;
+            width: 4.9rem;
+            font-size: 0;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+          .name {
+            margin-left: 1rem;
+            font-size: 1.6rem;
+          }
         }
       }
       .nn {
@@ -150,9 +160,23 @@
         .message {
           background-color: $message-incoming-light;
           border-radius: 0px 19px 19px 19px;
-          -webkit-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
-          -moz-box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
-          box-shadow: -4px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          position: relative;
+          .div {
+            position: absolute;
+            right: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            width: 5rem;
+            color: $primaryDark;
+          }
+        }
+        &:hover .div {
+          display: flex;
         }
       }
       .outgoing {
@@ -160,9 +184,23 @@
         .message {
           background-color: $message-outgoing-light;
           border-radius: 19px 19px 0 19px;
-          -webkit-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
-          -moz-box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
-          box-shadow: 5px 8px 28px -12px rgba(0, 0, 0, 0.75);
+          position: relative;
+          .div {
+            position: absolute;
+            left: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            @include centerByFlex;
+            cursor: pointer;
+            display: none;
+            font-size: 1.9rem;
+            height: 100%;
+            color: $primaryDark;
+            width: 5rem;
+          }
+        }
+        &:hover .div {
+          display: flex;
         }
       }
       .msgrow {
@@ -238,6 +276,7 @@
     .searchwrapper {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       border: 1px solid $border-dark;
       border-radius: 2rem;
       background-color: $inner-dark;
@@ -323,21 +362,31 @@
       border-bottom: 1px solid $border-dark;
       background-color: $primaryDark;
       max-height: 8rem;
-      .mm {
+      .lft {
         display: flex;
         align-items: center;
-        .icon {
-          font-size: 3.2rem;
-          height: 4.9rem;
-          width: 4.9rem;
-          font-size: 0;
-          border-radius: 50%;
-          overflow: hidden;
-        }
-        .name {
-          margin-left: 1rem;
-          font-size: 1.6rem;
+        .back {
+          @include centerByFlex;
           color: $white;
+          margin-right: 0.8rem;
+          font-size: 1.6rem;
+        }
+        .mm {
+          display: flex;
+          align-items: center;
+          .icon {
+            font-size: 3.2rem;
+            height: 4.9rem;
+            width: 4.9rem;
+            font-size: 0;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+          .name {
+            margin-left: 1rem;
+            font-size: 1.6rem;
+            color: $white;
+          }
         }
       }
       .nn {
@@ -378,7 +427,7 @@
           background-color: $message-incoming-dark;
           border-radius: 0px 19px 19px 19px;
           position: relative;
-          .div{
+          .div {
             position: absolute;
             right: -20%;
             top: 50%;
@@ -391,7 +440,7 @@
             width: 5rem;
           }
         }
-        &:hover .div{
+        &:hover .div {
           display: flex;
         }
       }
@@ -401,7 +450,7 @@
           background-color: $message-outgoing-dark;
           border-radius: 19px 19px 0 19px;
           position: relative;
-          .div{
+          .div {
             position: absolute;
             left: -20%;
             top: 50%;
@@ -414,7 +463,7 @@
             width: 5rem;
           }
         }
-        &:hover .div{
+        &:hover .div {
           display: flex;
         }
       }
@@ -476,18 +525,26 @@
   }
 }
 @media only screen and (max-width: 830px) {
-  .DARK-messagePageWrapper{
-    .users{
+  .DARK-messagePageWrapper {
+    .users {
       flex: 3;
     }
   }
 }
 @media only screen and (max-width: 682px) {
-  .DARK-messagePageWrapper{
-    .users{
+  .DARK-messagePageWrapper,
+  .LIGHT-messagePageWrapper {
+    .users {
       position: absolute;
       z-index: 3;
       min-height: 100vh;
+    }
+    .slide-out {
+      transform: translateX(-100%);
+    }
+    .slide-in {
+      transition: 0.2s;
+      transform: translateX(0%);
     }
   }
 }

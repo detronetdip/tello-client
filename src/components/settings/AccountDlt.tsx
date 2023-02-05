@@ -7,7 +7,7 @@ function AccountDlt() {
 
   return (
     <>
-      <div className="settingsbox">
+      <div className="settingsbox br-red">
         <div className="flexrow">
           <h4>Delete Account</h4>
           <div className="btnrow">

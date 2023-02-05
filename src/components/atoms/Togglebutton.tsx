@@ -1,8 +1,8 @@
 import React, { MutableRefObject, useEffect, useRef } from "react";
 import { useTheme } from "../../hooks/useTheme";
 
-function Togglebutton ({ label }: { label: string })  {
-  const { theme,setCurrentTheme } = useTheme();
+function Togglebutton({ label }: { label: string }) {
+  const { theme, setCurrentTheme } = useTheme();
   const check = useRef() as MutableRefObject<HTMLInputElement>;
   const changeTheme = () => {
     if (check.current.checked) {
@@ -11,13 +11,13 @@ function Togglebutton ({ label }: { label: string })  {
       setCurrentTheme("LIGHT");
     }
   };
-useEffect(() => {
-  if(theme==="DARK"){
-    check.current.checked=true
-  }
-
-
-}, [])
+  useEffect(() => {
+    if (theme === "DARK") {
+      check.current.checked = true;
+    } else {
+      check.current.checked = false;
+    }
+  }, [theme]);
 
   return (
     <>
@@ -36,6 +36,6 @@ useEffect(() => {
       </div>
     </>
   );
-};
+}
 
 export default Togglebutton;
