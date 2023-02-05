@@ -10,6 +10,9 @@ axiosInstance.interceptors.response.use(
   },
    (error)=>{
     console.log(error, "http error");
+    /**
+     * silent refresh will be implemented
+     */
     return Promise.reject(error);
   }
 );
