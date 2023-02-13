@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import {object,string} from "yup";
+import { object, string } from "yup";
 
 const RegistrationForm = ({ changeForm }: any) => {
   const [viewOTPForm, setViewOTPForm] = useState(false);
@@ -10,6 +10,8 @@ const RegistrationForm = ({ changeForm }: any) => {
     email: string()
       .email("Invalid email address.")
       .required("Email is required."),
+    fname: string().required("Firstname is required."),
+    lname: string().required("Lastname is required."),
     username: string().required("Email is required."),
     password: string().required("Password is required."),
   });
@@ -18,19 +20,25 @@ const RegistrationForm = ({ changeForm }: any) => {
   });
   const handelSubmit = ({
     email,
+    fname,
+    lname,
     password,
     username,
   }: {
     email: string;
+    fname: string;
+    lname: string;
     password: string;
     username: string;
   }) => {
-    console.log(email, password, username);
+    console.log(email, fname, lname, password, username);
     setViewOTPForm(true);
   };
   const registrationForm = useFormik({
     initialValues: {
       email: "",
+      fname: "",
+      lname: "",
       password: "",
       username: "",
     },
@@ -63,6 +71,29 @@ const RegistrationForm = ({ changeForm }: any) => {
               registrationForm.touched.email && registrationForm.errors.email
             }
           />
+
+          <Input
+            type="text"
+            placeholder="Enter your Firstname"
+            Class="input mt-2"
+            onChange={registrationForm.handleChange}
+            value={registrationForm.values.fname}
+            name="fname"
+            error={
+              registrationForm.touched.fname && registrationForm.errors.fname
+            }
+          />
+          <Input
+            type="text"
+            placeholder="Enter your Lastname"
+            Class="input mt-2"
+            onChange={registrationForm.handleChange}
+            value={registrationForm.values.lname}
+            name="lname"
+            error={
+              registrationForm.touched.lname && registrationForm.errors.lname
+            }
+          />
           <Input
             type="text"
             placeholder="Enter your username"
@@ -87,6 +118,7 @@ const RegistrationForm = ({ changeForm }: any) => {
               registrationForm.errors.password
             }
           />
+
           <div className="btnrow">
             <Button
               content="Register"
