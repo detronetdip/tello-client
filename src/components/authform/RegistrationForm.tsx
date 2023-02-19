@@ -3,9 +3,17 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
 import { object, string } from "yup";
+import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
+import axiosInstance from "../../utils/HttpRequest";
+import Loader from "../atoms/Loader";
 
 const RegistrationForm = ({ changeForm }: any) => {
+  const [loading, setLoading] = useState(false);
   const [viewOTPForm, setViewOTPForm] = useState(false);
+  const [userId, setUserId] = useState("");
+  const REGISTRATION_URL = `${AUTH_SERVER_ADDRESS}/api/v1/registration`;
+  const OTP_VALIDATION_URL = `${REGISTRATION_URL}/validate-otp`;
+
   const validationSchema = object({
     email: string()
       .email("Invalid email address.")
@@ -15,10 +23,12 @@ const RegistrationForm = ({ changeForm }: any) => {
     username: string().required("Email is required."),
     password: string().required("Password is required."),
   });
+
   const otpValidaionSchema = object({
     otp: string().required("OTP is required."),
   });
-  const handelSubmit = ({
+
+  const handelSubmit = async ({
     email,
     fname,
     lname,
@@ -31,8 +41,21 @@ const RegistrationForm = ({ changeForm }: any) => {
     password: string;
     username: string;
   }) => {
-    console.log(email, fname, lname, password, username);
-    setViewOTPForm(true);
+    try {
+      setLoading(true);
+      const { data } = await axiosInstance.post(REGISTRATION_URL, {
+        email,
+        username,
+        password,
+        firstName: fname,
+        lastName: lname,
+      });
+      // console.log(data);
+      setUserId(data.data.userId);
+      setViewOTPForm(true);
+    } catch (error) {
+      setLoading(false);
+    }
   };
   const registrationForm = useFormik({
     initialValues: {
@@ -45,8 +68,13 @@ const RegistrationForm = ({ changeForm }: any) => {
     validationSchema,
     onSubmit: handelSubmit,
   });
-  const handelOTPSubmit = ({ otp }: { otp: string }) => {
-    console.log(otp);
+  const handelOTPSubmit = async ({ otp }: { otp: string }) => {
+    await axiosInstance.post(OTP_VALIDATION_URL, {
+      userId,
+      otp,
+    });
+    changeForm(1);
+    // console.log(data)
   };
   const OTPForm = useFormik({
     initialValues: {
@@ -120,11 +148,15 @@ const RegistrationForm = ({ changeForm }: any) => {
           />
 
           <div className="btnrow">
-            <Button
-              content="Register"
-              Class="btn mt-3"
-              onclick={() => registrationForm.handleSubmit()}
-            />
+            {loading ? (
+              <Loader />
+            ) : (
+              <Button
+                content="Register"
+                Class="btn mt-3"
+                onclick={() => registrationForm.handleSubmit()}
+              />
+            )}
           </div>
           <div className="fgtp">
             <span onClick={() => changeForm(1)}>Login</span>
