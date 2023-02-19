@@ -3,12 +3,15 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
 import { object, string } from "yup";
-import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
+import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
 import axiosInstance from "../../utils/HttpRequest";
 
 const RegistrationForm = ({ changeForm }: any) => {
   const [viewOTPForm, setViewOTPForm] = useState(false);
-  const REGISTRATION_URL = `${RESOURCE_SERVER_ADDRESS}/api/v1/registration`;
+  const [userId, setUserId] = useState("");
+  const REGISTRATION_URL = `${AUTH_SERVER_ADDRESS}/api/v1/registration`;
+  const OTP_VALIDATION_URL = `${REGISTRATION_URL}/validate-otp`;
+
   const validationSchema = object({
     email: string()
       .email("Invalid email address.")
@@ -18,9 +21,11 @@ const RegistrationForm = ({ changeForm }: any) => {
     username: string().required("Email is required."),
     password: string().required("Password is required."),
   });
+
   const otpValidaionSchema = object({
     otp: string().required("OTP is required."),
   });
+  
   const handelSubmit = async ({
     email,
     fname,
@@ -34,7 +39,15 @@ const RegistrationForm = ({ changeForm }: any) => {
     password: string;
     username: string;
   }) => {
-    console.log(email, fname, lname, password, username);
+    const { data } = await axiosInstance.post(REGISTRATION_URL, {
+      email,
+      username,
+      password,
+      firstName: fname,
+      lastName: lname,
+    });
+    // console.log(data);
+    setUserId(data.data.userId);
     setViewOTPForm(true);
   };
   const registrationForm = useFormik({
@@ -48,8 +61,12 @@ const RegistrationForm = ({ changeForm }: any) => {
     validationSchema,
     onSubmit: handelSubmit,
   });
-  const handelOTPSubmit = ({ otp }: { otp: string }) => {
-    console.log(otp);
+  const handelOTPSubmit = async ({ otp }: { otp: string }) => {
+    await axiosInstance.post(OTP_VALIDATION_URL, {
+      userId,
+      otp,
+    });
+    // console.log(data)
   };
   const OTPForm = useFormik({
     initialValues: {
