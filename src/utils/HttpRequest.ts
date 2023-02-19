@@ -1,18 +1,23 @@
 import axios from "axios";
-import { SERVER_ADDRESS } from "./globalEnv";
 const axiosInstance = axios.create({
-  baseURL: SERVER_ADDRESS,
   withCredentials: true,
 });
 axiosInstance.interceptors.response.use(
-   (response)=>{
+  (response) => {
     return response;
   },
-   (error)=>{
-    console.log(error, "http error");
+  async (error) => {
+    const { response, config } = error;
     /**
-     * silent refresh will be implemented
+     * silent refresh
      */
+    if (response.status === 401 && response.data.code === 3000) {
+      await axiosInstance.get("http://localhost:3000/api/v1/regen");
+      return axiosInstance(config);
+    } else if (response.status === 401 && response.data.code === 4001) {
+      window.location.href = "/auth";
+      return Promise.reject(error);
+    }
     return Promise.reject(error);
   }
 );

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import {object,string} from "yup";
+import { object, string } from "yup";
+import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
+import axiosInstance from "../../utils/HttpRequest";
 
 const RegistrationForm = ({ changeForm }: any) => {
   const [viewOTPForm, setViewOTPForm] = useState(false);
+  const REGISTRATION_URL = `${RESOURCE_SERVER_ADDRESS}/api/v1/registration`;
   const validationSchema = object({
     email: string()
       .email("Invalid email address.")
@@ -16,7 +19,7 @@ const RegistrationForm = ({ changeForm }: any) => {
   const otpValidaionSchema = object({
     otp: string().required("OTP is required."),
   });
-  const handelSubmit = ({
+  const handelSubmit = async ({
     email,
     password,
     username,
