@@ -464,9 +464,14 @@
         background-color: $white;
         border: 1px solid $border-light;
         border-radius: 1.5rem;
-        padding: 2rem;
-        width: 85%;
-        height: 40rem;
+        padding: 0.8rem;
+        width: 90%;
+        height: 34.5rem;
+        .icon {
+          color: $icon-light;
+          @include centerByFlex();
+          font-size: 3rem;
+        }
         .ll {
           border: none;
           border-bottom: 1px solid $border-light;
@@ -933,14 +938,13 @@
         background-color: $primaryDark;
         border: 1px solid $border-dark;
         border-radius: 1.5rem;
-        padding: 2rem;
-        width: 85%;
-        height: 40rem;
-        .ll {
-          border: none;
-          border-bottom: 1px solid $border-dark;
-          margin-top: 0.2rem;
-          width: 100%;
+        padding: 0.8rem;
+        width: 90%;
+        height: 34.5rem;
+        .icon {
+          color: $icon-dark;
+          @include centerByFlex();
+          font-size: 3rem;
         }
       }
     }
