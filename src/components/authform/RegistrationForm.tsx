@@ -5,8 +5,10 @@ import { useFormik } from "formik";
 import { object, string } from "yup";
 import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
 import axiosInstance from "../../utils/HttpRequest";
+import Loader from "../atoms/Loader";
 
 const RegistrationForm = ({ changeForm }: any) => {
+  const [loading, setLoading] = useState(true);
   const [viewOTPForm, setViewOTPForm] = useState(false);
   const [userId, setUserId] = useState("");
   const REGISTRATION_URL = `${AUTH_SERVER_ADDRESS}/api/v1/registration`;
@@ -39,16 +41,21 @@ const RegistrationForm = ({ changeForm }: any) => {
     password: string;
     username: string;
   }) => {
-    const { data } = await axiosInstance.post(REGISTRATION_URL, {
-      email,
-      username,
-      password,
-      firstName: fname,
-      lastName: lname,
-    });
-    // console.log(data);
-    setUserId(data.data.userId);
-    setViewOTPForm(true);
+    try {
+      setLoading(true);
+      const { data } = await axiosInstance.post(REGISTRATION_URL, {
+        email,
+        username,
+        password,
+        firstName: fname,
+        lastName: lname,
+      });
+      // console.log(data);
+      setUserId(data.data.userId);
+      setViewOTPForm(true);
+    } catch (error) {
+      setLoading(false);
+    }
   };
   const registrationForm = useFormik({
     initialValues: {
@@ -141,11 +148,15 @@ const RegistrationForm = ({ changeForm }: any) => {
           />
 
           <div className="btnrow">
-            <Button
-              content="Register"
-              Class="btn mt-3"
-              onclick={() => registrationForm.handleSubmit()}
-            />
+            {loading ? (
+              <Loader />
+            ) : (
+              <Button
+                content="Register"
+                Class="btn mt-3"
+                onclick={() => registrationForm.handleSubmit()}
+              />
+            )}
           </div>
           <div className="fgtp">
             <span onClick={() => changeForm(1)}>Login</span>
