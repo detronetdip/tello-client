@@ -25,7 +25,7 @@ const RegistrationForm = ({ changeForm }: any) => {
   const otpValidaionSchema = object({
     otp: string().required("OTP is required."),
   });
-  
+
   const handelSubmit = async ({
     email,
     fname,
@@ -66,6 +66,7 @@ const RegistrationForm = ({ changeForm }: any) => {
       userId,
       otp,
     });
+    changeForm(1);
     // console.log(data)
   };
   const OTPForm = useFormik({
