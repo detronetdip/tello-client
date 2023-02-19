@@ -8,7 +8,7 @@ import axiosInstance from "../../utils/HttpRequest";
 import Loader from "../atoms/Loader";
 
 const RegistrationForm = ({ changeForm }: any) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [viewOTPForm, setViewOTPForm] = useState(false);
   const [userId, setUserId] = useState("");
   const REGISTRATION_URL = `${AUTH_SERVER_ADDRESS}/api/v1/registration`;
