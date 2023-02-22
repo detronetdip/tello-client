@@ -1,14 +1,13 @@
 import moment from "moment";
 import React, { useEffect, useRef, useState } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { BsBookmarkHeartFill } from "react-icons/bs";
 import { MdComment } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
+import BookMarkBtn from "../atoms/BookMarkBtn";
 import Button from "../atoms/Button";
-
 import Input from "../atoms/Input";
+import LikeButton from "../atoms/LikeButton";
 import ReadMore from "../atoms/ReadMore";
 
 function Post({
@@ -127,7 +126,7 @@ function Post({
         <div className="option1">
           <div className="aa">
             <div className="like">
-              <AiOutlineHeart />
+              <LikeButton />
             </div>
             &nbsp; &nbsp;
             {comment ? (
@@ -140,7 +139,7 @@ function Post({
             ) : null}
           </div>
           <div className="bookmark">
-            <BsBookmarkHeartFill />
+            <BookMarkBtn />
           </div>
         </div>
         {isCommentOpen ? (
