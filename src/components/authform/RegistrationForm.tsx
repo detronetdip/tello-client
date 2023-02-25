@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ErrorInfo, useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { useFormik } from "formik";
@@ -6,6 +6,8 @@ import { object, string } from "yup";
 import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
 import axiosInstance from "../../utils/HttpRequest";
 import Loader from "../atoms/Loader";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
 
 const RegistrationForm = ({ changeForm }: any) => {
   const [loading, setLoading] = useState(false);
@@ -51,9 +53,12 @@ const RegistrationForm = ({ changeForm }: any) => {
         lastName: lname,
       });
       // console.log(data);
+      toast.success(data.msg);
       setUserId(data.data.userId);
       setViewOTPForm(true);
-    } catch (error) {
+      setLoading(false);
+    } catch (error: any) {
+      if (error) toast.warn(error?.response.data.msg);
       setLoading(false);
     }
   };
@@ -69,10 +74,12 @@ const RegistrationForm = ({ changeForm }: any) => {
     onSubmit: handelSubmit,
   });
   const handelOTPSubmit = async ({ otp }: { otp: string }) => {
+    setLoading(true);
     await axiosInstance.post(OTP_VALIDATION_URL, {
       userId,
       otp,
     });
+    toast.success("verified");
     changeForm(1);
     // console.log(data)
   };
@@ -174,11 +181,15 @@ const RegistrationForm = ({ changeForm }: any) => {
             error={OTPForm.touched.otp && OTPForm.errors.otp}
           />
           <div className="btnrow">
-            <Button
-              content="Verify"
-              Class="btn mt-3"
-              onclick={() => OTPForm.handleSubmit()}
-            />
+            {loading ? (
+              <Loader />
+            ) : (
+              <Button
+                content="Verify"
+                Class="btn mt-3"
+                onclick={() => OTPForm.handleSubmit()}
+              />
+            )}
           </div>
           <div className="fgtp">
             <span onClick={() => changeForm(1)}>Sent again</span>
