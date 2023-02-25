@@ -6,7 +6,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { useTheme } from "../../hooks/useTheme";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-import { sidebar } from "../../context";
+import { sidebar, userState } from "../../context";
 
 function Navbar() {
   const { theme } = useTheme();
@@ -14,6 +14,7 @@ function Navbar() {
   const path = useLocation();
   const handelSideBar = useSetRecoilState(sidebar);
   const sideBar = useRecoilValue(sidebar);
+  const { userName } = useRecoilValue(userState);
   return (
     <div className={`${theme}-nav_rapper`}>
       <div className="fixedwrapper">
@@ -50,7 +51,7 @@ function Navbar() {
             </div>
 
             <div className="username">
-              <p>User_name</p>
+              <p>{userName || "User_name"}</p>
             </div>
           </div>
           {!sideBar.open && path.pathname.split("/")[1] !== "messages" ? (

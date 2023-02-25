@@ -4,15 +4,22 @@ import Input from "../atoms/Input";
 import { useFormik } from "formik";
 import { object, string } from "yup";
 import axiosInstance from "../../utils/HttpRequest";
-import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
+import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
+import { toast } from "react-toastify";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../../context";
+import { useNavigate } from "react-router-dom";
+import { setItem } from "../../utils/storageHandler";
 
 function LoginForm({ changeForm }: any) {
+  const location = useNavigate();
   const validationSchema = object({
     email: string()
       .email("Invalid email address.")
       .required("Email is required."),
     password: string().required("Password is required."),
   });
+  const userContext = useSetRecoilState(userState);
   const handelSubmit = async ({
     email,
     password,
@@ -20,14 +27,36 @@ function LoginForm({ changeForm }: any) {
     email: string;
     password: string;
   }) => {
-    // dummy request
-    const data = await axiosInstance.post(
-      `${RESOURCE_SERVER_ADDRESS}/api/v1/addFriend`,
-      {
-        userId: "userId",
-        friendId: "friendId",
-      }
-    );
+    try {
+      const _data = await axiosInstance.post(
+        `${AUTH_SERVER_ADDRESS}/api/v1/login`,
+        {
+          email,
+          password,
+        }
+      );
+      if (_data.status === 200) {
+        const { data } = _data;
+        setItem("_userInfo", {
+          userId: data.info.id,
+          email: data.info.email,
+          userName: data.info.username,
+        });
+        userContext((old) => {
+          return {
+            ...old,
+            isLoggedIn: true,
+            userId: data.info.id,
+            email: data.info.email,
+            userName: data.info.username,
+          };
+        });
+        location("/");
+      } else toast(_data.data.msg);
+    } catch (error: any) {
+      console.log(error);
+      toast.warn(error.responce.msg);
+    }
   };
   const formik = useFormik({
     initialValues: {

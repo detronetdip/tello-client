@@ -6,6 +6,9 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import Togglebutton from "../components/atoms/Togglebutton";
 import { sidebar } from "../context";
 import { useTheme } from "../hooks/useTheme";
+import { AUTH_SERVER_ADDRESS } from "../utils/globalEnv";
+import axiosInstance from "../utils/HttpRequest";
+import { deleteItem } from "../utils/storageHandler";
 import { navMenu } from "./data/navMenuData";
 
 function NavMenu() {
@@ -20,6 +23,11 @@ function NavMenu() {
   };
   const sideBar = useRecoilValue(sidebar);
   const handelSideBar = useSetRecoilState(sidebar);
+  const logout = async () => {
+    await axiosInstance.get(AUTH_SERVER_ADDRESS + "/api/v1/logout");
+    deleteItem('_userInfo');
+    location("/auth");
+  };
   return (
     <>
       <div className="left1">
@@ -45,7 +53,7 @@ function NavMenu() {
 
           <div className="modechange">
             <ul>
-              <li className="option2" onClick={() => location("/auth")}>
+              <li className="option2" onClick={logout}>
                 <div className="icon">
                   <BiLogOutCircle />
                 </div>
@@ -107,7 +115,7 @@ function NavMenu() {
         </div>
         <div className="modechange">
           <ul>
-            <li className="option2" onClick={() => location("/auth")}>
+            <li className="option2" onClick={logout}>
               <div className="icon">
                 <BiLogOutCircle />
               </div>
