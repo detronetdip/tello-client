@@ -7,7 +7,8 @@ import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
 import axiosInstance from "../../utils/HttpRequest";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState } from "../../context";
-import { getItem, setUserStorage } from "../../utils/storageHandler";
+import { setUserStorage } from "../../utils/storageHandler";
+import { toast } from "react-toastify";
 
 function ProfileDetailsForm() {
   const profileUpdateURL = `${RESOURCE_SERVER_ADDRESS}/api/v1/updateProfile`;
@@ -34,6 +35,7 @@ function ProfileDetailsForm() {
         };
       });
       setUserStorage("_userInfo", { email: data.info.email });
+      toast.success(data.msg)
     } catch (error) {}
   };
   const updateProfileUsername = async (values: { username: string }) => {
@@ -49,18 +51,19 @@ function ProfileDetailsForm() {
         };
       });
       setUserStorage("_userInfo", { userName: data.info.username });
+      toast.success(data.msg)
     } catch (error) {}
   };
   const updateEmail = useFormik({
     initialValues: {
-      email: getItem('_userInfo').email || "",
+      email: userData.email || "",
     },
     validationSchema: updateEmailValidationSchema,
     onSubmit: updateProfileEmail,
   });
   const updateUsername = useFormik({
     initialValues: {
-      username: getItem('_userInfo').userName || "",
+      username: userData.userName || "",
     },
     validationSchema: updateUserNameValidationSchema,
     onSubmit: updateProfileUsername,
