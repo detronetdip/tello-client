@@ -1,10 +1,13 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
 import NavMenu from "../components/NavMenu";
 import Post from "../components/singlepost/Post";
+import { userState } from "../context";
 import { useTheme } from "../hooks/useTheme";
 
 function ProfilePage() {
   const { theme } = useTheme();
+  const {firstName,lastName,userName}=useRecoilValue(userState)
   return (
     <>
       <div className={`${theme}-mainframe`}>
@@ -17,8 +20,8 @@ function ProfilePage() {
                   <img src="assets/icons/fakeuser.jpg" alt="" />
                 </div>
                 <div className="name">
-                  <p className="name1">User_Name</p>
-                  <p className="username1">@user_name</p>
+                  <p className="name1">{`${firstName} ${lastName}`}</p>
+                  <p className="username1">@{userName||'username'}</p>
                 </div>
               </div>
               <hr className="hr2"/>
