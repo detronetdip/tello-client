@@ -9,11 +9,13 @@ function PersonalDetailsForm() {
     fname: string().required("First name is required."),
     lname: string().required("Last name is required."),
     dob: string().required("DOB is required."),
+    bio: string().required("Bio is required."),
   });
   const updatePersonalDetails = (values: {
     fname: string;
     lname: string;
     dob: string;
+    bio: string;
   }) => {
     console.log(values);
     personalDetails.resetForm();
@@ -23,6 +25,7 @@ function PersonalDetailsForm() {
       fname: "",
       lname: "",
       dob: "",
+      bio: "",
     },
     validationSchema: personalDetailsValidationSchema,
     onSubmit: updatePersonalDetails,
@@ -58,6 +61,19 @@ function PersonalDetailsForm() {
               error={
                 personalDetails.touched.lname && personalDetails.errors.lname
               }
+            />
+          </div>
+
+          <div className="formrow">
+            <label htmlFor="bio">Bio</label>
+            <br />
+            <Input
+              onChange={personalDetails.handleChange}
+              id="bio"
+              type="text"
+              placeholder="Bio"
+              value={personalDetails.values.bio}
+              error={personalDetails.touched.bio && personalDetails.errors.bio}
             />
           </div>
           <div className="formrow">

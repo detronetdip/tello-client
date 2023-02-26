@@ -5,29 +5,35 @@ import { object, string } from "yup";
 import { useFormik } from "formik";
 
 function ProfileDetailsForm() {
-  const profileDetailsValidationSchema = object({
+  const updateEmailValidationSchema = object({
     email: string()
       .email("Invalid email address.")
       .required("Email is required."),
-    username: string().required("Username is required."),
-    bio: string().required("Bio is required."),
   });
-  const updateProfileDetails = (values: {
-    email: string;
-    username: string;
-    bio: string;
-  }) => {
+  const updateUserNameValidationSchema = object({
+    username: string().required("Username is required."),
+  });
+  const updateProfileEmail = (values: { email: string }) => {
     console.log(values);
-    profileDetails.resetForm();
+    updateEmail.resetForm();
   };
-  const profileDetails = useFormik({
+  const updateProfileUsername = (values: { username: string }) => {
+    console.log(values);
+    updateUsername.resetForm();
+  };
+  const updateEmail = useFormik({
     initialValues: {
       email: "",
-      username: "",
-      bio: "",
     },
-    validationSchema: profileDetailsValidationSchema,
-    onSubmit: updateProfileDetails,
+    validationSchema: updateEmailValidationSchema,
+    onSubmit: updateProfileEmail,
+  });
+  const updateUsername = useFormik({
+    initialValues: {
+      username: "",
+    },
+    validationSchema: updateUserNameValidationSchema,
+    onSubmit: updateProfileUsername,
   });
   return (
     <>
@@ -38,29 +44,37 @@ function ProfileDetailsForm() {
             <label htmlFor="email">Email</label>
             <br />
             <Input
-              onChange={profileDetails.handleChange}
+              onChange={updateEmail.handleChange}
               id="email"
               type="email"
               placeholder="Email"
-              value={profileDetails.values.email}
-              error={
-                profileDetails.touched.email && profileDetails.errors.email
-              }
+              value={updateEmail.values.email}
+              error={updateEmail.touched.email && updateEmail.errors.email}
             />
             <p>This is your primary email associate with this account.</p>
           </div>
+          <div className="btnrow">
+            <Button
+              content="Update"
+              onclick={() => updateEmail.handleSubmit()}
+            />
+          </div>
+        </form>
+      </div>
+      <div className="settingsbox">
+        <form>
           <div className="formrow">
             <label htmlFor="username">Username</label>
             <br />
             <Input
-              onChange={profileDetails.handleChange}
+              onChange={updateUsername.handleChange}
               id="username"
               type="text"
               placeholder="Username"
-              value={profileDetails.values.username}
+              value={updateUsername.values.username}
               error={
-                profileDetails.touched.username &&
-                profileDetails.errors.username
+                updateUsername.touched.username &&
+                updateUsername.errors.username
               }
             />
             <p>
@@ -68,23 +82,10 @@ function ProfileDetailsForm() {
               username at any time.
             </p>
           </div>
-          <div className="formrow">
-            <label htmlFor="bio">Bio</label>
-            <br />
-            <Input
-              onChange={profileDetails.handleChange}
-              id="bio"
-              type="text"
-              placeholder="Bio"
-              value={profileDetails.values.bio}
-              error={profileDetails.touched.bio && profileDetails.errors.bio}
-            />
-            <p>This is your bio and it will be visible on your profile.</p>
-          </div>
           <div className="btnrow">
             <Button
               content="Update"
-              onclick={() => profileDetails.handleSubmit()}
+              onclick={() => updateUsername.handleSubmit()}
             />
           </div>
         </form>
