@@ -41,6 +41,8 @@ function LoginForm({ changeForm }: any) {
           userId: data.info.id,
           email: data.info.email,
           userName: data.info.username,
+          firstName: data.info.firstname,
+          lastName: data.info.lastname,
         });
         userContext((old) => {
           return {
@@ -49,9 +51,11 @@ function LoginForm({ changeForm }: any) {
             userId: data.info.id,
             email: data.info.email,
             userName: data.info.username,
+            firstName: data.info.firstname,
+            lastName: data.info.lastname,
           };
         });
-        location("/");
+        window.location.href = "/";
       } else toast(_data.data.msg);
     } catch (error: any) {
       console.log(error);

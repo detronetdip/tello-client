@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import Authentication from "./components/Auth/Authentication";
 import Navbar from "./components/navbar/Navbar";
@@ -10,10 +10,10 @@ import axiosInstance from "./utils/HttpRequest";
 import { getItem } from "./utils/storageHandler";
 
 function AllPages() {
-  const location = useNavigate();
   const { isLoggedIn } = useRecoilValue(userState);
   const userContext = useSetRecoilState(userState);
   const storage = getItem("_userInfo");
+  const [complete, setComplete] = useState(false);
   useEffect(() => {
     const checkLogin = async () => {
       if (!isLoggedIn && storage) {
@@ -29,22 +29,25 @@ function AllPages() {
                 userId: storage.userId,
                 email: storage.email,
                 userName: storage.userName,
+                firstName:storage.firstName,
+                lastName:storage.lastName
               };
             });
-            location("/");
+            setComplete(true);
           }
-        } catch (error) {}
+        } catch (error) {console.log(error)}
       }
     };
     checkLogin();
   }, []);
-
   return (
     <>
-      <Authentication>
-        <Navbar />
-        <Outlet />
-      </Authentication>
+      {complete ? (
+        <Authentication>
+          <Navbar />
+          <Outlet />
+        </Authentication>
+      ) : null}
     </>
   );
 }

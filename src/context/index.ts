@@ -5,7 +5,9 @@ const userState = atom({
     isLoggedIn: false,
     userName: "",
     email:"",
-    userId:""
+    userId:"",
+    firstName:"",
+    lastName:"",
   },
 });
 const currentTheme = atom({
