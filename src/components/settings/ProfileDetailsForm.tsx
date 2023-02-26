@@ -3,8 +3,16 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { object, string } from "yup";
 import { useFormik } from "formik";
+import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
+import axiosInstance from "../../utils/HttpRequest";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { userState } from "../../context";
+import { getItem, setUserStorage } from "../../utils/storageHandler";
 
 function ProfileDetailsForm() {
+  const profileUpdateURL = `${RESOURCE_SERVER_ADDRESS}/api/v1/updateProfile`;
+  const userContext = useSetRecoilState(userState);
+  const userData = useRecoilValue(userState);
   const updateEmailValidationSchema = object({
     email: string()
       .email("Invalid email address.")
@@ -13,24 +21,46 @@ function ProfileDetailsForm() {
   const updateUserNameValidationSchema = object({
     username: string().required("Username is required."),
   });
-  const updateProfileEmail = (values: { email: string }) => {
-    console.log(values);
-    updateEmail.resetForm();
+  const updateProfileEmail = async (values: { email: string }) => {
+    try {
+      const { data } = await axiosInstance.put(profileUpdateURL, {
+        userId: userData.userId,
+        email: values.email,
+      });
+      userContext((old) => {
+        return {
+          ...old,
+          email: data.info.email,
+        };
+      });
+      setUserStorage("_userInfo", { email: data.info.email });
+    } catch (error) {}
   };
-  const updateProfileUsername = (values: { username: string }) => {
-    console.log(values);
-    updateUsername.resetForm();
+  const updateProfileUsername = async (values: { username: string }) => {
+    try {
+      const { data } = await axiosInstance.put(profileUpdateURL, {
+        userId: userData.userId,
+        username: values.username,
+      });
+      userContext((old) => {
+        return {
+          ...old,
+          userName: data.info.username,
+        };
+      });
+      setUserStorage("_userInfo", { userName: data.info.username });
+    } catch (error) {}
   };
   const updateEmail = useFormik({
     initialValues: {
-      email: "",
+      email: getItem('_userInfo').email || "",
     },
     validationSchema: updateEmailValidationSchema,
     onSubmit: updateProfileEmail,
   });
   const updateUsername = useFormik({
     initialValues: {
-      username: "",
+      username: getItem('_userInfo').userName || "",
     },
     validationSchema: updateUserNameValidationSchema,
     onSubmit: updateProfileUsername,
