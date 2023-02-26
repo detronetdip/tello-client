@@ -1,7 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import NavMenu from "../components/NavMenu";
+import WeatherApp from "../components/weather/WeatherApp";
 import { useTheme } from "../hooks/useTheme";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 
 function HomePage() {
   const { theme } = useTheme();
@@ -13,8 +15,10 @@ function HomePage() {
 
         <div className="right1">
           <div className="news">
-            <p>News and Interests</p>
-            <hr className="ll" />
+            <div className="icon">
+              <TiWeatherPartlySunny />
+            </div>
+            <WeatherApp />
           </div>
         </div>
       </div>

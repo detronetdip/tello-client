@@ -60,3 +60,33 @@ $MAX-WIDTH: 130rem;
     cursor: pointer;
   }
 }
+
+.loader{
+  @include centerByFlex;
+  box-shadow: none;
+  padding: 1rem;
+  background-color: $button-bg;
+  font-size: 1.9rem;
+  font-weight: 800;
+  &:hover {
+    background-color: $button-bg-hover;
+  }
+}
+.spinner{
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.flex{
+  display: flex;
+}
+.justify-between{
+  justify-content: space-between;
+}

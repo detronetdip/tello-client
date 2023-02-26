@@ -29,6 +29,7 @@ function ImagePost({
             />
           ) : null}
           <div className="middlebox">
+            <h4>Create a post</h4>
             <div className="postwrite">
               <Input type="" placeholder="Write something..." view="TEXTAREA" />
             </div>

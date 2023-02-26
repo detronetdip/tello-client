@@ -2,8 +2,12 @@ import { atom } from "recoil";
 const userState = atom({
   key: "userState",
   default: {
-    isLoggedIn: true,
+    isLoggedIn: false,
     userName: "",
+    email:"",
+    userId:"",
+    firstName:"",
+    lastName:"",
   },
 });
 const currentTheme = atom({
