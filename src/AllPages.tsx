@@ -29,13 +29,16 @@ function AllPages() {
                 userId: storage.userId,
                 email: storage.email,
                 userName: storage.userName,
-                firstName:storage.firstName,
-                lastName:storage.lastName
+                firstName: storage.firstName,
+                lastName: storage.lastName,
               };
             });
             setComplete(true);
           }
-        } catch (error) {console.log(error)}
+        } catch (error) {
+          setComplete(true);
+          console.log(error);
+        }
       }
     };
     checkLogin();
