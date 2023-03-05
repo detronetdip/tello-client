@@ -10,3 +10,8 @@ export const setItem = (key: string, value: object | string) => {
 export const deleteItem = (key: string) => {
   localStorage.removeItem(key);
 };
+
+export const setUserStorage = (key: string, value: object) => {
+  const data = getItem(key);
+  setItem(key, { ...data, ...value });
+};
