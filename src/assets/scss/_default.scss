@@ -84,3 +84,9 @@ $MAX-WIDTH: 130rem;
     transform: rotate(360deg);
   }
 }
+.flex{
+  display: flex;
+}
+.justify-between{
+  justify-content: space-between;
+}
