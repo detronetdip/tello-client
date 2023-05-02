@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import { io } from "socket.io-client";
 import Authentication from "./components/Auth/Authentication";
 import Navbar from "./components/navbar/Navbar";
 import { userState } from "./context";
@@ -10,7 +10,7 @@ import axiosInstance from "./utils/HttpRequest";
 import { getItem } from "./utils/storageHandler";
 
 function AllPages() {
-  const { isLoggedIn } = useRecoilValue(userState);
+  const { isLoggedIn, userId } = useRecoilValue(userState);
   const userContext = useSetRecoilState(userState);
   const storage = getItem("_userInfo");
   const [complete, setComplete] = useState(false);
@@ -43,6 +43,21 @@ function AllPages() {
     };
     checkLogin();
   }, []);
+  useEffect(() => {
+    if (userId) {
+      const socket = io("ws://localhost:5000");
+      socket.on("connect", () => {
+        console.log(socket, userId);
+        socket.emit("store", {
+          uid: userId,
+          sid: socket.id,
+        });
+      });
+      socket.on("notification",(data)=>{
+        console.log(data)
+      })
+    }
+  }, [userId]);
   return (
     <>
       {complete ? (

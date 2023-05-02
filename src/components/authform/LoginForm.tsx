@@ -35,8 +35,9 @@ function LoginForm({ changeForm }: any) {
           password,
         }
       );
-      if (_data.status === 200) {
+      if (_data.status === 200 && _data.data.code!=3003) {
         const { data } = _data;
+        console.log(data)
         setItem("_userInfo", {
           userId: data.info.id,
           email: data.info.email,
