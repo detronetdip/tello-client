@@ -4,10 +4,10 @@ const userState = atom({
   default: {
     isLoggedIn: false,
     userName: "",
-    email:"",
-    userId:"",
-    firstName:"",
-    lastName:"",
+    email: "",
+    userId: "",
+    firstName: "",
+    lastName: "",
   },
 });
 const currentTheme = atom({

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { object, string } from "yup";
@@ -9,6 +9,8 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userState } from "../../context";
 import { setUserStorage } from "../../utils/storageHandler";
 import { toast } from "react-toastify";
+import { BiImageAdd } from "react-icons/bi";
+import InputWithRef from "../atoms/InputWithRef";
 
 function ProfileDetailsForm() {
   const profileUpdateURL = `${RESOURCE_SERVER_ADDRESS}/api/v1/updateProfile`;
@@ -35,7 +37,7 @@ function ProfileDetailsForm() {
         };
       });
       setUserStorage("_userInfo", { email: data.info.email });
-      toast.success(data.msg)
+      toast.success(data.msg);
     } catch (error) {}
   };
   const updateProfileUsername = async (values: { username: string }) => {
@@ -51,7 +53,7 @@ function ProfileDetailsForm() {
         };
       });
       setUserStorage("_userInfo", { userName: data.info.username });
-      toast.success(data.msg)
+      toast.success(data.msg);
     } catch (error) {}
   };
   const updateEmail = useFormik({
@@ -68,9 +70,54 @@ function ProfileDetailsForm() {
     validationSchema: updateUserNameValidationSchema,
     onSubmit: updateProfileUsername,
   });
+  const [render, setRender] = useState(Date.now());
+  const [openPostWithImage, setOpenPostWithImage] = useState(false);
+  const [file, setFile] = useState<string>();
+  const fileInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const onLoadHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const file = URL.createObjectURL(
+      (e.target as HTMLInputElement).files?.[0] as Blob
+    );
+    setFile(file);
+    setOpenPostWithImage(true);
+  };
+  const closePopUp = (v: Boolean) => {
+    setRender(Date.now());
+    setOpenPostWithImage(false);
+  };
   return (
     <>
       <h1>Profile Details</h1>
+      <div className="settingsbox">
+        <form>
+          <div className="formrow">
+            <div className="post2">
+              <label>Update Profile Picture</label>
+              <div className="cd">
+                <label className="imageicon" htmlFor="postIMG">
+                  <BiImageAdd />
+                </label>
+                <InputWithRef
+                  key={render}
+                  ref={fileInputRef}
+                  type="file"
+                  id="postIMG"
+                  placeholder=""
+                  styles={{ display: "none" }}
+                  onChange={(
+                    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+                  ) => onLoadHandler(e)}
+                />
+                <div className="btnrow">
+                  <Button content="Update" Class="btn-1" ripple />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
       <div className="settingsbox">
         <form>
           <div className="formrow">

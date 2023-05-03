@@ -21,6 +21,18 @@
     form {
       padding: 0.5rem 1.2rem;
       .formrow {
+        .post2 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .cd {
+            display: flex;
+            align-items: center;
+          }
+          .imageicon {
+            font-size: 2.5rem;
+          }
+        }
         margin: 1rem 0;
         label {
           color: $font-dark;
@@ -166,6 +178,18 @@
     form {
       padding: 0.5rem 1.2rem;
       .formrow {
+        .post2 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .cd {
+            display: flex;
+            align-items: center;
+          }
+          .imageicon {
+            font-size: 2.5rem;
+          }
+        }
         margin: 1rem 0;
         label {
           color: $font-light2;
