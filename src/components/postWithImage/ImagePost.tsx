@@ -29,15 +29,11 @@ function ImagePost({
             />
           ) : null}
           <div className="middlebox">
-            <h4>Create a post</h4>
-            <div className="postwrite">
-              <Input type="" placeholder="Write something..." view="TEXTAREA" />
-            </div>
             <img src={file} ref={imageRef}></img>
             <div className="btn">
               <Button content="Edit" onclick={() => setOpenImageEditor(true)} />
               <Button content="Discard" onclick={() => closeEditor(false)} />
-              <Button content="Post" onclick={() => closeEditor(false)} />
+              <Button content="Ok" onclick={() => closeEditor(false)} />
             </div>
           </div>
         </div>

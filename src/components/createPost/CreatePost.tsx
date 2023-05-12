@@ -1,16 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../context";
+import axiosInstance from "../../utils/HttpRequest";
+import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
 import Button from "../atoms/Button";
-import Input from "../atoms/Input";
 import InputWithRef from "../atoms/InputWithRef";
-import ImageEditor from "../imageEditor/ImageEditor";
 import ImagePost from "../postWithImage/ImagePost";
 
 function CreatePost() {
   const [render, setRender] = useState(Date.now());
   const [openPostWithImage, setOpenPostWithImage] = useState(false);
+  const { userId } = useRecoilValue(userState);
   const [file, setFile] = useState<string>();
   const fileInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const textInputRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const onLoadHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -23,6 +27,24 @@ function CreatePost() {
   const closePopUp = (v: Boolean) => {
     setRender(Date.now());
     setOpenPostWithImage(false);
+  };
+  const handlePost = async () => {
+    console.log(file);
+    console.log(textInputRef.current.value);
+    const formData = new FormData();
+    formData.append("text", textInputRef.current.value);
+    if (file) {
+      const response = await fetch(file as string);
+      const blobData = await response.blob();
+      formData.append("media", blobData, `${Date.now()}`);
+    }
+    formData.append("userId", userId);
+    const res = await axiosInstance.post(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/upload`,
+      formData
+    );
+    fileInputRef.current.files = null;
+    textInputRef.current.value = "";
   };
   return (
     <>
@@ -39,7 +61,8 @@ function CreatePost() {
 
         <div className="post1">
           <form className="postform">
-            <Input
+            <InputWithRef
+              ref={textInputRef}
               Class="aa"
               type="text"
               view="TEXTAREA"
@@ -62,7 +85,7 @@ function CreatePost() {
                 e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
               ) => onLoadHandler(e)}
             />
-            <Button content="Post" Class="btn-1" ripple />
+            <Button content="Post" Class="btn-1" ripple onclick={handlePost} />
           </div>
         </div>
       </div>

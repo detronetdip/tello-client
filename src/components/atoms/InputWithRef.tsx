@@ -39,6 +39,7 @@ const InputWithRef = React.forwardRef(
         </>
       ) : (
         <textarea
+        ref={ref as React.RefObject<HTMLTextAreaElement>}
           placeholder={placeholder}
           className={Class}
           style={styles}
