@@ -5,8 +5,8 @@ import { io } from "socket.io-client";
 import Authentication from "./components/Auth/Authentication";
 import Navbar from "./components/navbar/Navbar";
 import { userState } from "./context";
-import { AUTH_SERVER_ADDRESS } from "./utils/globalEnv";
 import axiosInstance from "./utils/HttpRequest";
+import { AUTH_SERVER_ADDRESS } from "./utils/globalEnv";
 import { getItem } from "./utils/storageHandler";
 
 function AllPages() {
@@ -39,6 +39,8 @@ function AllPages() {
           setComplete(true);
           console.log(error);
         }
+      } else {
+        setComplete(true);
       }
     };
     checkLogin();
@@ -53,11 +55,12 @@ function AllPages() {
           sid: socket.id,
         });
       });
-      socket.on("notification",(data)=>{
-        console.log(data)
-      })
+      socket.on("notification", (data) => {
+        console.log(data);
+      });
     }
   }, [userId]);
+
   return (
     <>
       {complete ? (

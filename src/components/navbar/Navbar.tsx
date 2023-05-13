@@ -1,12 +1,11 @@
-import React from "react";
-import Input from "../atoms/Input";
-import { RiSearch2Fill } from "react-icons/ri";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { useTheme } from "../../hooks/useTheme";
+import { RiSearch2Fill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { sidebar, userState } from "../../context";
+import { useTheme } from "../../hooks/useTheme";
+import Input from "../atoms/Input";
 
 function Navbar() {
   const { theme } = useTheme();

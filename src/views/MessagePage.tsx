@@ -96,7 +96,7 @@ function MessagePage() {
               <div className="icon">
                 <img src="/assets/icons/fakeuser.jpg" alt="" />
               </div>
-              <div className="name">User_name</div>
+              <div className="name">Debjani de</div>
             </div>
           </div>
 

@@ -1,16 +1,16 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import AuthPage from "./views/AuthPage";
-import HomePage from "./views/HomePage";
-import ProfilePage from "./views/ProfilePage";
+import { Route, Routes } from "react-router-dom";
 import AllPages from "./AllPages";
 import Feed from "./components/feed/Feed";
-import NotificationPage from "./views/NotificationPage";
-import Settings from "./views/Settings";
+import AuthPage from "./views/AuthPage";
+import HomePage from "./views/HomePage";
 import MessagePage from "./views/MessagePage";
+import NotificationPage from "./views/NotificationPage";
+import ProfilePage from "./views/ProfilePage";
+import Settings from "./views/Settings";
 import ViewPost from "./views/ViewPost";
 
 function App() {
+  
   return (
     <div className="App">
       <Routes>
