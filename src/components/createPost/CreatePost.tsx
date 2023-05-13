@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { BiImageAdd } from "react-icons/bi";
+import { toast } from "react-toastify";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../context";
 import axiosInstance from "../../utils/HttpRequest";
@@ -29,8 +30,6 @@ function CreatePost() {
     setOpenPostWithImage(false);
   };
   const handlePost = async () => {
-    console.log(file);
-    console.log(textInputRef.current.value);
     const formData = new FormData();
     formData.append("text", textInputRef.current.value);
     if (file) {
@@ -45,6 +44,7 @@ function CreatePost() {
     );
     fileInputRef.current.files = null;
     textInputRef.current.value = "";
+    toast.success("Post successfully");
   };
   return (
     <>

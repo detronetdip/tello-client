@@ -1,17 +1,34 @@
+import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import NavMenu from "../components/NavMenu";
 import Post from "../components/singlepost/Post";
 import { userState } from "../context";
 import { useTheme } from "../hooks/useTheme";
-import { RESOURCE_SERVER_ADDRESS } from "../utils/globalEnv";
+import { PostType } from "../types";
 import axiosInstance from "../utils/HttpRequest";
+import { RESOURCE_SERVER_ADDRESS } from "../utils/globalEnv";
 import { getItem, setItem } from "../utils/storageHandler";
 
 function ProfilePage() {
   const { theme } = useTheme();
   const { firstName, lastName, userName, userId } = useRecoilValue(userState);
   const userContext = useSetRecoilState(userState);
+
+  const GET_MY_POSTS = gql`
+    query POSTQUERY($uid: String) {
+      myposts(uid: $uid) {
+        id
+        content
+        media
+        createdAt
+        type
+        comments {
+          content
+        }
+      }
+    }
+  `;
 
   const [userDetails, setUserDetails] = useState({
     email: "",
@@ -20,7 +37,14 @@ function ProfilePage() {
     follower: 0,
     following: 0,
   });
+  const { loading, error, data, refetch } = useQuery(GET_MY_POSTS, {
+    variables: {
+      uid: userId,
+    },
+  });
+  const [posts, setPosts] = useState<PostType[]>([]);
   useEffect(() => {
+    refetch({ uid: userId });
     const getData = async () => {
       const { data } = await axiosInstance.get(
         RESOURCE_SERVER_ADDRESS + "/api/v1/me/" + userId
@@ -59,6 +83,17 @@ function ProfilePage() {
     getData();
   }, []);
 
+  useEffect(() => {
+    if (!loading) {
+      setPosts((old) => [...data.myposts]);
+    }
+  }, [loading]);
+
+  const removePost = (postid: string) => {
+    const postArray = posts.filter((e) => e.id != postid);
+    setPosts((old) => [...postArray]);
+  };
+
   return (
     <>
       <div className={`${theme}-mainframe`}>
@@ -84,7 +119,12 @@ function ProfilePage() {
                 </div>
               </div>
               <hr className="hr2" />
-              <Post type="TEXTONLY" />
+              {posts.map((e) => (
+                <Post
+                  post={{ ...e, userId, userName }}
+                  onDelete={() => removePost(e.id || "")}
+                />
+              ))}
             </div>
           </div>
           <div className="right1">
