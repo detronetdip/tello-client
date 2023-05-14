@@ -95,6 +95,7 @@ function ProfilePage() {
     setPosts((old) => [...postArray]);
   };
 
+
   return (
     <>
       <div className={`${theme}-mainframe`}>
@@ -132,6 +133,7 @@ function ProfilePage() {
             <div className="news">
               <p>All connections</p>
               <hr className="ll" />
+                
             </div>
           </div>
         </div>
