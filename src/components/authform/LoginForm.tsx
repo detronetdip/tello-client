@@ -1,15 +1,14 @@
-import React from "react";
-import Button from "../atoms/Button";
-import Input from "../atoms/Input";
 import { useFormik } from "formik";
-import { object, string } from "yup";
-import axiosInstance from "../../utils/HttpRequest";
-import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useSetRecoilState } from "recoil";
+import { object, string } from "yup";
 import { userState } from "../../context";
-import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../utils/HttpRequest";
+import { AUTH_SERVER_ADDRESS } from "../../utils/globalEnv";
 import { setItem } from "../../utils/storageHandler";
+import Button from "../atoms/Button";
+import Input from "../atoms/Input";
 
 function LoginForm({ changeForm }: any) {
   const location = useNavigate();
@@ -35,9 +34,8 @@ function LoginForm({ changeForm }: any) {
           password,
         }
       );
-      if (_data.status === 200 && _data.data.code!=3003) {
+      if (_data.status === 200 && _data.data.code != 3003) {
         const { data } = _data;
-        console.log(data)
         setItem("_userInfo", {
           userId: data.info.id,
           email: data.info.email,
@@ -47,7 +45,6 @@ function LoginForm({ changeForm }: any) {
         });
         userContext((old) => {
           return {
-            ...old,
             isLoggedIn: true,
             userId: data.info.id,
             email: data.info.email,
