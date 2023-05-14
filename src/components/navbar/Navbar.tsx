@@ -42,6 +42,11 @@ function Navbar() {
     setUsers(response.data.data);
   };
 
+  const viewUser = (uid: string) => {
+    setQuery("");
+    location(`/users/${uid}`);
+  };
+
   return (
     <div className={`${theme}-nav_rapper`}>
       <div className="fixedwrapper">
@@ -72,13 +77,14 @@ function Navbar() {
                 Class="aa"
                 type="text"
                 placeholder="Search Tello"
+                value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
             </form>
             {users.length > 0 ? (
               <div className="suggessition">
                 {users.map((e) => (
-                  <SearchedUser user={e} />
+                  <SearchedUser user={e} onclick={() => viewUser(e.id)} />
                 ))}
               </div>
             ) : null}
@@ -130,12 +136,14 @@ function Navbar() {
 
 const SearchedUser = ({
   user,
+  onclick,
 }: {
   user: { firstname: string; lastname: string; username: string; id: string };
+  onclick: () => void;
 }) => {
   return (
     <>
-      <div className="user">
+      <div className="user" onClick={onclick}>
         <div className="left">
           <div className="profile">
             <img src="" alt="" />

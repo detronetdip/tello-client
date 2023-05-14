@@ -31,7 +31,6 @@ function Post({
   post: PostType;
   onDelete: () => void;
 }) {
-
   const { theme } = useTheme();
   const location = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);

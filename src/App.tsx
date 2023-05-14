@@ -8,6 +8,7 @@ import NotificationPage from "./views/NotificationPage";
 import ProfilePage from "./views/ProfilePage";
 import Settings from "./views/Settings";
 import ViewPost from "./views/ViewPost";
+import UserDetails from "./views/UserDetails";
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Route path="/messages" element={<MessagePage />} />
           <Route path="myprofile" element={<ProfilePage />} />
           <Route path="/post/:id" element={<ViewPost />} />
+          <Route path="/users/:id" element={<UserDetails />} />
         </Route>
         <Route path="/auth" element={<AuthPage />} />
       </Routes>
