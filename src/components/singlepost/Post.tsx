@@ -4,6 +4,9 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 import { MdComment } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
+import { PostType } from "../../types";
+import axiosInstance from "../../utils/HttpRequest";
+import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
 import BookMarkBtn from "../atoms/BookMarkBtn";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
@@ -11,13 +14,22 @@ import LikeButton from "../atoms/LikeButton";
 import ReadMore from "../atoms/ReadMore";
 
 function Post({
-  type,
+  post = {
+    content: "content",
+    createdAt: `${Date.now()}`,
+    media: "",
+    type: "CONTENT_ONLY",
+    userId: "",
+    userName: "username",
+  },
+  onDelete = () => {},
   click = true,
   comment = true,
 }: {
-  type: "TEXTONLY" | "TEXTMEDIA" | "MEDIA";
   click?: boolean;
   comment?: boolean;
+  post: PostType;
+  onDelete: () => void;
 }) {
   const { theme } = useTheme();
   const location = useNavigate();
@@ -37,6 +49,18 @@ function Post({
     };
   }, []);
 
+  const deletePost = async () => {
+    const data = await axiosInstance.post(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-post`,
+      {
+        postId: post.id,
+        userId: post.userId,
+      }
+    );
+    console.log(data);
+    onDelete();
+  };
+
   return (
     <div className={`${theme}-postwrapper`}>
       <div className="mypost">
@@ -47,8 +71,10 @@ function Post({
             </div>
 
             <div className="username">
-              <p>User_name</p>
-              <p className="date">{moment().format("MMM Do YY")}</p>
+              <p>{post.userName}</p>
+              <p className="date">
+                {moment(new Date(parseInt(post.createdAt))).format("MMM Do YY")}
+              </p>
             </div>
           </div>
 
@@ -61,6 +87,7 @@ function Post({
                   <li>View profile</li>
                   <li>Add to favourites</li>
                   <li>Send</li>
+                  <li onClick={deletePost}>Delete</li>
                 </ul>
               </div>
             ) : null}
@@ -71,47 +98,23 @@ function Post({
 
         <div className="postimg">
           <div>
-            {type === "MEDIA" ? (
+            {post.type === "MEDIA_ONLY" ? (
               <img
                 src="https://osnabruegge.github.io/images/demo/demo-landscape.jpg"
                 alt="slow internet...."
               />
-            ) : type === "TEXTONLY" ? (
+            ) : post.type === "CONTENT_ONLY" ? (
               <div className="textOnly">
-                <ReadMore
-                  text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis? 
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis?"
-                />
+                <ReadMore text={post.content} />
               </div>
             ) : (
               <>
                 <div className="textOnlyWithM">
-                  <ReadMore
-                    text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis? 
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Corrupti, totam. Sequi, est error laudantium exercitationem
-                temporibus eveniet doloribus nesciunt obcaecati eligendi hic
-                alias praesentium, quae inventore, ex nisi illum facilis?"
-                  />
+                  <ReadMore text={post.content} />
                 </div>
                 {click ? (
                   <img
-                    src="/assets/icons/mock.jpg"
+                    src={`https://drive.google.com/uc?export=view&id=${post.media}`}
                     alt="slow internet...."
                     onClick={() => location("/post/123")}
                   />
