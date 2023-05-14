@@ -25,7 +25,8 @@ function CreatePost() {
     setFile(file);
     setOpenPostWithImage(true);
   };
-  const closePopUp = (v: Boolean) => {
+  const closePopUp = (v: Boolean, removeFile = false) => {
+    if (removeFile) setFile("");
     setRender(Date.now());
     setOpenPostWithImage(false);
   };

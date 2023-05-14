@@ -32,7 +32,7 @@ function ImagePost({
             <img src={file} ref={imageRef}></img>
             <div className="btn">
               <Button content="Edit" onclick={() => setOpenImageEditor(true)} />
-              <Button content="Discard" onclick={() => closeEditor(false)} />
+              <Button content="Discard" onclick={() => closeEditor(false,true)} />
               <Button content="Ok" onclick={() => closeEditor(false)} />
             </div>
           </div>
