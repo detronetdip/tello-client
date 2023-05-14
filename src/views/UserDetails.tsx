@@ -1,15 +1,13 @@
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useParams } from "react-router-dom";
 import NavMenu from "../components/NavMenu";
 import Post from "../components/singlepost/Post";
-import { userState } from "../context";
 import { useTheme } from "../hooks/useTheme";
 import { PostType } from "../types";
 import axiosInstance from "../utils/HttpRequest";
 import { RESOURCE_SERVER_ADDRESS } from "../utils/globalEnv";
 import { getItem, setItem } from "../utils/storageHandler";
-import { useParams } from "react-router-dom";
 
 const UserDetails = () => {
   const { theme } = useTheme();
@@ -52,6 +50,8 @@ const UserDetails = () => {
   });
   const [posts, setPosts] = useState<PostType[]>([]);
   useEffect(() => {
+    console.log(userDetail.userId);
+
     refetch({ uid: userDetail.userId });
     const getData = async () => {
       const { data } = await axiosInstance.get(
@@ -80,10 +80,11 @@ const UserDetails = () => {
         lastName: lastname,
       };
       setItem("_userInfo", storage);
+      setPosts([]);
       // console.log(info);
     };
     getData();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (!loading) {

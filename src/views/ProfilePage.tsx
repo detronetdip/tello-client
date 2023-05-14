@@ -91,6 +91,7 @@ function ProfilePage() {
 
   const removePost = (postid: string) => {
     const postArray = posts.filter((e) => e.id != postid);
+    console.log(postArray)
     setPosts((old) => [...postArray]);
   };
 

@@ -16,7 +16,7 @@ function Navbar() {
   const path = useLocation();
   const handelSideBar = useSetRecoilState(sidebar);
   const sideBar = useRecoilValue(sidebar);
-  const { userName } = useRecoilValue(userState);
+  const { userName, userId } = useRecoilValue(userState);
   const [users, setUsers] = useState<
     { firstname: string; lastname: string; username: string; id: string }[]
   >([]);
@@ -44,7 +44,8 @@ function Navbar() {
 
   const viewUser = (uid: string) => {
     setQuery("");
-    location(`/users/${uid}`);
+    if (userId === uid) location("/myprofile");
+    else location(`/users/${uid}`);
   };
 
   return (
@@ -143,8 +144,8 @@ const SearchedUser = ({
 }) => {
   return (
     <>
-      <div className="user" onClick={onclick}>
-        <div className="left">
+      <div className="user">
+        <div className="left" onClick={onclick}>
           <div className="profile">
             <img src="" alt="" />
           </div>

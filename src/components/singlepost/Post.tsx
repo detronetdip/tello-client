@@ -50,6 +50,7 @@ function Post({
   }, []);
 
   const deletePost = async () => {
+    console.log("remove called")
     const data = await axiosInstance.post(
       `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-post`,
       {
