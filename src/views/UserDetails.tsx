@@ -9,11 +9,16 @@ import { PostType } from "../types";
 import axiosInstance from "../utils/HttpRequest";
 import { RESOURCE_SERVER_ADDRESS } from "../utils/globalEnv";
 import { getItem, setItem } from "../utils/storageHandler";
+import { useParams } from "react-router-dom";
 
-function ProfilePage() {
+const UserDetails = () => {
   const { theme } = useTheme();
-  const { firstName, lastName, userName, userId } = useRecoilValue(userState);
-  const userContext = useSetRecoilState(userState);
+  const { id } = useParams();
+  console.log(id);
+
+  const userDetail = {
+    userId: id || "",
+  };
 
   const GET_MY_POSTS = gql`
     query POSTQUERY($uid: String) {
@@ -31,6 +36,9 @@ function ProfilePage() {
   `;
 
   const [userDetails, setUserDetails] = useState({
+    firstName: "",
+    lasName: "",
+    username: "",
     email: "",
     dob: "",
     bio: "",
@@ -39,15 +47,15 @@ function ProfilePage() {
   });
   const { loading, error, data, refetch } = useQuery(GET_MY_POSTS, {
     variables: {
-      uid: userId,
+      uid: userDetail.userId,
     },
   });
   const [posts, setPosts] = useState<PostType[]>([]);
   useEffect(() => {
-    refetch({ uid: userId });
+    refetch({ uid: userDetail.userId });
     const getData = async () => {
       const { data } = await axiosInstance.get(
-        RESOURCE_SERVER_ADDRESS + "/api/v1/me/" + userId
+        RESOURCE_SERVER_ADDRESS + "/api/v1/me/" + userDetail.userId
       );
       const { info } = data;
       const { firstname, lastname, username, dob, bio, _count, email } = info;
@@ -56,17 +64,11 @@ function ProfilePage() {
           ...old,
           dob,
           bio,
+          firstName: firstname,
+          lasName: lastname,
+          username: username,
           follower: _count.followers,
           following: _count.following,
-        };
-      });
-      userContext((old) => {
-        return {
-          ...old,
-          email: email,
-          firstName: firstname,
-          lastName: lastname,
-          userName: username,
         };
       });
       let storage = getItem("_userInfo");
@@ -88,12 +90,6 @@ function ProfilePage() {
       setPosts((old) => [...data.myposts]);
     }
   }, [loading]);
-
-  const removePost = (postid: string) => {
-    const postArray = posts.filter((e) => e.id != postid);
-    setPosts((old) => [...postArray]);
-  };
-
   return (
     <>
       <div className={`${theme}-mainframe`}>
@@ -106,8 +102,10 @@ function ProfilePage() {
                   <img src="assets/icons/fakeuser.jpg" alt="" />
                 </div>
                 <div className="name">
-                  <p className="name1">{`${firstName} ${lastName}`}</p>
-                  <p className="username1">@{userName || "username"}</p>
+                  <p className="name1">{`${userDetails.firstName} ${userDetails.lasName}`}</p>
+                  <p className="username1">
+                    @{userDetails.username || "username"}
+                  </p>
                   <div className="flex justify-between">
                     <p className="username1">
                       Followers: {userDetails.follower}
@@ -121,8 +119,12 @@ function ProfilePage() {
               <hr className="hr2" />
               {posts.map((e) => (
                 <Post
-                  post={{ ...e, userId, userName }}
-                  onDelete={() => removePost(e.id || "")}
+                  post={{
+                    ...e,
+                    userId: userDetail.userId,
+                    userName: userDetails.username,
+                  }}
+                  onDelete={() => {}}
                 />
               ))}
             </div>
@@ -137,6 +139,6 @@ function ProfilePage() {
       </div>
     </>
   );
-}
+};
 
-export default ProfilePage;
+export default UserDetails;
