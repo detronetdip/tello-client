@@ -9,11 +9,12 @@ import ProfilePage from "./views/ProfilePage";
 import Settings from "./views/Settings";
 import ViewPost from "./views/ViewPost";
 import UserDetails from "./views/UserDetails";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
-  
+  const {theme}=useTheme()
   return (
-    <div className="App">
+    <div className={`App-${theme}`}>
       <Routes>
         <Route path="/" element={<AllPages />}>
           <Route path="/" element={<HomePage />}>
