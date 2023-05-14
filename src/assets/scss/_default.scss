@@ -100,3 +100,19 @@ $MAX-WIDTH: 130rem;
   background-color: $bg-light;
   min-height: 100vh;
 }
+.spin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
