@@ -1,18 +1,20 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import AuthPage from "./views/AuthPage";
-import HomePage from "./views/HomePage";
-import ProfilePage from "./views/ProfilePage";
+import { Route, Routes } from "react-router-dom";
 import AllPages from "./AllPages";
 import Feed from "./components/feed/Feed";
-import NotificationPage from "./views/NotificationPage";
-import Settings from "./views/Settings";
+import AuthPage from "./views/AuthPage";
+import HomePage from "./views/HomePage";
 import MessagePage from "./views/MessagePage";
+import NotificationPage from "./views/NotificationPage";
+import ProfilePage from "./views/ProfilePage";
+import Settings from "./views/Settings";
 import ViewPost from "./views/ViewPost";
+import UserDetails from "./views/UserDetails";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
+  const {theme}=useTheme()
   return (
-    <div className="App">
+    <div className={`App-${theme}`}>
       <Routes>
         <Route path="/" element={<AllPages />}>
           <Route path="/" element={<HomePage />}>
@@ -23,6 +25,7 @@ function App() {
           <Route path="/messages" element={<MessagePage />} />
           <Route path="myprofile" element={<ProfilePage />} />
           <Route path="/post/:id" element={<ViewPost />} />
+          <Route path="/users/:id" element={<UserDetails />} />
         </Route>
         <Route path="/auth" element={<AuthPage />} />
       </Routes>

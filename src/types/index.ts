@@ -59,3 +59,13 @@ export interface WeatherData {
     sunset: number;
   };
 }
+
+export interface PostType{
+  id?:string,
+  content: string;
+  createdAt: string;
+  media: string;
+  type: "CONTENT_ONLY" | "MEDIA_ONLY" | "MEDIA_WITH_CONTENT_ONLY";
+  userName: string;
+  userId: string;
+}

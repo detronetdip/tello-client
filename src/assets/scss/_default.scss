@@ -90,3 +90,13 @@ $MAX-WIDTH: 130rem;
 .justify-between{
   justify-content: space-between;
 }
+
+.App-DARK{
+  background-color: $bg-dark;
+  min-height: 100vh;
+}
+
+.App-LIGHT{
+  background-color: $bg-light;
+  min-height: 100vh;
+}

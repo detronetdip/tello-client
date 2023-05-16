@@ -1,12 +1,14 @@
-import React from "react";
-import Input from "../atoms/Input";
-import { RiSearch2Fill } from "react-icons/ri";
-import { AiOutlineMenu } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { AiOutlineMenu, AiOutlineUserAdd } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { useTheme } from "../../hooks/useTheme";
+import { RiSearch2Fill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { sidebar, userState } from "../../context";
+import { useTheme } from "../../hooks/useTheme";
+import axiosInstance from "../../utils/HttpRequest";
+import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
+import Input from "../atoms/Input";
 
 function Navbar() {
   const { theme } = useTheme();
@@ -15,6 +17,36 @@ function Navbar() {
   const handelSideBar = useSetRecoilState(sidebar);
   const sideBar = useRecoilValue(sidebar);
   const { userName } = useRecoilValue(userState);
+  const [users, setUsers] = useState<
+    { firstname: string; lastname: string; username: string; id: string }[]
+  >([]);
+  const [query, setQuery] = useState<string>("");
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      if (query.length > 0) {
+        getSuggestions();
+      } else {
+        setUsers([]);
+      }
+    }, 300);
+
+    return () => clearTimeout(debounce);
+  }, [query]);
+
+  const getSuggestions = async () => {
+    const response = await axiosInstance.get(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/search`,
+      { params: { q: query } }
+    );
+    console.log(response.data.data);
+    setUsers(response.data.data);
+  };
+
+  const viewUser = (uid: string) => {
+    setQuery("");
+    location(`/users/${uid}`);
+  };
+
   return (
     <div className={`${theme}-nav_rapper`}>
       <div className="fixedwrapper">
@@ -41,8 +73,21 @@ function Navbar() {
               <RiSearch2Fill />
             </div>
             <form>
-              <Input Class="aa" type="text" placeholder="Search Tello" />
+              <Input
+                Class="aa"
+                type="text"
+                placeholder="Search Tello"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
             </form>
+            {users.length > 0 ? (
+              <div className="suggessition">
+                {users.map((e) => (
+                  <SearchedUser user={e} onclick={() => viewUser(e.id)} />
+                ))}
+              </div>
+            ) : null}
           </div>
 
           <div className="ll">
@@ -88,5 +133,32 @@ function Navbar() {
     </div>
   );
 }
+
+const SearchedUser = ({
+  user,
+  onclick,
+}: {
+  user: { firstname: string; lastname: string; username: string; id: string };
+  onclick: () => void;
+}) => {
+  return (
+    <>
+      <div className="user" onClick={onclick}>
+        <div className="left">
+          <div className="profile">
+            <img src="" alt="" />
+          </div>
+          <div className="info">
+            <div className="name">{`${user.firstname} ${user.lastname}`}</div>
+            <div className="username">@{`${user.username}`}</div>
+          </div>
+        </div>
+        <div className="add">
+          <AiOutlineUserAdd />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Navbar;
