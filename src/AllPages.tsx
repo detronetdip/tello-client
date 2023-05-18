@@ -8,6 +8,7 @@ import { userState } from "./context";
 import axiosInstance from "./utils/HttpRequest";
 import { AUTH_SERVER_ADDRESS } from "./utils/globalEnv";
 import { getItem } from "./utils/storageHandler";
+import { toast } from "react-toastify";
 
 function AllPages() {
   const { isLoggedIn, userId } = useRecoilValue(userState);
@@ -56,7 +57,8 @@ function AllPages() {
         });
       });
       socket.on("notification", (data) => {
-        console.log(data);
+        toast.success(data.content);
+        console.log("hi")
       });
     }
   }, [userId]);

@@ -60,12 +60,20 @@ export interface WeatherData {
   };
 }
 
-export interface PostType{
-  id?:string,
+export interface PostType {
+  id?: string;
   content: string;
   createdAt: string;
   media: string;
   type: "CONTENT_ONLY" | "MEDIA_ONLY" | "MEDIA_WITH_CONTENT_ONLY";
   userName: string;
   userId: string;
+}
+
+export interface INotification {
+  id: string;
+  content: string;
+  redirect: string;
+  createdAt: string;
+  type: string;
 }
