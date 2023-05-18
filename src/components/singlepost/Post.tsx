@@ -12,6 +12,8 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import LikeButton from "../atoms/LikeButton";
 import ReadMore from "../atoms/ReadMore";
+import { copyToClipboard } from "../../utils/clipboard";
+import { toast } from "react-toastify";
 
 function Post({
   post = {
@@ -50,7 +52,7 @@ function Post({
   }, []);
 
   const deletePost = async () => {
-    console.log("remove called")
+    console.log("remove called");
     const data = await axiosInstance.post(
       `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-post`,
       {
@@ -84,10 +86,15 @@ function Post({
             {openMenu ? (
               <div className="dropmenu" ref={menuRef}>
                 <ul>
-                  <li>Copy link</li>
-                  <li>View profile</li>
-                  <li>Add to favourites</li>
-                  <li>Send</li>
+                  <li
+                    onClick={() => {
+                      copyToClipboard(`http://localhost:5173/post/123`);
+                      toast.success("coppied successfull!", { autoClose: 2 });
+                    }}
+                  >
+                    Copy link
+                  </li>
+                  <li onClick={()=>location(`/users/${post.userId}`)}>View profile</li>
                   <li onClick={deletePost}>Delete</li>
                 </ul>
               </div>

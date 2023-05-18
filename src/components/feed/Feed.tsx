@@ -18,6 +18,7 @@ function Feed() {
           type
           media
           user {
+            id
             firstname
             lastname
             username
