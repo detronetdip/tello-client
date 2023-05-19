@@ -12,7 +12,7 @@ function LikeButton() {
   return (
     <>
       <div onClick={handleClick}>
-        {isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
+        {isLiked ? <AiFillHeart style={{color:'red'}} /> : <AiOutlineHeart />}
       </div>
     </>
   );

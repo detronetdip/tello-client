@@ -13,6 +13,7 @@ function Feed() {
       myFeed(uid: $uid) {
         id
         post {
+          id
           content
           createdAt
           type
