@@ -58,10 +58,12 @@ function AllPages() {
       });
       socket.on("notification", (data) => {
         toast.success(data.content);
-        console.log("hi")
+        console.log("hi");
       });
     }
   }, [userId]);
+
+
 
   return (
     <>

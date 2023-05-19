@@ -2,7 +2,12 @@ import React from "react";
 import { useSetRecoilState } from "recoil";
 import { chat } from "../../context";
 
-function ChatHead() {
+function ChatHead(prop: {
+  id: string;
+  username: string;
+  firstname: string;
+  lastname: string;
+}) {
   const openChat = useSetRecoilState(chat);
   return (
     <div
@@ -12,6 +17,8 @@ function ChatHead() {
           return {
             ...old,
             open: true,
+            currentName: prop.firstname+" "+prop.lastname,
+            id: prop.id            
           };
         });
       }}
@@ -19,7 +26,7 @@ function ChatHead() {
       <div className="icon">
         <img src="/assets/icons/fakeuser.jpg" alt="" />
       </div>
-      <div className="name">User_name</div>
+      <div className="name">{prop.firstname+" "+prop.lastname}</div>
     </div>
   );
 }
