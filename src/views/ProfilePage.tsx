@@ -120,7 +120,13 @@ function ProfilePage() {
     removeRequest(id);
   };
 
-  const rejectRequest = async () => {};
+  const rejectRequest = async (id: string) => {
+    const response = await axiosInstance.delete(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-request/${id}`
+    );
+    console.log(response);
+    removeRequest(id);
+  };
 
   return (
     <>
@@ -178,7 +184,10 @@ function ProfilePage() {
                       title="Accept"
                       onClick={() => acceptRequest(r.id)}
                     />
-                    <AiOutlineCloseCircle title="delete" />
+                    <AiOutlineCloseCircle
+                      title="delete"
+                      onClick={() => rejectRequest(r.id)}
+                    />
                   </div>
                 </div>
               ))}

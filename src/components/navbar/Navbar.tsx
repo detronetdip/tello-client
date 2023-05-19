@@ -180,7 +180,7 @@ const SearchedUser = ({
       <div className="user">
         <div className="left" onClick={onclick}>
           <div className="profile">
-            <img src="" alt="" />
+            <img src="/assets/icons/fakeuser.jpg" alt="" />
           </div>
           <div className="info">
             <div className="name">{`${user.firstname} ${user.lastname}`}</div>
