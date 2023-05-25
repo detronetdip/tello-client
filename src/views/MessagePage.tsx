@@ -49,9 +49,8 @@ function MessagePage() {
         console.log(data);
         await indexDB.storeMessage({ ...data, time: Date.now() });
         console.log(data.senderId==chatSection.id || data.receiverId==chatSection.id)
-        if(data.senderId==chatSection.id || data.receiverId==chatSection.id){
-          setMessages(old=>[...old,{ ...data, time: Date.now() }])
-        }
+        setMessages(old=>[...old,{ ...data, time: Date.now() }])
+        
       });
     }
   }, [userId]);

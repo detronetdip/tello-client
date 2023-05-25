@@ -154,7 +154,7 @@ function Post({
         <div className="option1">
           <div className="aa">
             <div className="like">
-              <LikeButton />
+              <LikeButton postId={post.id || ""} Liked={false} />
             </div>
             &nbsp; &nbsp;
             {comment ? (
@@ -183,7 +183,11 @@ function Post({
                 <Button content="post" onclick={() => addComment()} />
               </div>
             </>
-            <Button Class="btn" content="View All Comments" />
+            <Button
+              Class="btn"
+              content="View All Comments"
+              onclick={() => location(`/post/${post.id}`)}
+            />
           </div>
         ) : null}
       </div>
