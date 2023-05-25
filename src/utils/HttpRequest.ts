@@ -7,10 +7,8 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
+    console.log(error)
     const { response, config } = error;
-    /**
-     * silent refresh
-     */
     if (response.status === 401 && response.data.code === 3000) {
       await axiosInstance.get("http://localhost:3000/api/v1/regen");
       return axiosInstance(config);

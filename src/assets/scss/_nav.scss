@@ -132,7 +132,7 @@
           color: $text-fade;
         }
         .suggessition{
-          background-color: rgba($color: $primaryDark, $alpha: 0.85);
+          background-color: rgba($color: $primaryDark, $alpha: 1);
           position: absolute;
           top: 110%;
           left: 0;
@@ -143,12 +143,12 @@
           border-radius: 8px;
           font-size: 1.5rem;
           .user{
-            display: flex;
-            justify-content: space-between;
+            display: grid;
             align-items: center;
+            grid-template-columns: auto 2rem;
             cursor: pointer;
             border-radius: 8px;
-            padding: 0.3rem;
+            padding: 0.3rem 1rem;
             &:hover{
               background-color: rgba($color: #93b8b3, $alpha: 0.02);
             }

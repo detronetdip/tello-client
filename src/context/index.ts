@@ -1,13 +1,14 @@
 import { atom } from "recoil";
+import { Socket } from "socket.io-client";
 const userState = atom({
   key: "userState",
   default: {
     isLoggedIn: false,
     userName: "",
-    email:"",
-    userId:"",
-    firstName:"",
-    lastName:"",
+    email: "",
+    userId: "",
+    firstName: "",
+    lastName: "",
   },
 });
 const currentTheme = atom({
@@ -29,6 +30,12 @@ const chat = atom({
   default: {
     open: false,
     currentName: "",
+    id:""
   },
 });
-export { userState, currentTheme, sidebar, chat };
+
+const messageSOKET = atom({
+  key: "msg-socket",
+  default: {a:1},
+});
+export { userState, currentTheme, sidebar, chat, messageSOKET };

@@ -9,11 +9,14 @@ import { PostType } from "../types";
 import axiosInstance from "../utils/HttpRequest";
 import { RESOURCE_SERVER_ADDRESS } from "../utils/globalEnv";
 import { getItem, setItem } from "../utils/storageHandler";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
   const { theme } = useTheme();
   const { firstName, lastName, userName, userId } = useRecoilValue(userState);
   const userContext = useSetRecoilState(userState);
+  const location = useNavigate();
 
   const GET_MY_POSTS = gql`
     query POSTQUERY($uid: String) {
@@ -37,6 +40,7 @@ function ProfilePage() {
     follower: 0,
     following: 0,
   });
+  const [requests, setRequests] = useState<any[]>([]);
   const { loading, error, data, refetch } = useQuery(GET_MY_POSTS, {
     variables: {
       uid: userId,
@@ -79,6 +83,11 @@ function ProfilePage() {
       };
       setItem("_userInfo", storage);
       // console.log(info);
+      const response = await axiosInstance.get(
+        `${RESOURCE_SERVER_ADDRESS}/api/v1/requests/${userId}`
+      );
+      console.log(response.data);
+      setRequests(response.data.data);
     };
     getData();
   }, []);
@@ -91,7 +100,32 @@ function ProfilePage() {
 
   const removePost = (postid: string) => {
     const postArray = posts.filter((e) => e.id != postid);
+    console.log(postArray);
     setPosts((old) => [...postArray]);
+  };
+
+  const removeRequest = (id: string) => {
+    const requestArray = requests.filter((e) => e.id != id);
+    setRequests((old) => [...requestArray]);
+  };
+
+  const acceptRequest = async (id: string) => {
+    const response = await axiosInstance.post(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/accept`,
+      {
+        reqId: id,
+      }
+    );
+    console.log(response);
+    removeRequest(id);
+  };
+
+  const rejectRequest = async (id: string) => {
+    const response = await axiosInstance.delete(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-request/${id}`
+    );
+    console.log(response);
+    removeRequest(id);
   };
 
   return (
@@ -129,8 +163,34 @@ function ProfilePage() {
           </div>
           <div className="right1">
             <div className="news">
-              <p>All connections</p>
+              <p>Pending Requests</p>
               <hr className="ll" />
+              {requests.map((r) => (
+                <div className="user">
+                  <div
+                    className="left"
+                    onClick={() => location(`/users/${r.user.id}`)}
+                  >
+                    <div className="profile">
+                      <img src="assets/icons/fakeuser.jpg" alt="" />
+                    </div>
+                    <div className="info">
+                      <div className="name">{`${r.user.firstname} ${r.user.lastname}`}</div>
+                      <div className="username">@{r.user.username}</div>
+                    </div>
+                  </div>
+                  <div className="add">
+                    <AiOutlineCheckCircle
+                      title="Accept"
+                      onClick={() => acceptRequest(r.id)}
+                    />
+                    <AiOutlineCloseCircle
+                      title="delete"
+                      onClick={() => rejectRequest(r.id)}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

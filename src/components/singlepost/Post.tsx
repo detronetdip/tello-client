@@ -12,6 +12,9 @@ import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import LikeButton from "../atoms/LikeButton";
 import ReadMore from "../atoms/ReadMore";
+import { copyToClipboard } from "../../utils/clipboard";
+import { toast } from "react-toastify";
+import InputWithRef from "../atoms/InputWithRef";
 
 function Post({
   post = {
@@ -31,11 +34,17 @@ function Post({
   post: PostType;
   onDelete: () => void;
 }) {
+  console.log(post, {
+    postId: post.id,
+    // @ts-ignore
+    userId: post.userId,
+  });
   const { theme } = useTheme();
   const location = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const menuRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const handelMenu = (event: any) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setOpenMenu(false);
@@ -50,6 +59,7 @@ function Post({
   }, []);
 
   const deletePost = async () => {
+    console.log("remove called");
     const data = await axiosInstance.post(
       `${RESOURCE_SERVER_ADDRESS}/api/v1/delete-post`,
       {
@@ -60,7 +70,15 @@ function Post({
     console.log(data);
     onDelete();
   };
-
+  const addComment = async (parrent?: string) => {
+    await axiosInstance.post(`${RESOURCE_SERVER_ADDRESS}/api/v1/comment`, {
+      postId: post.id,
+      user: post.userId,
+      comment: inputRef.current.value,
+      parrent,
+    });
+    inputRef.current.value = "";
+  };
   return (
     <div className={`${theme}-postwrapper`}>
       <div className="mypost">
@@ -83,10 +101,17 @@ function Post({
             {openMenu ? (
               <div className="dropmenu" ref={menuRef}>
                 <ul>
-                  <li>Copy link</li>
-                  <li>View profile</li>
-                  <li>Add to favourites</li>
-                  <li>Send</li>
+                  <li
+                    onClick={() => {
+                      copyToClipboard(`http://localhost:5173/post/123`);
+                      toast.success("coppied successfull!", { autoClose: 2 });
+                    }}
+                  >
+                    Copy link
+                  </li>
+                  <li onClick={() => location(`/users/${post.userId}`)}>
+                    View profile
+                  </li>
                   <li onClick={deletePost}>Delete</li>
                 </ul>
               </div>
@@ -129,7 +154,7 @@ function Post({
         <div className="option1">
           <div className="aa">
             <div className="like">
-              <LikeButton />
+              <LikeButton postId={post.id || ""} Liked={false} />
             </div>
             &nbsp; &nbsp;
             {comment ? (
@@ -147,17 +172,22 @@ function Post({
         </div>
         {isCommentOpen ? (
           <div className="comntsec">
-            <form>
+            <>
               <div className="inputrow">
-                <Input
+                <InputWithRef
+                  ref={inputRef}
                   placeholder="Enter your comment"
                   type="text"
                   Class="cmont"
                 />
-                <Button content="post" />
+                <Button content="post" onclick={() => addComment()} />
               </div>
-            </form>
-            <Button Class="btn" content="View All Comments" />
+            </>
+            <Button
+              Class="btn"
+              content="View All Comments"
+              onclick={() => location(`/post/${post.id}`)}
+            />
           </div>
         ) : null}
       </div>

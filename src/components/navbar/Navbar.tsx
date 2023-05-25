@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { AiOutlineMenu, AiOutlineUserAdd } from "react-icons/ai";
+import {
+  AiOutlineMenu,
+  AiOutlineUserAdd,
+  AiOutlineLoading3Quarters,
+} from "react-icons/ai";
+import { BiUserCheck } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import { RiSearch2Fill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -9,6 +14,7 @@ import { useTheme } from "../../hooks/useTheme";
 import axiosInstance from "../../utils/HttpRequest";
 import { RESOURCE_SERVER_ADDRESS } from "../../utils/globalEnv";
 import Input from "../atoms/Input";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const { theme } = useTheme();
@@ -16,9 +22,15 @@ function Navbar() {
   const path = useLocation();
   const handelSideBar = useSetRecoilState(sidebar);
   const sideBar = useRecoilValue(sidebar);
-  const { userName } = useRecoilValue(userState);
+  const { userName, userId } = useRecoilValue(userState);
   const [users, setUsers] = useState<
-    { firstname: string; lastname: string; username: string; id: string }[]
+    {
+      firstname: string;
+      lastname: string;
+      username: string;
+      id: string;
+      isFriend: boolean;
+    }[]
   >([]);
   const [query, setQuery] = useState<string>("");
   useEffect(() => {
@@ -44,7 +56,8 @@ function Navbar() {
 
   const viewUser = (uid: string) => {
     setQuery("");
-    location(`/users/${uid}`);
+    if (userId === uid) location("/myprofile");
+    else location(`/users/${uid}`);
   };
 
   return (
@@ -138,15 +151,36 @@ const SearchedUser = ({
   user,
   onclick,
 }: {
-  user: { firstname: string; lastname: string; username: string; id: string };
+  user: {
+    firstname: string;
+    lastname: string;
+    username: string;
+    id: string;
+    isFriend: boolean;
+  };
   onclick: () => void;
 }) => {
+  const [loading, setLoading] = useState(false);
+  const { userId } = useRecoilValue(userState);
+  const addFriend = async (id: string) => {
+    setLoading(true);
+    const response = await axiosInstance.post(
+      `${RESOURCE_SERVER_ADDRESS}/api/v1/addFriend`,
+      {
+        userId,
+        friendId: id,
+      }
+    );
+    toast.success("Request sent successfully!")
+    user.isFriend = true;
+    setLoading(false);
+  };
   return (
     <>
-      <div className="user" onClick={onclick}>
-        <div className="left">
+      <div className="user">
+        <div className="left" onClick={onclick}>
           <div className="profile">
-            <img src="" alt="" />
+            <img src="/assets/icons/fakeuser.jpg" alt="" />
           </div>
           <div className="info">
             <div className="name">{`${user.firstname} ${user.lastname}`}</div>
@@ -154,7 +188,13 @@ const SearchedUser = ({
           </div>
         </div>
         <div className="add">
-          <AiOutlineUserAdd />
+          {loading ? (
+            <AiOutlineLoading3Quarters className="spin" />
+          ) : user.isFriend ? (
+            <BiUserCheck />
+          ) : (
+            <AiOutlineUserAdd onClick={() => addFriend(user.id)} />
+          )}
         </div>
       </div>
     </>

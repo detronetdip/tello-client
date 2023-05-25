@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { BiImageAdd } from "react-icons/bi";
+import { BiImageAdd, BiLoaderCircle } from "react-icons/bi";
 import { toast } from "react-toastify";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../context";
@@ -12,6 +12,7 @@ import ImagePost from "../postWithImage/ImagePost";
 function CreatePost() {
   const [render, setRender] = useState(Date.now());
   const [openPostWithImage, setOpenPostWithImage] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { userId } = useRecoilValue(userState);
   const [file, setFile] = useState<string>();
   const fileInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -31,6 +32,7 @@ function CreatePost() {
     setOpenPostWithImage(false);
   };
   const handlePost = async () => {
+    setLoading(true);
     const formData = new FormData();
     formData.append("text", textInputRef.current.value);
     if (file) {
@@ -46,6 +48,7 @@ function CreatePost() {
     fileInputRef.current.files = null;
     textInputRef.current.value = "";
     toast.success("Post successfully");
+    setLoading(false);
   };
   return (
     <>
@@ -86,7 +89,20 @@ function CreatePost() {
                 e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
               ) => onLoadHandler(e)}
             />
-            <Button content="Post" Class="btn-1" ripple onclick={handlePost} />
+            {loading ? (
+              <Button
+                content={<BiLoaderCircle className="spin" />}
+                Class="btn-1"
+                ripple
+              />
+            ) : (
+              <Button
+                content="Post"
+                Class="btn-1"
+                ripple
+                onclick={handlePost}
+              />
+            )}
           </div>
         </div>
       </div>

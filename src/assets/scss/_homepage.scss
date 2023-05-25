@@ -797,6 +797,7 @@
         border-radius: 2rem;
         width: 100%;
         max-width: 75rem;
+        min-width: 75rem;
         .head {
           display: flex;
           justify-content: space-between;
@@ -946,6 +947,42 @@
           @include centerByFlex();
           font-size: 3rem;
         }
+        .user{
+          width: 100%;
+          display: grid;
+          align-items: center;
+          grid-template-columns: auto 4rem;
+          cursor: pointer;
+          border-radius: 8px;
+          padding: 0.3rem 1rem;
+          &:hover{
+            background-color: rgba($color: #93b8b3, $alpha: 0.02);
+          }
+          .left{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 1.3rem;
+            .profile{
+              height: 3rem;
+              width: 3rem;
+              border-radius: 50%;
+              overflow: hidden;
+              border: thin solid $border-dark;
+
+            }
+            .info .username{
+              color: #727272;
+            }
+          }
+          .add{
+            font-size: 2rem;
+            cursor: pointer;
+            display: grid;
+            gap: 0.5rem;
+            grid-template-columns: auto auto;
+          }
+        }
       }
     }
   }
@@ -961,6 +998,7 @@
         .mypost,
         .postcrte {
           max-width: 70rem;
+          min-width: 70rem;
         }
       }
     }
@@ -977,6 +1015,7 @@
         .mypost,
         .postcrte {
           max-width: 65rem;
+          min-width: 65rem;
         }
       }
     }
@@ -993,6 +1032,7 @@
         .mypost,
         .postcrte {
           max-width: 60rem;
+          min-width: 60rem;
         }
       }
     }
@@ -1085,6 +1125,7 @@
         .mypost,
         .postcrte {
           max-width: 50rem;
+          min-width: 50rem;
         }
       }
     }
@@ -1100,6 +1141,7 @@
       .post {
         .mypost,
         .postcrte {
+          min-width: 40rem;
           max-width: 40rem;
         }
       }
@@ -1116,7 +1158,8 @@
       .post {
         .mypost,
         .postcrte {
-          max-width: 60rem;
+          max-width: 53rem;
+          min-width: 53rem;
         }
       }
       .left1 {
@@ -1131,6 +1174,81 @@
       }
       .smallsidebar-expand {
         transform: translateX(0%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 50rem;
+          min-width: 50rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 544px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 45rem;
+          min-width: 45rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 492px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 40rem;
+          min-width: 40rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 444px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 35rem;
+          min-width: 35rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .DARK-mainframe,
+  .LIGHT-mainframe {
+    .fixedWrapper {
+      .post {
+        .mypost,
+        .postcrte {
+          max-width: 30rem;
+          min-width: 30rem;
+        }
       }
     }
   }
