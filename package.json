@@ -11,7 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.14",
+    "@apollo/client": "^3.8.5",
     "axios": "^1.2.2",
     "formik": "^2.2.9",
     "graphql": "^16.6.0",
